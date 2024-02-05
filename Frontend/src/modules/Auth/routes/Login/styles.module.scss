@@ -24,8 +24,6 @@
     border-radius: 48px 0px 0px 48px;
     background-color: #FFF;
     padding: 146px 76px 40px 64px;
-    padding-top: 146px;
-    padding-bottom: 40px;
 }
 
 .title {
@@ -41,7 +39,7 @@
 .formWrapper {
     display: flex;
     flex-direction: column;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
 }
 
 .inputWrapper {
@@ -51,28 +49,93 @@
     display: flex;
     border: 1px solid #6E8BB74D;
     background: #FFF;
-    color:  #000;
     border-radius: 8px;
 }
 
 .label {
     margin-right: 0;
     margin-bottom: 8px;
+    color: #1A2024;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0px;
 }
 
 .input {
     width: 532px;
     padding: 12px;
+    border-radius: 8px;
     margin-left: 12px;
     border: none;
     background-color: transparent;
 }
 
 .btnEye {
-    display: inline-block;
     cursor: pointer;
     background-color: transparent;
     border: none;
     padding: 0;
 }
 
+.rememberMe {
+    margin-left: 8px;
+    color: $grey;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.006em;    
+}
+
+.required {
+    margin-left: 4px;
+    color: $required;
+}
+
+.ForgotPassword {
+    text-decoration: underline;
+    color: $link-blue;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: -0.006em;    
+}
+
+.btnSubmit {
+    margin-bottom: 16px;
+    cursor: pointer;
+    background-color:  $link-blue;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: -0.006em;
+}
+
+.registerLink {
+    cursor: pointer;
+    background-color:  transparent;
+    border: 1px solid #6E8BB74D;
+    text-align: center;
+    border-radius: 8px;
+    padding: 12px;
+    color: $link-blue;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: -0.006em;
+}
+
+.textCopy {
+    display: inline-block;
+    margin-top: 100px;
+    color: #6E8BB7;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.006em;
+    text-align: left;
+}

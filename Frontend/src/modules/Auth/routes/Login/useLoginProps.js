@@ -40,8 +40,6 @@ export const useLoginProps = () => {
     })
   };
 
-  console.log({ errors })
-
   return {
     handleClick,
     show,

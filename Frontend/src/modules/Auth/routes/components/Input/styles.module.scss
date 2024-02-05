@@ -1,5 +1,5 @@
 .input {
-    background-color: transparent;
+    background-color: #fff;
     border: none;
     font-size: 14px;
     font-style: normal;
@@ -13,12 +13,12 @@
 }
 
 .input.error {
-    color: var(--Text-input-Error, #F76659);
+    color:  #F76659;
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
     line-height: 20px; 
     letter-spacing: -0.096px;
-    border: 2px solid var(--Text-input-Error, #F76659);
+    border: 2px solid  #F76659;
     background: var(--black-white-white, #FFF);
 }

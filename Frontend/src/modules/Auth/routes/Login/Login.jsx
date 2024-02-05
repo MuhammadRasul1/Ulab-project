@@ -1,12 +1,12 @@
-import { Box, Button, FormControl, FormLabel, Heading, InputGroup, InputRightElement } from "@chakra-ui/react";
+import { Box, FormControl, InputGroup, InputRightElement } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
 import AuthImg from "assets/img/auth-img.png"
 import EmailOutline from "assets/img/icon/mail_outline.svg";
 import LockOpen from "assets/img/icon/lock_open.svg";
 import { Link } from "react-router-dom";
 import { useLoginProps } from "./useLoginProps";
-import { Input } from "components/Input";
 import Eye from "assets/img/icon/Eye.svg"
+import { Input } from "../components/Input";
 
 export const Login = () => {
 
@@ -61,7 +61,7 @@ export const Login = () => {
                   required
                 />
                 <InputRightElement width='4.5rem'>
-                  <button className={cls.btnEye}  onClick={handleClick}>
+                  <button className={cls.btnEye} type='button'  onClick={handleClick}>
                     <img src={show ? Eye : Eye} alt="eye" width={24} height={24} />
                   </button>
                 </InputRightElement>
@@ -69,16 +69,20 @@ export const Login = () => {
             </Box>
           </Box>
 
-          <Box display="flex" justifyContent="flex-end">
+          <Box margin="32px 0" display="flex" justifyContent="space-between">
+            <Box display="flex">
+              <input className={cls.checkbox} name="rememberMe" type="checkbox" />
+              <span className={cls.rememberMe}>Запомнить меня</span>
+            </Box>
             <Link className={cls.ForgotPassword} to="/auth/forgotPassword">Забыли пароль?</Link>
           </Box>
 
           <Box display="flex" flexDirection="column">
-            <button disabled={isPending} type="submit" className={cls.btnSubmit}>Войти</button>
+            <button disabled={isPending} type="submit" className={cls.btnSubmit}>Войти </button>
             <Link className={cls.registerLink} to="/auth/register">Зарегистрироваться</Link>  
           </Box>
 
-          <span className={cls.text}>Copyright © URecruit. Все права защищены</span>
+          <span className={cls.textCopy}>Copyright © URecruit. Все права защищены</span>
         </FormControl>
        </Box>
     </Box>
