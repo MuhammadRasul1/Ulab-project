@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useLoginProps } from "./useLoginProps";
 import LockOpen from "assets/img/icon/lock_open.svg";
 import EmailOutline from "assets/img/icon/mail_outline.svg";
-import { InputEmail, InputPassword } from "../components/Inputs";
+import { Input, InputPassword } from "../components/Inputs";
 import { LogoAuth } from "../components/LogoAuth";
 import { BtnSubmit } from "../components/BtnSubmit";
 import { LinkPage } from "../components/LinkPage";
@@ -23,8 +23,8 @@ export const Login = () => {
       <Box className={cls.wrapperRight}>
         <h1 className={cls.title}>Вход в платформу</h1>
         <FormControl onSubmit={handleSubmit(onSubmit)} width="592px" as="form">
-          <InputEmail
-            text="Email или номер телефона"
+          <Input
+            label="Email или номер телефона"
             id="email"
             type="text"
             placeholder="Введите e-mail"
@@ -35,7 +35,7 @@ export const Login = () => {
           />
 
           <InputPassword
-            text="Пароль"
+            label="Пароль"
             src={LockOpen}
             id="password"
             placeholder="Введите пароль"
@@ -63,9 +63,7 @@ export const Login = () => {
             /> 
           </Box>
 
-          <CopyRight 
-            text="Copyright © URecruit. Все права защищены" 
-          />
+          <CopyRight />
         </FormControl>
        </Box>
     </Box>

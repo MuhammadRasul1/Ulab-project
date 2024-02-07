@@ -11,39 +11,10 @@ export const Input = React.forwardRef((props, ref) => {
     const { error, ...rest } = props
 
     return (
-        <Box className={cls.formWrapper} display="flex" flexDirection="column">
-            <label className={cls.label} htmlFor="email">
-              Email или номер телефона 
-              <span className={cls.required}>*</span>
-            </label>
-            <Box className={cls.inputWrapper}>
-                <img src={EmailOutline} alt="email_outline" width={24} height={24}/>
-                <input
-                    className={clsx(cls.input, { [cls.error]: !!error?.message })}
-                    {...rest}
-                    ref={ref}
-                    type="email"
-                    id="email"
-                    placeholder="Введите e-mail" 
-                />
-            </Box>
-            {error?.message && 
-             <Box display="flex" alignItems="center" marginTop="8px">
-                <img src={Error} alt="error" width={16} height={16}/>
-                <p style={{ color: 'red', marginLeft: '8px' }}>{error?.message}</p>
-             </Box>}
-        </Box>
-    )
-})
-
-export const InputEmail = React.forwardRef((props, ref) => {
-    const { error, ...rest } = props
-
-    return (
         <Box className={cls.formWrapper}>
             <Box display="flex" flexDirection="column">
                 <label className={cls.label} htmlFor={props.id}>
-                    {props.text} 
+                    {props.label} 
                     <span className={cls.required}>*</span>
                 </label>
                 <Box className={cls.inputWrapper}>
@@ -77,7 +48,7 @@ export const InputPassword = React.forwardRef((props, ref) => {
         <Box className={cls.formWrapper}>
             <Box display="flex" flexDirection="column">
                 <label className={cls.label} htmlFor={props.id}>
-                    {props.text} 
+                    {props.label} 
                     <span className={cls.required}>*</span>
                 </label>
                 <Box className={cls.inputWrapper}>
@@ -89,7 +60,7 @@ export const InputPassword = React.forwardRef((props, ref) => {
                             ref={ref}
                             type={show ? 'text' : 'password'}
                             id={props.id}
-                            minLength={8}
+                            minLength={props.minLength ? props.minLength : 8}
                             placeholder={props.placeholder} 
                             required
                         />

@@ -1,1 +1,1 @@
-export { InputEmail, InputPassword, Input } from "./Inputs";
+export { InputPassword, Input } from "./Inputs";
