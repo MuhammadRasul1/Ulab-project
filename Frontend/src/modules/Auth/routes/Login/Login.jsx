@@ -58,6 +58,7 @@ export const Login = () => {
                   {...register("password")}
                   placeholder='Введите пароль'
                   error={errors.password}
+                  minLength={8}
                   required
                 />
                 <InputRightElement width='4.5rem'>
