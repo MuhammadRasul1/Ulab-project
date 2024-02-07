@@ -53,9 +53,6 @@
     letter-spacing: -0.006em;
 }
 
-.number::before {
-    
-}
 
 .number:not(:last-child)::before {
     position: absolute;
