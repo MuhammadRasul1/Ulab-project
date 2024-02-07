@@ -10,9 +10,6 @@ const request = axios.create({
 
 export const useLoginProps = () => {
 
-  const [show, setShow] = useState(false);
-  const handleClick = () => setShow(!show);
-
   const { 
     register,
     handleSubmit,
@@ -41,8 +38,6 @@ export const useLoginProps = () => {
   };
 
   return {
-    handleClick,
-    show,
     register,
     handleSubmit,
     formState: { errors },

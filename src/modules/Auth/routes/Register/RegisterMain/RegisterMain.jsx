@@ -4,7 +4,7 @@ import AuthImg from "assets/img/auth-img.png"
 import UserAvatar from "assets/img/icon/userAvatar.svg"
 import EmailOutline from "assets/img/icon/mail_outline.svg";
 import { useRegisterProps } from "./useRegisterProps";
-import { Input } from "../../components/Input";
+import { Input } from "../../components/Inputs";
 import { Link } from "react-router-dom";
 
 export const RegisterMain = () => {

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useRegisterDetailProps } from "./useRegisterDetailProps";
 import Eye from "assets/img/icon/Eye.svg";
 import LockOpen from "assets/img/icon/lock_open.svg";
-import { Input } from "../../components/Input";
+import { Input } from "../../components/Inputs";
 
 export const RegisterDetail = () => {
 
