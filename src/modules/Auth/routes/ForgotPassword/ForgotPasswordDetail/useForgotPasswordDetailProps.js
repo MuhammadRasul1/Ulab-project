@@ -7,7 +7,7 @@ const request = axios.create({
   baseURL: "http://54.196.215.223:8000/v1/"
 })
 
-export const useLoginProps = () => {
+export const useForgotPasswordDetailProps = () => {
 
   const { 
     register,

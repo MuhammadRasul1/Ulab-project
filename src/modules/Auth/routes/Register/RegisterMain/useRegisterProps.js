@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { authStore } from "store/auth.store";
 import { useMutation } from "@tanstack/react-query"
 import axios from "axios"
+import { Navigate } from "react-router-dom";
 
 const request = axios.create({
   baseURL: "http://54.196.215.223:8000/v1/"
@@ -29,6 +30,7 @@ export const useRegisterProps = () => {
           user_type: res.data.data.user_type
         })
         authStore.login()
+        Navigate("/forgotPasswordDetail")
       },
       onError: (error) => {
         setError("email", { message: "Неверный email или номер телефона"  })
