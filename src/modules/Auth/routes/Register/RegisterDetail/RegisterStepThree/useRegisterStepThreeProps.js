@@ -1,15 +1,14 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { authStore } from "store/auth.store";
 import { useMutation } from "@tanstack/react-query"
 import axios from "axios"
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 
 const request = axios.create({
   baseURL: "http://54.196.215.223:8000/v1/"
 })
 
-export const useRegisterDetailProps = () => {
+export const useRegisterStepThreeProps = () => {
 
   const { 
     register,

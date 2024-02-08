@@ -4,7 +4,6 @@ import UserAvatar from "assets/img/icon/userAvatar.svg"
 import EmailOutline from "assets/img/icon/mail_outline.svg";
 import { useRegisterProps } from "./useRegisterProps";
 import { Input } from "../../components/Inputs";
-import { Link } from "react-router-dom";
 import { LogoAuth } from "../../components/LogoAuth";
 import { CopyRight } from "../../components/CopyRight";
 import { StepList } from "../../components/StepList";
@@ -44,7 +43,9 @@ export const RegisterMain = () => {
             required
           />
 
-          <BtnNextStep />
+          <BtnNextStep
+            to="/auth/register/RegisterStepTwo"
+          />
 
           <CopyRight />
         </FormControl>

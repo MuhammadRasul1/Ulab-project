@@ -9,6 +9,9 @@ export const StepList = () => {
             <li className={cls.item}>
                 2
             </li>
+            <li className={cls.item}>
+                3
+            </li>
         </ol>
     )
 }
