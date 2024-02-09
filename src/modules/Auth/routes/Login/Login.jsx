@@ -26,10 +26,10 @@ export const Login = () => {
           <Input
             label="Email или номер телефона"
             id="email"
-            type="text"
+            type="email"
             placeholder="Введите e-mail"
             src={EmailOutline}
-            {...register("login_name")}
+            {...register("login")}
             error={errors.email}
             required
           />

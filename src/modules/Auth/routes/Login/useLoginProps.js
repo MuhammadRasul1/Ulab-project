@@ -4,7 +4,7 @@ import { useMutation } from "@tanstack/react-query"
 import axios from "axios"
 
 const request = axios.create({
-  baseURL: "http://54.196.215.223:8000/v1/"
+  baseURL: "https://lms-vuny.onrender.com"
 })
 
 export const useLoginProps = () => {
@@ -16,16 +16,24 @@ export const useLoginProps = () => {
     setError
   } = useForm();
 
-  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/login", data) })
+  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("/auth/login", data) })
 
   const onSubmit = (data) => {
     console.log(data);
     mutate(data, {
       onSuccess: (res) => {
         authStore.updateUserData({
-          access_token: res.data.data.tokens.access_token,
-          refresh_token: res.data.data.tokens.refresh_token,
-          user_type: res.data.data.user_type
+          status: res.data.status,
+          description: res.data.description,
+          id: res.data.data.id,
+          role_id: res.data.data.role_id,
+          first_name: res.data.data.first_name,
+          last_name: res.data.data.last_name,
+          email: res.data.data.email,
+          phone_number: res.data.data.phone_number,
+          password: res.data.data.password,
+          created_at: res.data.data.created_at,
+          updated_at: res.data.data.updated_at,
         })
         authStore.login()
       },
