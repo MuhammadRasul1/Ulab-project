@@ -6,7 +6,6 @@ import { useRegisterProps } from "./useRegisterProps";
 import { Input } from "../../components/Inputs";
 import { LogoAuth } from "../../components/LogoAuth";
 import { CopyRight } from "../../components/CopyRight";
-import { StepList } from "../../components/StepList";
 import { BtnNextStep } from "../../components/BtnNextStep";
 
 export const RegisterMain = () => {
@@ -19,7 +18,17 @@ export const RegisterMain = () => {
 
       <Box className={cls.wrapperRight}>
         <h1 className={cls.title}>Пройдите регистрацию</h1>
-        <StepList />
+        <ol className={cls.list}>
+            <li className={cls.item}>
+                <p className={cls.numberBlue}>1</p>
+            </li>
+            <li className={cls.item}>
+                <p className={cls.number}>2</p>
+            </li>
+            <li className={cls.item}>
+                <p className={cls.number}>3</p>
+            </li>
+        </ol>
         <FormControl onSubmit={handleSubmit(onSubmit)} width="592px" as="form">
           <Input 
             label="Ваше Ф.И.О"

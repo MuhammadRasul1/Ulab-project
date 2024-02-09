@@ -17,14 +17,20 @@ export const RegisterStepThree = () => {
 
       <Box className={cls.wrapperRight}>
         <h1 className={cls.title}>Пройдите регистрацию</h1>
-        <Box className={cls.numberWrapper} display="flex" justifyContent="space-between" alignItems="center" marginBottom="32px">
-          <span className={cls.number}>1</span>
-          <span className={cls.number}>2</span>
-          <span className={cls.number}>3</span>
-        </Box>
+        <ol className={cls.list}>
+            <li className={cls.item}>
+                <p className={cls.numberBlue}>1</p>
+            </li>
+            <li className={cls.item}>
+                <p className={cls.numberBlue}>2</p>
+            </li>
+            <li className={cls.item}>
+                <p className={cls.numberBlue}>3</p>
+            </li>
+        </ol>
         <FormControl onSubmit={handleSubmit(onSubmit)} width="592px" as="form">
             <InputPassword
-                label="Пароль"
+                label="Придумайте пароль"
                 src={LockOpen}
                 id="password"
                 placeholder="Введите пароль"
