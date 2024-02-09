@@ -8,6 +8,7 @@ import { LogoAuth } from "../../components/LogoAuth";
 import { CopyRight } from "../../components/CopyRight";
 import { BtnNextStep } from "../../components/BtnNextStep";
 
+
 export const RegisterMain = () => {
 
   const { onSubmit, handleSubmit, register, formState: { errors }, } = useRegisterProps();
@@ -31,10 +32,21 @@ export const RegisterMain = () => {
         </ol>
         <FormControl onSubmit={handleSubmit(onSubmit)} width="592px" as="form">
           <Input 
-            label="Ваше Ф.И.О"
-            id="userName"
+            label="Фамилия"
+            id="lastname"
             type="text"
-            placeholder="Введите Ф.И.О"
+            placeholder="Введите фамилию"
+            src={UserAvatar}
+            {...register("last_name")}
+            error={errors.name}
+            required
+          />
+
+          <Input 
+            label="Имя"
+            id="name"
+            type="text"
+            placeholder="Введите имя"
             src={UserAvatar}
             {...register("register_name")}
             error={errors.name}

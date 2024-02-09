@@ -26,6 +26,7 @@ export const useLoginProps = () => {
           status: res.data.status,
           description: res.data.description,
           id: res.data.data.id,
+          user_type: res.data.data.user_type,
           role_id: res.data.data.role_id,
           first_name: res.data.data.first_name,
           last_name: res.data.data.last_name,

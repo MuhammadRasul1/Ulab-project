@@ -4,7 +4,8 @@ import clsx from "clsx";
 import { Box, InputGroup, InputRightElement } from "@chakra-ui/react";
 import Error from "assets/img/icon/error.svg";
 import { useInputProps } from "./useInputsProps";
-import Eye from "assets/img/icon/Eye.svg"
+// import Eye from "assets/img/icon/Eye.svg"
+import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons'
 
 
 export const Input = React.forwardRef((props, ref) => {
@@ -66,7 +67,13 @@ export const InputPassword = React.forwardRef((props, ref) => {
                         />
                         <InputRightElement >
                             <button className={cls.btnEye} type='button'  onClick={handleClick}>
-                                <img src={show ? Eye : Eye} alt="show eye" width={24} height={24} />
+                                {
+                                    show ? 
+                                    // <img src={Eye} alt="show eye" width={24} height={24} /> 
+                                    <ViewIcon />
+                                    : <ViewOffIcon />
+                                }
+                                
                             </button>
                         </InputRightElement>
                     </InputGroup>
