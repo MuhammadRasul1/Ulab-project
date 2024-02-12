@@ -1,11 +1,8 @@
 import { useForm } from "react-hook-form";
 import { authStore } from "store/auth.store";
 import { useMutation } from "@tanstack/react-query"
-import axios from "axios"
+import request from "services/httpRequest";
 
-const request = axios.create({
-  baseURL: "https://lms-vuny.onrender.com"
-})
 
 export const useLoginProps = () => {
 
@@ -39,8 +36,8 @@ export const useLoginProps = () => {
         authStore.login()
       },
       onError: (error) => {
-        setError("email", { message: "Неверный email или номер телефона"  })
-        setError("password", { message: "Неверный пароль" })
+        setError("email", { message: error.message  })
+        setError("password", { message: error.message })
       }
     })
   };
@@ -53,6 +50,3 @@ export const useLoginProps = () => {
     isPending
   };
 };
-
-
-// setError("email", { message: error.message })

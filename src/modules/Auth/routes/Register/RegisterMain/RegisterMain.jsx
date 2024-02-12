@@ -6,12 +6,12 @@ import { useRegisterProps } from "./useRegisterProps";
 import { Input } from "../../components/Inputs";
 import { LogoAuth } from "../../components/LogoAuth";
 import { CopyRight } from "../../components/CopyRight";
-import { BtnNextStep } from "../../components/BtnNextStep";
+import { BtnSubmit } from "../../components/BtnSubmit";
 
 
 export const RegisterMain = () => {
 
-  const { onSubmit, handleSubmit, register, formState: { errors }, } = useRegisterProps();
+  const { onSubmit, handleSubmit, register, formState: { errors }, isPending } = useRegisterProps();
 
   return (
     <Box className={cls.wrapper}>
@@ -48,7 +48,7 @@ export const RegisterMain = () => {
             type="text"
             placeholder="Введите имя"
             src={UserAvatar}
-            {...register("register_name")}
+            {...register("first_name")}
             error={errors.name}
             required
           />
@@ -59,14 +59,17 @@ export const RegisterMain = () => {
             type="email"
             placeholder="Введите e-mail"
             src={EmailOutline}
-            {...register("register_email")}
+            {...register("email")}
             error={errors.email}
             required
           />
 
-          <BtnNextStep
-            to="/auth/register/RegisterStepTwo"
-          />
+          <Box display="flex" flexDirection="column">
+            <BtnSubmit
+              text="Получить код активации"
+              disabled={isPending} 
+            />
+          </Box>
 
           <CopyRight />
         </FormControl>

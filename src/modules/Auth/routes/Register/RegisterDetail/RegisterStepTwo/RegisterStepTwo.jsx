@@ -6,7 +6,7 @@ import { InputPassword } from "../../../components/Inputs";
 import { LogoAuth } from "../../../components/LogoAuth";
 import { InputCheck } from "../../../components/InputCheck";
 import { CopyRight } from "../../../components/CopyRight";
-import { BtnNextStep } from "modules/Auth/routes/components/BtnNextStep";
+import { BtnSubmit } from "modules/Auth/routes/components/BtnSubmit";
 
 export const RegisterStepTwo = () => {
 
@@ -34,9 +34,10 @@ export const RegisterStepTwo = () => {
             label="Код потвреждения "
             src={LockOpen}
             id="confirmationСode"
-            minLength={3}
+            minLength={6}
+            maxLength={6}
             placeholder="Введите код потвреждения "
-            {...register("password")} 
+            {...register("request_id")} 
             error={errors.password}
           />
 
@@ -45,12 +46,9 @@ export const RegisterStepTwo = () => {
           />
 
           <Box marginTop="32px" display="flex" flexDirection="column">
-            {/* <BtnSubmit 
-              text="Зарегистрироваться"
-              disabled={isPending}
-            /> */}
-            <BtnNextStep
-              to="/auth/register/RegisterStepThree"
+            <BtnSubmit
+              text="Следующий шаг"
+              disabled={isPending} 
             />
           </Box>
 

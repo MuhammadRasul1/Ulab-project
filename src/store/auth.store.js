@@ -6,13 +6,25 @@ class AuthStore {
   isAuth = false;
 
   userData = {
+    status: "",
+    description: "",
     id: "",
-    name: "",
+    user_type: "",
+    role_id: "",
+    first_name: "",
+    last_name: "",
     email: "",
-    access_token: "",
-    refresh_token: "",
-    user_type: ""
+    phone_number: "",
+    password: "",
+    created_at: "",
+    updated_at: ""
   };
+
+  userRegisterData = {
+    first_name: "",
+    last_name: "",
+    data: "",
+  }
 
   constructor() {
     makeAutoObservable(this);
@@ -25,6 +37,10 @@ class AuthStore {
 
   updateUserData(data) {
     this.userData = data
+  }
+
+  registerData(data) {
+    this.userRegisterData = data
   }
 
   login() {
