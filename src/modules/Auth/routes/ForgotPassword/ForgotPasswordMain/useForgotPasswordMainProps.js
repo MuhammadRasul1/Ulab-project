@@ -1,13 +1,11 @@
 import { useForm } from "react-hook-form";
 import { authStore } from "store/auth.store";
-import { useMutation } from "@tanstack/react-query"
-import axios from "axios"
-
-const request = axios.create({
-  baseURL: "http://54.196.215.223:8000/v1/"
-})
+import { useMutation } from "@tanstack/react-query";
+import request from "services/httpRequest";
+import { useNavigate } from "react-router-dom";
 
 export const useForgotPasswordMainProps = () => {
+  const navigate = useNavigate()
 
   const { 
     register,
@@ -16,22 +14,19 @@ export const useForgotPasswordMainProps = () => {
     setError
   } = useForm();
 
-  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/login", data) })
+  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/update_password", data) })
 
   const onSubmit = (data) => {
     console.log(data);
     mutate(data, {
       onSuccess: (res) => {
         authStore.updateUserData({
-          access_token: res.data.data.tokens.access_token,
-          refresh_token: res.data.data.tokens.refresh_token,
-          user_type: res.data.data.user_type
+          data: res.data.data,
         })
-        authStore.login()
+        navigate("forgotPasswordStepTwo")
       },
       onError: (error) => {
-        setError("email", { message: "Неверный email или номер телефона"  })
-        setError("password", { message: "Неверный пароль" })
+        setError("email", { message: error.message })
       }
     })
   };

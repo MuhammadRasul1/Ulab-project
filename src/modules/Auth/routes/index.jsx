@@ -12,6 +12,6 @@ export const AuthRoutes = () => {
     <Route path="register" element={<RegisterMain />} />
     <Route path="/register/*" element={<RegisterDetail />} />
     <Route path="forgotPassword" element={<ForgotPasswordMain />} />
-    <Route path="forgotPasswordDetail" element={<ForgotPasswordDetail />} />
+    <Route path="/forgotPassword/*" element={<ForgotPasswordDetail />} />
   </Routes>;
 };

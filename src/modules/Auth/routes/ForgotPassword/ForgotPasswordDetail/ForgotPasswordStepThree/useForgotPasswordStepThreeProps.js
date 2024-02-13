@@ -3,7 +3,7 @@ import { authStore } from "store/auth.store";
 import { useMutation } from "@tanstack/react-query"
 import request from "services/httpRequest";
 
-export const useRegisterStepThreeProps = () => {
+export const useForgotPasswordStepThreeProps = () => {
 
   const { 
     register,

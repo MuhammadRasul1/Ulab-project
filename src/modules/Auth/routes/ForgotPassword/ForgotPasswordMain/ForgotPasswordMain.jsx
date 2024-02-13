@@ -4,9 +4,8 @@ import { useForgotPasswordMainProps } from "./useForgotPasswordMainProps";
 import EmailOutline from "assets/img/icon/mail_outline.svg";
 import { Input } from "../../components/Inputs";
 import { LogoAuth } from "../../components/LogoAuth";
-// import { BtnSubmit } from "../../components/BtnSubmit";
 import { CopyRight } from "../../components/CopyRight";
-import { Link } from "react-router-dom";
+import { BtnSubmit } from "../../components/BtnSubmit";
 
 
 export const ForgotPasswordMain = () => {
@@ -26,7 +25,7 @@ export const ForgotPasswordMain = () => {
             type="text"
             placeholder="Введите e-mail"
             src={EmailOutline}
-            {...register("login_name")}
+            {...register("email")}
             error={errors.email}
             required
           />
@@ -34,11 +33,10 @@ export const ForgotPasswordMain = () => {
           <p className={cls.text}>Введите номер телефона чтобы получить код активации</p>
 
           <Box display="flex" flexDirection="column">
-            {/* <BtnSubmit
+            <BtnSubmit
               text="Получить код активации"
               disabled={isPending} 
-            /> */}
-            <Link className={cls.link} to="/auth/ForgotPasswordDetail">Получить код активации</Link>
+            />
           </Box>
 
           <CopyRight />
