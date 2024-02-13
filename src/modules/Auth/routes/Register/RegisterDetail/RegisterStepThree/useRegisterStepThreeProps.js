@@ -1,12 +1,7 @@
 import { useForm } from "react-hook-form";
 import { authStore } from "store/auth.store";
 import { useMutation } from "@tanstack/react-query"
-import axios from "axios"
-// import { Navigate } from "react-router-dom";
-
-const request = axios.create({
-  baseURL: "http://54.196.215.223:8000/v1/"
-})
+import request from "services/httpRequest";
 
 export const useRegisterStepThreeProps = () => {
 
@@ -28,11 +23,11 @@ export const useRegisterStepThreeProps = () => {
           refresh_token: res.data.data.tokens.refresh_token,
           user_type: res.data.data.user_type
         })
-        authStore.login()
+        authStore.register()
       },
       onError: (error) => {
-        setError("email", { message: "Неверный email или номер телефона"  })
-        setError("password", { message: "Неверный пароль" })
+        setError("password", { message: error.message  })
+        setError("password", { message: error.message })
       }
     })
   };
@@ -45,6 +40,3 @@ export const useRegisterStepThreeProps = () => {
     isPending
   };
 };
-
-
-// setError("email", { message: error.message })

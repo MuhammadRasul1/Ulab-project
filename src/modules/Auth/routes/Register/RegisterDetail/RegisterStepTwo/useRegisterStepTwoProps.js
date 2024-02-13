@@ -5,7 +5,9 @@ import request from "services/httpRequest";
 import { useNavigate } from "react-router-dom";
 
 export const useRegisterStepTwoProps = () => {
-    const navigate = useNavigate()
+  
+  const navigate = useNavigate()
+  const auth = JSON.parse(localStorage.getItem("auth"))
 
   const { 
     register,
@@ -18,7 +20,10 @@ export const useRegisterStepTwoProps = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    mutate(data, {
+    mutate({
+      ...data,
+      request_id: auth?.userRegisterData?.request_id
+    }, {
       onSuccess: (res) => {
         authStore.registerData({
           data: res.data.data,
@@ -39,6 +44,3 @@ export const useRegisterStepTwoProps = () => {
     isPending
   };
 };
-
-
-// setError("email", { message: error.message })

@@ -3,7 +3,6 @@ import cls from "./styles.module.scss";
 import { useSidebarProps } from "./useSidebarProps";
 import Courses from "assets/img/icon/courses.svg";
 import UsersIcon from "assets/img/icon/usersicon.svg"
-import Logo from "assets/img/icon/logo.svg";
 import { Box } from "@chakra-ui/react";
 
 export const Sidebar = () => {
@@ -11,24 +10,32 @@ export const Sidebar = () => {
   const {  } = useSidebarProps();
 
   return <div className={cls.sidebar}>
-    <Box display="flex" alignItems="center" borderBottom="1px solid #E5E9EB">
-      <img src={Logo} alt="Sofia" width={66} height={28} />
+    <Box display="flex" alignItems="center" justifyContent="space-between" borderBottom="1px solid #E5E9EB">
+      <p className={cls.logo}>LMS</p>
       <button className={cls.sidebarBtn} type="button">
-        
+        <Box display="flex" flexDirection="column">
+          <span></span>
+          <span></span>
+          <span></span>
+        </Box>
+        <Box className={cls.leftArrow}>
+          <span></span>
+          <span></span>
+        </Box>
       </button>
     </Box>
     <nav className={cls.navbar}>
       <ul className={cls.navList}>
         <li className={cls.navItem}> 
-          <Link to="/courses">
+          <Link className={cls.navLink} to="/courses">
             <img src={Courses} alt="courses" width={20} height={20} />
-            Курсы
+            <span className={cls.navText}>Курсы</span>
           </Link>
         </li>  
         <li className={cls.navItem}> 
-          <Link to="admin/users">
+          <Link className={cls.navLink} to="admin/users">
             <img src={UsersIcon} alt="UsersIcon" width={20} height={20} />
-            Users
+            <span className={cls.navText}>Пользователи</span>
           </Link>
         </li>  
       </ul>

@@ -43,7 +43,7 @@ export const RegisterStepThree = () => {
                 src={LockOpen}
                 id="confirmPassword"
                 placeholder="Подтвердите пароль"
-                {...register("confirmPassword")} 
+                {...register("confirm_password")} 
                 error={errors.password}
             />
 

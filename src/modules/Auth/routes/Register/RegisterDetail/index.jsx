@@ -6,7 +6,7 @@ export const RegisterDetail = () => {
     return(
         <Routes>
             <Route path="registerStepTwo" element={<RegisterStepTwo />} />
-            <Route path="registerStepThree" element={<RegisterStepThree />} />
+            <Route path="registerStepTwo/registerStepThree" element={<RegisterStepThree />} />
         </Routes>
     )
 }

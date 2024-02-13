@@ -23,7 +23,7 @@ class AuthStore {
   userRegisterData = {
     first_name: "",
     last_name: "",
-    data: "",
+    email: "",
   }
 
   constructor() {
@@ -31,7 +31,7 @@ class AuthStore {
     makePersistable(this, {
       name: "auth",
       storage: window.localStorage,
-      properties: ["isAuth", "userData"]
+      properties: ["isAuth", "userData", "userRegisterData"]
     });
   }
 
@@ -45,6 +45,10 @@ class AuthStore {
 
   login() {
     this.isAuth = true;
+  }
+
+  register() {
+    this.isAuth = true
   }
 
   logout() {

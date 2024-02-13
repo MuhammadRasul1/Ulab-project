@@ -5,7 +5,6 @@ import { observer } from "mobx-react-lite";
 import { AuthRoutes } from "modules/Auth/routes";
 import { AdminRoutes } from "modules/Admin/routes";
 
-
 export const Router = observer(() => {
 
   const isAuth = authStore.isAuth;

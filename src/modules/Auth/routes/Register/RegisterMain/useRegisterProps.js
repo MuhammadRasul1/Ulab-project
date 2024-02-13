@@ -21,7 +21,7 @@ export const useRegisterProps = () => {
     mutate(data, {
       onSuccess: (res) => {
         authStore.registerData({
-          data: res.data.data,
+          request_id: res.data.data.request_id,
         })
         navigate("registerStepTwo")
       },

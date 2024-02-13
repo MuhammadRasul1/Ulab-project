@@ -1,12 +1,12 @@
 import { Box, FormControl } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
 import { useRegisterStepTwoProps } from "./useRegisterStepTwoProps";
-import LockOpen from "assets/img/icon/lock_open.svg";
 import { InputPassword } from "../../../components/Inputs";
 import { LogoAuth } from "../../../components/LogoAuth";
 import { InputCheck } from "../../../components/InputCheck";
 import { CopyRight } from "../../../components/CopyRight";
 import { BtnSubmit } from "modules/Auth/routes/components/BtnSubmit";
+import ActivasionCode from "assets/img/icon/activationСode.svg"
 
 export const RegisterStepTwo = () => {
 
@@ -31,13 +31,13 @@ export const RegisterStepTwo = () => {
         </ol>
         <FormControl onSubmit={handleSubmit(onSubmit)} width="592px" as="form">
           <InputPassword
-            label="Код потвреждения "
-            src={LockOpen}
+            label="Код активации "
+            src={ActivasionCode}
             id="confirmationСode"
             minLength={6}
             maxLength={6}
             placeholder="Введите код потвреждения "
-            {...register("request_id")} 
+            {...register("verify_code")} 
             error={errors.password}
           />
 
