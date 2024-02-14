@@ -2,16 +2,16 @@ import { Box, FormControl } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
 import UserAvatar from "assets/img/icon/userAvatar.svg"
 import EmailOutline from "assets/img/icon/mail_outline.svg";
-import { useRegisterProps } from "./useRegisterProps";
 import { Input } from "../../components/Inputs";
 import { LogoAuth } from "../../components/LogoAuth";
 import { CopyRight } from "../../components/CopyRight";
 import { BtnSubmit } from "../../components/BtnSubmit";
+import { useRegisterMainProps } from "./useRegisterMainProps";
 
 
 export const RegisterMain = () => {
 
-  const { onSubmit, handleSubmit, register, formState: { errors }, isPending } = useRegisterProps();
+  const { onSubmit, handleSubmit, register, formState: { errors }, isPending } = useRegisterMainProps();
 
   return (
     <Box className={cls.wrapper}>

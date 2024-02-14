@@ -4,7 +4,7 @@ import { useMutation } from "@tanstack/react-query"
 import request from "services/httpRequest";
 import { useNavigate } from "react-router-dom";
 
-export const useRegisterProps = () => {
+export const useRegisterMainProps = () => {
   const navigate = useNavigate();
 
   const { 

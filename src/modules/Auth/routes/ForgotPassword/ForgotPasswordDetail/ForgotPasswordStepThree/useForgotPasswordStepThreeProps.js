@@ -19,13 +19,21 @@ export const useForgotPasswordStepThreeProps = () => {
     mutate(data, {
       onSuccess: (res) => {
         authStore.updateUserData({
-          data: res.data.data,
+          id: res.data.data.id, 
+          role_id: res.data.data.role_id, 
+          first_name: res.data.data.first_name, 
+          last_name: res.data.data.last_name, 
+          email: res.data.data.email, 
+          phone_number: res.data.data.phone_number, 
+          password: res.data.data.password, 
+          user_type: res.data.data.user_type, 
+          created_at: res.data.data.created_at, 
         })
         authStore.login()
       },
       onError: (error) => {
         setError("password", { message: error.message  })
-        setError("password", { message: error.message })
+        setError("confirm_password", { message: error.message })
       }
     })
   };

@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 export const useForgotPasswordStepTwoProps = () => {
   const navigate = useNavigate()
   const auth = JSON.parse(localStorage.getItem("auth"))
-  console.log(auth?.userForgotPasswordData?.data.request_id)
 
   const { 
     register,
