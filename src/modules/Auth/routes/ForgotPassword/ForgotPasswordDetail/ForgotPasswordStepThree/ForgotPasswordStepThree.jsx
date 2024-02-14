@@ -20,21 +20,21 @@ export const ForgotPasswordStepThree = () => {
         <h1 className={cls.title}>Восстановление пароля</h1>
         <FormControl onSubmit={handleSubmit(onSubmit)} width="592px" as="form">
             <InputPassword
-                label="Новый пароль"
-                src={LockOpen}
-                id="password"
-                placeholder="Введите новый пароль"
-                {...register("password")} 
-                error={errors.password}
+              label="Новый пароль"
+              src={LockOpen}
+              id="password"
+              placeholder="Введите новый пароль"
+              {...register("password")} 
+              error={errors.password}
             />
             
             <InputPassword
-                label="Подтвердите пароль"
-                src={LockOpen}
-                id="confirmPassword"
-                placeholder="Подтвердите пароль"
-                {...register("confirm_password")} 
-                error={errors.password}
+              label="Подтвердите пароль"
+              src={LockOpen}
+              id="confirmPassword"
+              placeholder="Подтвердите пароль"
+              {...register("confirm_password")} 
+              error={errors.password}
             />
 
             <InputCheck 

@@ -31,7 +31,7 @@ export const useRegisterStepTwoProps = () => {
         navigate("registerStepThree")
       },
       onError: (error) => {
-        setError("request_id", { message: error.message })
+        setError("verify_code", { message: error.message })
       }
     })
   };

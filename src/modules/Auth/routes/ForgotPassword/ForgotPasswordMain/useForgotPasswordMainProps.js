@@ -14,13 +14,13 @@ export const useForgotPasswordMainProps = () => {
     setError
   } = useForm();
 
-  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/update_password", data) })
+  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/send_exist_email", data) })
 
   const onSubmit = (data) => {
     console.log(data);
     mutate(data, {
       onSuccess: (res) => {
-        authStore.updateUserData({
+        authStore.forgotPasswordData({
           data: res.data.data,
         })
         navigate("forgotPasswordStepTwo")

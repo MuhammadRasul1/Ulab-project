@@ -2,8 +2,12 @@ import { useForm } from "react-hook-form";
 import { authStore } from "store/auth.store";
 import { useMutation } from "@tanstack/react-query";
 import request from "services/httpRequest";
+import { useNavigate } from "react-router-dom";
 
 export const useForgotPasswordStepTwoProps = () => {
+  const navigate = useNavigate()
+  const auth = JSON.parse(localStorage.getItem("auth"))
+  console.log(auth?.userForgotPasswordData?.data.request_id)
 
   const { 
     register,
@@ -12,22 +16,22 @@ export const useForgotPasswordStepTwoProps = () => {
     setError
   } = useForm();
 
-  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/loginnn", data) })
+  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/check_code", data) })
 
   const onSubmit = (data) => {
     console.log(data);
-    mutate(data, {
+    mutate({
+      ...data,
+      request_id: auth?.userForgotPasswordData?.data.request_id
+    }, {
       onSuccess: (res) => {
-        authStore.updateUserData({
-          access_token: res.data.data.tokens.access_token,
-          refresh_token: res.data.data.tokens.refresh_token,
-          user_type: res.data.data.user_type
+        authStore.forgotPasswordData({
+          request_id: res.data.request_id,
         })
-        authStore.login()
+        navigate("forgotPasswordStepThree")
       },
       onError: (error) => {
-        setError("email", { message: "Неверный email или номер телефона"  })
-        setError("password", { message: "Неверный пароль" })
+        setError("verify_code", { message: error.message })
       }
     })
   };
@@ -40,6 +44,3 @@ export const useForgotPasswordStepTwoProps = () => {
     isPending
   };
 };
-
-
-// setError("email", { message: error.message })

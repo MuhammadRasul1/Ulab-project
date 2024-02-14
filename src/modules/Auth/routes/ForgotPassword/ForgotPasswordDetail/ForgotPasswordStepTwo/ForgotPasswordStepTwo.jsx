@@ -25,8 +25,10 @@ export const ForgotPasswordStepTwo = () => {
             label="Код активации"
             src={ActivationCode}
             id="activationCode"
+            minLength={6}
+            maxLength={6}
             placeholder="Введите код активации"
-            {...register("password")} 
+            {...register("verify_code")} 
             error={errors.password}
           />
 

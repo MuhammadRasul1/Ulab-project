@@ -32,12 +32,16 @@ class AuthStore {
     email: "",
   }
 
+  userForgotPasswordData = {
+    request_id: ""
+  }
+
   constructor() {
     makeAutoObservable(this);
     makePersistable(this, {
       name: "auth",
       storage: window.localStorage,
-      properties: ["isAuth", "userData", "userRegisterData", "userInfoRegisterData"]
+      properties: ["isAuth", "userData", "userRegisterData", "userInfoRegisterData", "userForgotPasswordData"]
     });
   }
 
@@ -51,6 +55,10 @@ class AuthStore {
 
   registerInfoData(data) {
     this.userInfoRegisterData = data
+  }
+  
+  forgotPasswordData(data) {
+    this.userForgotPasswordData = data
   }
 
   login() {

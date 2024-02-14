@@ -32,10 +32,10 @@ export const RegisterStepTwo = () => {
           <InputPassword
             label="Код активации "
             src={ActivasionCode}
-            id="confirmationСode"
+            id="activationCode"
             minLength={6}
             maxLength={6}
-            placeholder="Введите код потвреждения "
+            placeholder="Введите код активации "
             {...register("verify_code")} 
             error={errors.password}
           />
