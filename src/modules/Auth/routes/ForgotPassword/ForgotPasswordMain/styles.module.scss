@@ -1,0 +1,48 @@
+.wrapper {
+    font-family: "Inter", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $black-white-white;
+}
+
+.wrapperRight {
+    border-radius: 48px 0px 0px 48px;
+    background-color: #FFF;
+    padding: 146px 76px 40px 64px;
+}
+
+.title {
+    color: $dark-blue;
+    margin-bottom: 40px;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 48px; 
+    letter-spacing: -0.792px;
+}
+
+.text {
+    margin-bottom: 32px;
+    color: $grey;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: -0.006em;
+    text-align: left;    
+}
+
+.link {
+    text-align: center;
+    margin-bottom: 16px;
+    cursor: pointer;
+    background-color:  $link-blue;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: -0.006em;
+}
