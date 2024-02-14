@@ -4,7 +4,7 @@ import { useRegisterStepTwoProps } from "./useRegisterStepTwoProps";
 import { InputPassword } from "../../../components/Inputs";
 import { LogoAuth } from "../../../components/LogoAuth";
 // import { InputCheck } from "../../../components/InputCheck";
-import { SendAgain } from "../../../components/SendAgain";
+// import { SendAgain } from "../../../components/SendAgain";
 import { CopyRight } from "../../../components/CopyRight";
 import { BtnSubmit } from "modules/Auth/routes/components/BtnSubmit";
 import ActivasionCode from "assets/img/icon/activationСode.svg"

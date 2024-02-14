@@ -10,7 +10,7 @@ export const Sidebar = () => {
   const {  } = useSidebarProps();
 
   return <div className={cls.sidebar}>
-    <Box display="flex" alignItems="center" justifyContent="space-between" borderBottom="1px solid #E5E9EB">
+    <Box display="flex" alignItems="center" padding="14px 0" justifyContent="space-between" borderBottom="1px solid #E5E9EB">
       <p className={cls.logo}>LMS</p>
       <button className={cls.sidebarBtn} type="button">
         <Box display="flex" flexDirection="column">

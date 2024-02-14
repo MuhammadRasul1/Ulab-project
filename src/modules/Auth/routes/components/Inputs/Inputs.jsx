@@ -69,7 +69,6 @@ export const InputPassword = React.forwardRef((props, ref) => {
                             <button className={cls.btnEye} type='button'  onClick={handleClick}>
                                 {
                                     show ? 
-                                    // <img src={Eye} alt="show eye" width={24} height={24} /> 
                                     <ViewIcon />
                                     : <ViewOffIcon />
                                 }

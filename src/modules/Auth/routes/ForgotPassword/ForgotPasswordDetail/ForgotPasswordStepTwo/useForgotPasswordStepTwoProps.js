@@ -12,7 +12,7 @@ export const useForgotPasswordStepTwoProps = () => {
     setError
   } = useForm();
 
-  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/login", data) })
+  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/loginnn", data) })
 
   const onSubmit = (data) => {
     console.log(data);

@@ -46,7 +46,8 @@ export const Login = () => {
           <Box margin="8px 0 48px 0" display="flex" justifyContent="space-between">
             <InputCheck
              text="Запомнить меня"
-            //  {...register("remember")}
+             {...register("remember")}
+             required
             />
             <Link className={cls.ForgotPassword} to="/auth/forgotPassword">Забыли пароль?</Link>
           </Box>
