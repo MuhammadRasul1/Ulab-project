@@ -21,11 +21,11 @@ export const useForgotPasswordStepTwoProps = () => {
     console.log(data);
     mutate({
       ...data,
-      request_id: auth?.userForgotPasswordData?.data.request_id
+      request_id: auth?.userForgotPasswordData?.request_id
     }, {
       onSuccess: (res) => {
-        authStore.forgotPasswordData({
-          request_id: res.data.request_id,
+        authStore.forgotPasswordInfoData({
+          data: res.data.data,
         })
         navigate("forgotPasswordStepThree")
       },

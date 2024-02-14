@@ -5,6 +5,8 @@ import request from "services/httpRequest";
 
 export const useForgotPasswordStepThreeProps = () => {
 
+  const auth = JSON.parse(localStorage.getItem("auth"))
+
   const { 
     register,
     handleSubmit,
@@ -16,7 +18,10 @@ export const useForgotPasswordStepThreeProps = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    mutate(data, {
+    mutate({
+      ...data,
+      email: auth?.userForgotPasswordData.email
+    }, {
       onSuccess: (res) => {
         authStore.updateUserData({
           id: res.data.data.id, 
