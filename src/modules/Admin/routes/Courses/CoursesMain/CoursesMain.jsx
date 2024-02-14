@@ -1,12 +1,7 @@
-import cls from "./styles.module.scss"
+import cls from './styles.module.scss';
 
 export const CoursesMain = () => {
+  const {} = useCoursesMainProps();
 
-    const {} = useCoursesMainProps()
-
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return <div>hello</div>;
+};
