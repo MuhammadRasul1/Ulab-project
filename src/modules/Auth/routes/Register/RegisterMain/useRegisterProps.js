@@ -22,6 +22,9 @@ export const useRegisterProps = () => {
       onSuccess: (res) => {
         authStore.registerData({
           request_id: res.data.data.request_id,
+          first_name: res.data.data.first_name,
+          last_name: res.data.data.last_name,
+          email: res.data.data.email
         })
         navigate("registerStepTwo")
       },

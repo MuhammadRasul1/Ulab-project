@@ -39,6 +39,3 @@ export const useForgotPasswordMainProps = () => {
     isPending
   };
 };
-
-
-// setError("email", { message: error.message })

@@ -25,7 +25,7 @@ export const useRegisterStepTwoProps = () => {
       request_id: auth?.userRegisterData?.request_id
     }, {
       onSuccess: (res) => {
-        authStore.registerData({
+        authStore.registerInfoData({
           data: res.data.data,
         })
         navigate("registerStepThree")

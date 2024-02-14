@@ -5,6 +5,8 @@ import request from "services/httpRequest";
 
 export const useRegisterStepThreeProps = () => {
 
+  const auth = JSON.parse(localStorage.getItem("auth"))
+
   const { 
     register,
     handleSubmit,
@@ -16,7 +18,12 @@ export const useRegisterStepThreeProps = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    mutate(data, {
+    mutate({
+      ...data,
+      first_name: auth?.userRegisterData?.first_name,
+      last_name: auth?.userRegisterData?.last_name,
+      email: auth?.userRegisterData?.email
+    }, {
       onSuccess: (res) => {
         authStore.updateUserData({
           id: res.data.data.id,

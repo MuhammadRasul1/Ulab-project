@@ -4,9 +4,7 @@ import clsx from "clsx";
 import { Box, InputGroup, InputRightElement } from "@chakra-ui/react";
 import Error from "assets/img/icon/error.svg";
 import { useInputProps } from "./useInputsProps";
-// import Eye from "assets/img/icon/Eye.svg"
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons'
-
 
 export const Input = React.forwardRef((props, ref) => {
     const { error, ...rest } = props
