@@ -7,7 +7,7 @@ import { Box } from "@chakra-ui/react";
 export const MainLayout = () => {
 
   return <>
-    <Box display="flex">
+    <Box display="flex" alignItems="start">
       <Sidebar />
       <Box display="flex" flexDirection="column">
         <Header />

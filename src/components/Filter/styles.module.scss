@@ -1,0 +1,28 @@
+.wrapper {
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    display: flex;
+    border: 1px solid $icon-color;
+    background: $white;
+    border-radius: 8px;
+}
+
+.select {
+    font-family: "Inter";
+    width: 142px;
+    padding: 8px 12px;
+    padding-right: 0;
+    border-radius: 8px;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; 
+    letter-spacing: -0.084px;
+}
+
+.select:focus {
+    outline: none;
+}

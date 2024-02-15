@@ -1,0 +1,26 @@
+.wrapper {
+    padding: 8px 12px; 
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    background-color: $link-blue;
+    border: none;
+}
+
+.btn {
+    margin-left: 8px;
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.006em;
+    color: #FFF;
+}
+
+.plus {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.006em;
+    color: #FFF;
+}

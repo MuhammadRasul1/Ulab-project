@@ -27,7 +27,7 @@ export const Sidebar = () => {
     <nav className={cls.navbar}>
       <ul className={cls.navList}>
         <li className={cls.navItem}> 
-          <Link className={cls.navLink} to="/courses">
+          <Link className={cls.navLink} to="admin/courses">
             <img src={Courses} alt="courses" width={20} height={20} />
             <span className={cls.navText}>Курсы</span>
           </Link>
