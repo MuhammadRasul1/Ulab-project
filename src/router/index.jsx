@@ -9,7 +9,7 @@ export const Router = observer(() => {
 
   const isAuth = authStore.isAuth;
 
-  const role = "admin";
+  const role = JSON.parse(localStorage.getItem("auth"));
 
   if (!isAuth) {
     return <Routes>
@@ -18,7 +18,7 @@ export const Router = observer(() => {
     </Routes>;
   }
   
-  if(role === "admin") {
+  if(role.userData?.user_type === "Oquvchi") {
     return <Routes>
       <Route path="" element={<MainLayout />}>
         <Route index path="/admin/*" element={<AdminRoutes />} />
@@ -26,6 +26,6 @@ export const Router = observer(() => {
       </Route>
     </Routes>;
   } else {
-    <Route path="*" element={<Navigate to="/home" />} />
+      <Route path="*" element={<Navigate to="/home" />} />
   }
 });

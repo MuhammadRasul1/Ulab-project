@@ -39,7 +39,9 @@ export const ForgotPasswordMain = () => {
             />
           </Box>
 
-          <CopyRight />
+          <Box marginTop="125px">
+            <CopyRight />
+          </Box>
         </FormControl>
        </Box>
     </Box>

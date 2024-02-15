@@ -11,3 +11,12 @@
     line-height: 32px;
     letter-spacing: -0.006em;
 }
+
+
+.btnSubmit:disabled {
+    background-color: #448ef6;
+}
+
+.btnSubmit:hover {
+    background-color: #3382f1;
+}

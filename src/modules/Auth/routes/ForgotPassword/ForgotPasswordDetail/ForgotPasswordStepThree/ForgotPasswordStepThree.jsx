@@ -48,7 +48,9 @@ export const ForgotPasswordStepThree = () => {
             />
           </Box>
 
-          <CopyRight />
+          <Box marginTop="10px">
+            <CopyRight />
+          </Box>
         </FormControl>
        </Box>
     </Box>

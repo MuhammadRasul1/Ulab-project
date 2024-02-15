@@ -41,7 +41,9 @@ export const ForgotPasswordStepTwo = () => {
             />
           </Box>
 
-          <CopyRight />
+          <Box marginTop="185px">
+            <CopyRight />
+          </Box>
         </FormControl>
        </Box>
     </Box>

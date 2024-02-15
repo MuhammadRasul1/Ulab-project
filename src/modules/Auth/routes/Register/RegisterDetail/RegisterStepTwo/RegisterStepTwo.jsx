@@ -50,8 +50,9 @@ export const RegisterStepTwo = () => {
               disabled={isPending} 
             />
           </Box>
-
-          <CopyRight />
+          <Box marginTop="90px">
+            <CopyRight />
+          </Box>
         </FormControl>
        </Box>
     </Box>

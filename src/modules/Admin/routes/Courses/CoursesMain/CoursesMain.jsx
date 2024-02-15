@@ -1,7 +1,14 @@
+import { CustomTable } from 'components/CustomTable';
 import cls from './styles.module.scss';
+import { Box } from '@chakra-ui/react';
+import { useCoursesMainProps } from './useCoursesMainProps';
 
 export const CoursesMain = () => {
-  const {} = useCoursesMainProps();
+  const {columns, data} = useCoursesMainProps();
 
-  return <div>hello</div>;
+  return (
+    <Box>
+      <CustomTable columns={columns} data={data} />
+    </Box>
+  )
 };
