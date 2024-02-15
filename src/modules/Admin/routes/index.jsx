@@ -6,7 +6,7 @@ import { CoursesMain } from "./Courses/CoursesMain";
 export const AdminRoutes = () => {
   return <Routes>
     <Route path="users" element={<UsersList />} />
-    <Route path="courses" element={<CoursesMain />} />
+    <Route path="coursesMain" element={<CoursesMain />} />
     <Route path="users:id" element={<Detail />} />
   </Routes>;
 };
