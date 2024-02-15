@@ -4,6 +4,7 @@ import { authStore } from "store/auth.store";
 import { observer } from "mobx-react-lite";
 import { AuthRoutes } from "modules/Auth/routes";
 import { AdminRoutes } from "modules/Admin/routes";
+import { Users } from "modules/Users/Users";
 
 export const Router = observer(() => {
 
@@ -18,14 +19,19 @@ export const Router = observer(() => {
     </Routes>;
   }
   
-  if(role.userData?.user_type === "Oquvchi") {
+  if(role.userData?.user_type === "admin") {
     return <Routes>
       <Route path="" element={<MainLayout />}>
         <Route index path="/admin/*" element={<AdminRoutes />} />
-        <Route path="*" element={<Navigate to="/home" />} />
+        <Route path="*" element={<Navigate to="/admin" />} />
       </Route>
     </Routes>;
   } else {
-      <Route path="*" element={<Navigate to="/home" />} />
+      return(
+        <Routes>
+          <Route path="users" element={<Users />}/>
+          <Route path="*" element={<Navigate to="/users" />} />
+        </Routes>
+      )
   }
 });

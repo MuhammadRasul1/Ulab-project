@@ -13,3 +13,9 @@
     letter-spacing: -0.168px;
 }
 
+@include breakpoint-down(750px) {
+    .wrapper {
+        display: none;
+    }
+}
+

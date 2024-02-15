@@ -40,5 +40,17 @@ export const Sidebar = () => {
         </li>  
       </ul>
     </nav>
+    <Box>
+      <Link to="admin/profile">
+        <img alt="user_avatar" width="32px" height="32px" />
+      </Link>
+      <Box>
+        <Box>
+          <span className={cls.userFirstName}>Username</span>
+          <span className={cls.userLastName}>Lastname</span>
+        </Box>
+        <p className={cls.email}>Email</p>
+      </Box>
+    </Box>
   </div>;
 };

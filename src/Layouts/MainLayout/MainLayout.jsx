@@ -9,11 +9,11 @@ export const MainLayout = () => {
   return <>
     <Box display="flex" alignItems="start">
       <Sidebar />
-      <Box display="flex" flexDirection="column">
+      <Box display="flex" flexDirection="column" height="100%" overflow="hidden">
         <Header />
         <Outlet />
+        <Footer />
       </Box>
     </Box>
-    <Footer />
   </>;
 };
