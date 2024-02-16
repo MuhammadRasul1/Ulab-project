@@ -1,0 +1,41 @@
+.sidbarTop {
+  font-family: Inter;
+  width: 233px;
+  position: fixed;
+  height: 88vh;
+  padding: 25px;
+  border-right: 1px solid #f5ebeb;
+  background-color: #fff;
+  border-bottom: 1px solid #f5ebeb;
+}
+
+.LMS {
+  font-size: 20px;
+  color: #403ef5;
+  font-weight: 600;
+  line-height: 24px;
+}
+.sidbarCours {
+  display: flex;
+  gap: 10px;
+  padding-top: 30px;
+}
+.sidbarCours p {
+  font-size: 15px;
+  color: #403ef5;
+}
+.sidbarExzam {
+  display: flex;
+  padding-top: 20px;
+  gap: 10px;
+}
+.sidbarExzam p {
+  font-size: 15px;
+  color: #9a9a9a;
+}
+.line {
+  margin-top: 30px;
+  border-bottom: 1px solid #f5ebeb;
+  width: 233px;
+  margin-left: -25px;
+}

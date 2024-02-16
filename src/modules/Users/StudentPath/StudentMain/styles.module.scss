@@ -1,0 +1,127 @@
+.MyCourse {
+  padding: 30px;
+}
+.wraperCourse {
+  display: flex;
+  gap: 60px;
+  margin-top: 20px;
+}
+.nameCourse {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+.MyCourseBox {
+}
+.myCorsePart1 {
+  padding: 10px;
+  width: 425px;
+  padding: 12px, 24px, 12px, 24px;
+  gap: 20px;
+  box-shadow: 4px 11px 23px -8px rgba(34, 60, 80, 0.53);
+  border: 1px solid transparent;
+  border-radius: 16px;
+}
+.wrapInfo {
+  display: flex;
+  padding: 10px;
+  gap: 10px;
+}
+.titlePart1 {
+  display: flex;
+  justify-content: space-between;
+}
+.titleCourse {
+  font-size: 17;
+  font-weight: 700;
+  color: #262626;
+}
+.percent {
+  width: 90px;
+  height: 10px;
+  border-radius: 20px;
+  background-color: #bbf6f4;
+}
+.percentLine {
+  width: 30px;
+  height: 10px;
+  border-radius: 20px;
+  background-color: #1ac19d;
+}
+.infoCorse {
+  font-size: 13px;
+  font-weight: 400;
+  color: #747474;
+  width: 248px;
+}
+.wrapImeCourse img {
+  width: 131px;
+  height: 88px;
+}
+.aboutTimeProcess {
+  display: flex;
+  gap: 10px;
+}
+.timePros {
+  background: #f4f3f1;
+  width: 95px;
+  height: 45px;
+  padding-left: 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+.timeDate {
+  display: flex;
+  gap: 5px;
+}
+.dateBtn {
+  margin-top: 10px;
+  background: #262626;
+  width: 402px;
+  border-radius: 8px;
+  height: 40px;
+  color: #f4f3f1;
+}
+.inputNameCourse {
+  padding-left: 40px;
+  width: 555px;
+  height: 44px;
+  border: 1px solid #f5ebeb;
+  border-radius: 6px;
+  padding: 12px, 128px, 12px, 12px;
+}
+.inputCooseingCourse {
+  padding-left: 10px;
+
+  width: 223px;
+  height: 44px;
+  border: 1px solid #f5ebeb;
+  border-radius: 6px;
+  padding: 12px, 128px, 12px, 12px;
+}
+.btnSearch {
+  width: 94px;
+  height: 44px;
+  background-color: #403ef5;
+  padding: 12px, 24px, 12px, 24px;
+  color: #ffffff;
+  border-radius: 6px;
+}
+.getDate {
+  gap: 20px;
+  display: flex;
+  position: relative;
+}
+.searIcon {
+  position: absolute;
+  top: 12px;
+  left: 10px;
+}
+.expen {
+  position: absolute;
+  left: 777px;
+  top: 20px;
+}
+.EveryCourse {
+  margin-bottom: 30px;
+}

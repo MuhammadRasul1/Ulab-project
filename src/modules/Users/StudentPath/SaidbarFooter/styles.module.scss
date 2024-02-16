@@ -1,0 +1,35 @@
+.FooterWraper {
+  display: flex;
+  padding: 25px;
+  text-align: center;
+  gap: 10px;
+}
+.SaidbarFooterWrap {
+  border-right: 1px solid #f5ebeb;
+  border-top: 1px solid #f5ebeb;
+  width: 233px;
+  top: 580px;
+  position: fixed;
+  height: 200px;
+  background-color: #fff;
+}
+.userImgWrap {
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+  width: 25px;
+  height: 25px;
+}
+.userImgWrap img {
+  width: 20px;
+  width: 20px;
+}
+.userName {
+  font-size: 15px;
+  color: #2b86f1;
+  margin-top: 3px;
+}
+.btn {
+  color: transparent;
+  margin-top: 3px;
+}

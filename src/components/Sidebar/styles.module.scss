@@ -1,4 +1,5 @@
 .sidebar {
+  position: fixed;
   font-family: Inter;
   width: 280px;
   height: 100vh ;
@@ -13,7 +14,6 @@
   align-items:  center;
   padding:  16px 0;
   justify-content:  space-between;
-  // border-bottom: "1px solid #E5E9EB";
 }
 
 .wrapper::after{
@@ -124,6 +124,7 @@
   display: flex;
   align-items: center;
   padding: 12px 0;
+  margin-top: 510px;
 }
 
 .profileWrapper::before{
@@ -147,6 +148,7 @@
 
 .userAvatar {
   border-radius: 50%;
+  background-color: $grey;
 }
 
 .status {
