@@ -1,9 +1,9 @@
 import { Button } from '@chakra-ui/react';
-import { format } from 'date-fns';
-import { useMutation, useQuery } from 'react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 // import { useGetCourses, useDeleteCourses } from 'services/api/courses/courses.service';
 import request from 'services/httpRequest';
+import { authStore } from 'store/auth.store';
 
 export const useCoursesMainProps = () => {
   const navigate = useNavigate();
@@ -17,29 +17,58 @@ export const useCoursesMainProps = () => {
 
   const columns = [
     {
-      title: 'Login',
-      dataIndex: 'login_name',
-      key: 'name',
-      width: 100,
+      title: '№',
+      dataIndex: 'number',
+      key: 'number',
+      width: 48,
     },
     {
-      title: 'Type',
+      title: 'Название курса',
+      dataIndex: 'name_course',
+      key: 'name_course',
+      width: 220,
+    },
+    {
+      title: 'Описание',
+      dataIndex: 'description',
+      key: 'description',
+      width: 210,
+    },
+    {
+      title: 'Тип',
       dataIndex: 'type',
       key: 'type',
+      width: 88,
+    },
+    {
+      title: 'Время',
+      dataIndex: 'time',
+      key: 'time',
       width: 100,
     },
     {
-      title: 'Created at',
-      dataIndex: 'created_at',
-      key: 'created_at',
-      width: 200,
-      render: (item) => <span>{item ? format(new Date(item), 'dd.MM.yyyy HH:mm') : ''}</span>,
+      title: 'Время',
+      dataIndex: 'time',
+      key: 'time',
+      width: 100,
     },
     {
-      title: 'Has permission',
-      dataIndex: 'has_permission',
-      key: 'has_permission',
-      render: (item) => (item ? 'Yes' : 'No'),
+      title: 'Кол-во документов',
+      dataIndex: 'number_of_document',
+      key: 'number_of_document',
+      width: 170,
+    },
+    {
+      title: 'Дата',
+      dataIndex: 'data',
+      key: 'data',
+      width: 104,
+    },
+    {
+      title: 'Оценка',
+      dataIndex: 'sccore',
+      key: 'sccore',
+      width: 94,
     },
     {
       title: 'Operations',

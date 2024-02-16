@@ -24,10 +24,12 @@
     "mobx-react-lite": "^4.0.5",
     "rc-table": "^7.38.1",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.49.3",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.21.3",
+    "react-tabs": "^6.0.2",
     "sass": "^1.70.0"
   },
   "devDependencies": {

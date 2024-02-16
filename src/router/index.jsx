@@ -23,7 +23,7 @@ export const Router = observer(() => {
     return <Routes>
       <Route path="" element={<MainLayout />}>
         <Route index path="/admin/*" element={<AdminRoutes />} />
-        <Route path="*" element={<Navigate to="/admin" />} />
+        <Route path="*" element={<Navigate to="/admin/courses" />} />
       </Route>
     </Routes>;
   } else {

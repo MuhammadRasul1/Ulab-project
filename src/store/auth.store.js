@@ -40,6 +40,10 @@ class AuthStore {
     email: ""
   }
 
+  newData = []
+  
+  userId = []
+
   constructor() {
     makeAutoObservable(this);
     makePersistable(this, {
@@ -55,6 +59,10 @@ class AuthStore {
 
   registerData(data) {
     this.userRegisterData = data
+  }
+
+  hasNewData(data) {
+    this.newData = data
   }
 
   registerInfoData(data) {

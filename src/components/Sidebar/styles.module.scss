@@ -2,16 +2,35 @@
   font-family: Inter;
   width: 280px;
   height: 100vh ;
-  padding: 2px;
+  padding: 0 12px;
   border-right: 1px solid #E5E9EB;
   background-color: #fff;
+}
+
+.wrapper {
+  position: relative;
+  display:  flex; 
+  align-items:  center;
+  padding:  16px 0;
+  justify-content:  space-between;
+  // border-bottom: "1px solid #E5E9EB";
+}
+
+.wrapper::after{
+  position: absolute;
+  left: -12px;
+  bottom: 0;
+  height: 1px;
+  width: 280px;
+  background-color: #E5E9EB;
+  content: "";
 }
 
 .logo {
   color: #403EF5;
   font-size: 20px;
   font-weight: 600;
-  line-height: 32px;
+  line-height: 31px;
   letter-spacing: 0em;
 }
 
@@ -19,8 +38,8 @@
   position: relative;
   border-radius: 6px;
   padding: 4px;
-  width: 32px;
-  height: 32px;
+  width: 31px;
+  height: 31px;
   border: 1px solid #E5E9EB;
   z-index: 10;
 }
@@ -64,6 +83,10 @@
   transform: rotate(-45deg);
 }
 
+.navList {
+  @include reset-list;
+}
+
 .navItem:first-child {
   margin-top: 12px;
 }
@@ -73,15 +96,91 @@
 }
 
 .navLink {
+  padding: 8px 12px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
-}
-
-.navText {
+  color: $dark-grey;
   font-size: 14px;
   font-weight: 500;
   line-height: 24px;
-  letter-spacing: -0.006em;
-  text-align: left;  
+  letter-spacing: -0.006em;  
+  transition: transform 2s;
+}
+
+.navLink:hover {
+  background-color: #0067F4; 
+  color: #fff;
+  transition: background-color 1s, color 1s ;
+  transform: scale(1.1);
+}
+
+.navText {
   margin-left: 12px;
+}
+
+.profileWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.profileWrapper::before{
+  position: absolute;
+  left: -12px;
+  top: 0;
+  height: 1px;
+  width: 280px;
+  background-color: #E5E9EB;
+  content: "";
+}
+
+.userProfile {
+  position: relative;
+  display: flex;
+  align-items: start;
+  width: 32px;
+  height: 32px;
+  margin-right: 12px;
+}
+
+.userAvatar {
+  border-radius: 50%;
+}
+
+.status {
+  position: absolute;
+  top: 0;
+  right: -4px;
+  width: 13px;
+  height: 13px;
+}
+
+.userFirstName {
+  margin-right: 4px;
+  color: $dark-blue;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: -0.006em;
+}
+
+.userLastName {
+  color: $dark-blue;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: -0.006em;
+}
+
+.email {
+  margin-top: 2px;
+  color: $grey;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: -0.006em;
+  text-align: left;
+
 }
