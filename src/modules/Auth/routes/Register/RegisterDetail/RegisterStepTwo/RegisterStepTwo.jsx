@@ -6,6 +6,7 @@ import { LogoAuth } from "../../../components/LogoAuth";
 import { CopyRight } from "../../../components/CopyRight";
 import { BtnSubmit } from "modules/Auth/routes/components/BtnSubmit";
 import ActivasionCode from "assets/img/icon/activationСode.svg"
+import { LinkPage } from "modules/Auth/routes/components/LinkPage";
 
 export const RegisterStepTwo = () => {
 
@@ -40,14 +41,14 @@ export const RegisterStepTwo = () => {
             error={errors.password}
           />
 
-          {/* <SendAgain 
-            onSubmit={handleSubmit(onSubmit)} 
-          /> */}
-
           <Box marginTop="32px" display="flex" flexDirection="column">
             <BtnSubmit
               text="Следующий шаг"
               disabled={isPending} 
+            />
+            <LinkPage 
+              text="Вернуться назад"
+              to="/auth/register"
             />
           </Box>
           <Box marginTop="90px">

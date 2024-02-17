@@ -7,6 +7,7 @@ import { LogoAuth } from "../../components/LogoAuth";
 import { CopyRight } from "../../components/CopyRight";
 import { BtnSubmit } from "../../components/BtnSubmit";
 import { useRegisterMainProps } from "./useRegisterMainProps";
+import { LinkPage } from "../../components/LinkPage";
 
 
 export const RegisterMain = () => {
@@ -68,6 +69,10 @@ export const RegisterMain = () => {
             <BtnSubmit
               text="Получить код активации"
               disabled={isPending} 
+            />
+            <LinkPage 
+              text="Вернуться назад"
+              to="/auth/login"
             />
           </Box>
 

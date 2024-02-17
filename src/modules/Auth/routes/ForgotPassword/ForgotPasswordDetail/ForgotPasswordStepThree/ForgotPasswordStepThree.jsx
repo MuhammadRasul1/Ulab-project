@@ -7,6 +7,7 @@ import { CopyRight } from "../../../components/CopyRight";
 import { BtnSubmit } from "../../../components/BtnSubmit";
 import { InputCheck } from "../../../components/InputCheck";
 import { useForgotPasswordStepThreeProps } from "./useForgotPasswordStepThreeProps";
+import { LinkPage } from "modules/Auth/routes/components/LinkPage";
 
 export const ForgotPasswordStepThree = () => {
 
@@ -45,6 +46,10 @@ export const ForgotPasswordStepThree = () => {
             <BtnSubmit 
               text="Восстановить пароль"
               disabled={isPending}
+            />
+             <LinkPage  
+              text="Вернуться назад" 
+              to="/auth/forgotPassword/forgotPasswordStepTwo" 
             />
           </Box>
 

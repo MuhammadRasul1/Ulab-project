@@ -7,6 +7,7 @@ import { LogoAuth } from "../../../components/LogoAuth";
 import { CopyRight } from "../../../components/CopyRight";
 import { BtnSubmit } from "../../../components/BtnSubmit";
 import { InputCheck } from "../../../components/InputCheck";
+import { LinkPage } from "modules/Auth/routes/components/LinkPage";
 
 export const RegisterStepThree = () => {
 
@@ -56,6 +57,10 @@ export const RegisterStepThree = () => {
             <BtnSubmit 
               text="Зарегистрироваться"
               disabled={isPending}
+            />
+            <LinkPage 
+              text="Вернуться назад"
+              to="/auth/register/registerStepTwo"
             />
           </Box>
 

@@ -4,6 +4,7 @@ import { SearchInput } from "components/SearchInput";
 import { BtnAdd } from "components/BtnAdd";
 import { Container } from "components/Container";
 import { Filter } from "components/Filter";
+import { BtnDownload } from "components/BtnDownload";
 
 export const Header = (props) => {
 
@@ -13,13 +14,10 @@ export const Header = (props) => {
         <Box display="flex" alignItems="center" justifyContent="space-between"> 
           <h1 className={cls.title}>{props.title}</h1>
           <Box display="flex" alignItems="start">
-            <SearchInput 
-              className={cls.searchInput}
-            />
+            <BtnDownload /> 
+            <SearchInput className={cls.searchInput}/>
             <Filter />
-            <BtnAdd 
-            className={cls.btnAdd}
-            />
+            <BtnAdd className={cls.btnAdd}/>
           </Box>
         </Box>
       </Container>

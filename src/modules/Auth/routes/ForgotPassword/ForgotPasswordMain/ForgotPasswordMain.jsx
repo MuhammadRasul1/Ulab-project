@@ -6,6 +6,7 @@ import { Input } from "../../components/Inputs";
 import { LogoAuth } from "../../components/LogoAuth";
 import { CopyRight } from "../../components/CopyRight";
 import { BtnSubmit } from "../../components/BtnSubmit";
+import { LinkPage } from "../../components/LinkPage";
 
 
 export const ForgotPasswordMain = () => {
@@ -36,6 +37,10 @@ export const ForgotPasswordMain = () => {
             <BtnSubmit
               text="Получить код активации"
               disabled={isPending} 
+            />
+            <LinkPage 
+              text="Вернуться назад" 
+              to="/auth/login" 
             />
           </Box>
 

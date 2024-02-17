@@ -6,6 +6,7 @@ import ActivationCode from "assets/img/icon/activationСode.svg"
 import { LogoAuth } from "../../../components/LogoAuth";
 import { BtnSubmit } from "../../../components/BtnSubmit";
 import { CopyRight } from "../../../components/CopyRight";
+import { LinkPage } from "modules/Auth/routes/components/LinkPage";
 // import { SendAgain } from "../../components/SendAgain";
 
 
@@ -38,6 +39,10 @@ export const ForgotPasswordStepTwo = () => {
             <BtnSubmit
               text="Следующий шаг"
               disabled={isPending} 
+            />
+            <LinkPage  
+              text="Вернуться назад" 
+              to="/auth/forgotPassword" 
             />
           </Box>
 
