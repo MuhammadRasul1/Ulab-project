@@ -10,16 +10,14 @@ export const CoursesMain = () => {
   const {columns, data} = useCoursesMainProps();
 
   return (
-    <Box>
+    <Container >
       <Header
         title="Курсы"
       />
       <Box marginBottom="100px" marginTop="84px">
-        <Container>
           <CustomTable columns={columns} data={data} />
-        </Container>
       </Box>
       <Footer />
-    </Box>
+    </Container>
   )
 };

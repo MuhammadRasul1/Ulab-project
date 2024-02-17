@@ -1,5 +1,9 @@
 .header {
   position: fixed;
+  left: 280px;
+  top: 0;
+  max-width: 1160px;
+  z-index: 20;
   font-family: Inter;
   padding: 10px 0;
   border-bottom: 1px solid #E5E9EB;

@@ -42,7 +42,7 @@ export const Sidebar = () => {
           </li>  
         </ul>
       </nav>
-      <Box>
+      <Box position="fixed" left="0" bottom="1px" max-width="280px" z-index="20">
         <Box className={cls.profileWrapper}>
           <Link className={cls.userProfile} to="admin/profile">
             <img className={cls.userAvatar} src={UserAvatar} alt="user_avatar" width="32px" height="32px" />
