@@ -1,9 +1,10 @@
-import { Button } from '@chakra-ui/react';
+import cls from "./styles.module.scss";
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import request from 'services/httpRequest';
 import { authStore } from 'store/auth.store';
-import Dots from "assets/img/icon/dots.svg";
+import Edit from "assets/img/icon/edit.svg";
+import { Button } from "@chakra-ui/react";
 
 export const useCoursesMainProps = () => {
   const navigate = useNavigate();
@@ -30,8 +31,8 @@ export const useCoursesMainProps = () => {
     },
     {
       title: 'Описание',
-      dataIndex: 'description',
-      key: 'description',
+      dataIndex: 'for_who',
+      key: 'for_who',
       width: 210,
     },
     {
@@ -56,10 +57,10 @@ export const useCoursesMainProps = () => {
       title: 'Дата',
       dataIndex: 'beginning_date_course',
       key: 'beginning_date_course',
-      width: 104,
+      width: 124,
     },
     {
-      title: 'Дата окончание',
+      title: 'Дата окончания',
       dataIndex: 'end_date',
       key: 'end_date',
       width: 104,
@@ -76,9 +77,12 @@ export const useCoursesMainProps = () => {
       render: (item) => {
         return (
           <div>
-            {/* <Button onClick={() => navigate(`/course/${item?.id}`)}>
-              <img src={Dots} width={20} height={20} alt="dots" />
-            </Button> */}
+            <Button  
+              padding="4px" 
+              colorScheme="transparent" 
+              onClick={() => navigate(`/admin/courses/${item?.id}`)}>
+              <img src={Edit} width={20} height={20} alt="edit" />
+            </Button>
             {/* <Button
               // colorScheme={item?.has_permission ? 'linkedin' : 'green'}
               onClick={() => handleGivePermission(item?.id)}

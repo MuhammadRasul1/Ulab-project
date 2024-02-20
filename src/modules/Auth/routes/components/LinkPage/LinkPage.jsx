@@ -6,3 +6,5 @@ export const LinkPage = (props) => {
         <Link className={cls.link} to={props.to}>{props.text}</Link> 
     );
 }
+
+// onClick={() => navigate(-1)}

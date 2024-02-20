@@ -14,7 +14,7 @@ export const useRegisterMainProps = () => {
     setError
   } = useForm();
 
-  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/check_email", data) })
+  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/checkEmail", data) })
 
   const onSubmit = (data) => {
     console.log(data);

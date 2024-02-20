@@ -14,7 +14,7 @@ export const useForgotPasswordStepThreeProps = () => {
     setError
   } = useForm();
 
-  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/update_password", data) })
+  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/updatePassword", data) })
 
   const onSubmit = (data) => {
     console.log(data);

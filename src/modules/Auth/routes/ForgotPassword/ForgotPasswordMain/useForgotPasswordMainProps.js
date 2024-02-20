@@ -14,7 +14,7 @@ export const useForgotPasswordMainProps = () => {
     setError
   } = useForm();
 
-  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/send_exist_email", data) })
+  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/sendExistEmail", data) })
 
   const onSubmit = (data) => {
     console.log(data);

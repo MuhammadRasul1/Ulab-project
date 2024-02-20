@@ -1,20 +1,27 @@
-import { Button } from '@chakra-ui/react';
+import { Button, useDisclosure } from '@chakra-ui/react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import request from 'services/httpRequest';
 import { authStore } from 'store/auth.store';
-import Dots from "assets/img/icon/dots.svg";
+import Edit from "assets/img/icon/edit.svg";
+import { useForm } from 'react-hook-form';
 // import { useGetCourses, useDeleteCourses } from 'services/api/courses/courses.service';
 
 export const useListUsersProps = () => {
   const navigate = useNavigate();
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const createUsers = useQuery({queryKey: ['users'], queryFn: () => request.get('/user').then(res => res.data)})
+  const createUsers = useQuery({queryKey: ['students'], queryFn: () => request.get('/students').then(res => res.data)})
 
-  const {mutateAsync} = useMutation({mutationFn: (id) => request.delete(`user/${id}`)})
+  const {mutateAsync} = useMutation({mutationFn: (id) => request.delete(`students/${id}`)})
   const handleDeleteUser = (id) => {
     mutateAsync(id)
   };
+
+  const { 
+    register,
+    handleSubmit,
+  } = useForm();
 
   const columns = [
     {
@@ -36,6 +43,12 @@ export const useListUsersProps = () => {
       width: 180,
     },
     {
+      title: 'Фамилия',
+      dataIndex: 'last_name',
+      key: 'last_name',
+      width: 180,
+    },
+    {
       title: 'Mail',
       dataIndex: 'email',
       key: 'email',
@@ -47,8 +60,11 @@ export const useListUsersProps = () => {
       render: (item) => {
         return (
           <div>
-            <Button onClick={() => navigate(`/course/${item?.id}`)}>
-              <img src={Dots} width={20} height={20} alt="dots" />
+             <Button  
+              padding="4px" 
+              colorScheme="transparent" 
+              onClick={() => onOpen(`/students/${item?.id}`)}>
+              <img src={Edit} width={20} height={20} alt="edit" />
             </Button>
             {/* <Button
               // colorScheme={item?.has_permission ? 'linkedin' : 'green'}
@@ -73,7 +89,12 @@ export const useListUsersProps = () => {
   const data = authStore.newData
 
   return {
+    isOpen,
+    onOpen,
+    onClose,
     columns,
     data,
+    register,
+    handleSubmit,
   };
 };

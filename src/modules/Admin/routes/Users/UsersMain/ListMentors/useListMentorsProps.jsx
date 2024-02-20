@@ -1,4 +1,4 @@
-import { Button } from '@chakra-ui/react';
+import { Box, Button } from '@chakra-ui/react';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 // import { useGetCourses, useDeleteCourses } from 'services/api/courses/courses.service';
@@ -9,9 +9,9 @@ import Dots from "assets/img/icon/dots.svg";
 export const useListMentorsProps = () => {
   const navigate = useNavigate();
 
-  const createUsers = useQuery({queryKey: ['users'], queryFn: () => request.get('users').then(res => res.data)})
+  const createUsers = useQuery({queryKey: ['mentors'], queryFn: () => request.get('mentors').then(res => res.data)})
 
-  const {mutateAsync} = useMutation({mutationFn: (id) => request.delete(`users/${id}`)})
+  const {mutateAsync} = useMutation({mutationFn: (id) => request.delete(`mentors/${id}`)})
   const handleDeleteUser = (id) => {
     mutateAsync(id)
   };
@@ -46,8 +46,12 @@ export const useListMentorsProps = () => {
       key: 'operations',
       render: (item) => {
         return (
-          <div>
-            <Button onClick={() => navigate(`/course/${item?.id}`)}>
+          <Box>
+             <Button  
+                padding="4px" 
+                colorScheme="transparent" 
+                border="1px solid #E5E9EB"
+                onClick={() => navigate(`/mentors/${item?.id}`)}>
               <img src={Dots} width={20} height={20} alt="dots" />
             </Button>
             {/* <Button
@@ -63,7 +67,7 @@ export const useListMentorsProps = () => {
             <Button colorScheme="red" onClick={() => handleDeleteUser(item?.id)}>
               Delete
             </Button> */}
-          </div>
+          </Box>
         );
       },
     },

@@ -1,7 +1,7 @@
 import React from "react";
 import cls from "./styles.module.scss";
 import clsx from "clsx";
-import { Box, InputGroup, InputRightElement } from "@chakra-ui/react";
+import { Box, FormControl, InputGroup, InputRightElement } from "@chakra-ui/react";
 import Error from "assets/img/icon/error.svg";
 import { useInputProps } from "./useInputsProps";
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons'
@@ -10,7 +10,7 @@ export const Input = React.forwardRef((props, ref) => {
     const { error, ...rest } = props
 
     return (
-        <Box className={cls.formWrapper}>
+        <FormControl className={cls.formWrapper}>
             <Box display="flex" flexDirection="column">
                 <label className={cls.label} htmlFor={props.id}>
                     {props.label} 
@@ -34,7 +34,7 @@ export const Input = React.forwardRef((props, ref) => {
                 <p style={{ color: 'red', marginLeft: '8px' }}>{error?.message}</p>
              </Box>
             }
-        </Box>
+        </FormControl>
     )
 })
 

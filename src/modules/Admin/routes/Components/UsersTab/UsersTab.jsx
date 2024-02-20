@@ -19,7 +19,7 @@ export const UsersTab = () => {
       <Container>
         <Box marginTop="78px">
           <Tabs>
-            <TabList>
+            <TabList >
               <Tab>Ученики</Tab>
               <Tab>Менторы</Tab>
             </TabList>
