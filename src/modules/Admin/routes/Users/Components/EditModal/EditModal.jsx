@@ -1,5 +1,6 @@
 import { Box, Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
+import { useEditModalProps } from "./useEditModalProps";
 export const EditModal = ({
     isOpen, 
     onClose,
@@ -7,9 +8,10 @@ export const EditModal = ({
     cancelText = "Отменить",
     submitText = "Сохранить",
     DeleteBtn = "Удалить",
-    children,
-    register
+    children
     }) => {
+
+    const { handleDeleteUser, handleSubmit } = useEditModalProps();
       
     return (
         <Box>
@@ -23,7 +25,7 @@ export const EditModal = ({
                 </ModalBody>
 
                 <ModalFooter display="flex" justifyContent="space-between">
-                    <Button backgroundColor="transparent" border="1px solid #CF0000" color="#CF0000">{DeleteBtn}</Button>
+                    <Button onClick={() => handleDeleteUser()} backgroundColor="transparent" border="1px solid #CF0000" color="#CF0000">{DeleteBtn}</Button>
                     <Box>
                         <Button border="1px solid #E5E9EB" backgroundColor="transparent" mr={3} onClick={onClose}>
                             {cancelText}

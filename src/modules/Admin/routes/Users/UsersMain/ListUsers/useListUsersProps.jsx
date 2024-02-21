@@ -1,5 +1,5 @@
 import { Button, useDisclosure } from '@chakra-ui/react';
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
 import request from 'services/httpRequest';
 import { authStore } from 'store/auth.store';
@@ -13,11 +13,11 @@ export const useListUsersProps = () => {
 
   const { data: users } = useGetUsers();
 
-  const { mutateAsync } = useMutation({mutationFn: (id) => request.delete(`user/${id}`)})
+  // const { mutateAsync } = useMutation({mutationFn: (id) => request.delete(`user/${id}`)})
   
-  const handleDeleteUser = (id) => {
-    mutateAsync(id);
-  };
+  // const handleDeleteUser = (id) => {
+  //   mutateAsync(id);
+  // };
 
   const { 
     register,
@@ -67,20 +67,9 @@ export const useListUsersProps = () => {
               onClick={() => onOpen(`/user/${item?.id}`)}>
               <img src={Edit} width={20} height={20} alt="edit" />
             </Button>
-            {/* <Button
-              // colorScheme={item?.has_permission ? 'linkedin' : 'green'}
-              onClick={() => handleGivePermission(item?.id)}
-              isDisabled={item?.has_permission}
-            >
-              {item?.has_permission ? 'access is allowed' : 'give access'}
-            </Button>
-            <Button colorScheme="teal" onClick={() => navigate(`/users/${item?.id}`)}>
-              Edit
-            </Button>
-            */}
-            <Button colorScheme="red" onClick={() => handleDeleteUser(item?.id)}>
+            {/* <Button colorScheme="red" onClick={() => handleDeleteUser(item?.id)}>
               Delete
-            </Button> 
+            </Button>  */}
           </div>
         );
       },

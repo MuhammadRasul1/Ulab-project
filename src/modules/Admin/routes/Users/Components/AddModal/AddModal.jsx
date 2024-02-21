@@ -3,12 +3,10 @@ import cls from "./styles.module.scss";
 export const AddModal = ({
     isOpen, 
     onClose,
-    Title="Изменить данные ученика",
+    Title="Добавить",
     cancelText = "Отменить",
     submitText = "Сохранить",
-    DeleteBtn = "Удалить",
-    children,
-    register
+    children
     }) => {
       
     return (
@@ -21,15 +19,11 @@ export const AddModal = ({
                 <ModalBody>
                     {children}
                 </ModalBody>
-
-                <ModalFooter display="flex" justifyContent="space-between">
-                    <Button backgroundColor="transparent" border="1px solid #CF0000" color="#CF0000">{DeleteBtn}</Button>
-                    <Box>
-                        <Button border="1px solid #E5E9EB" backgroundColor="transparent" mr={3} onClick={onClose}>
-                            {cancelText}
-                        </Button>
-                        <Button backgroundColor="#0067F4" color="white">{submitText}</Button>
-                    </Box>
+                <ModalFooter>
+                    <Button border="1px solid #E5E9EB" backgroundColor="transparent" mr={3} onClick={onClose}>
+                        {cancelText}
+                    </Button>
+                    <Button backgroundColor="#0067F4" color="white">{submitText}</Button>
                 </ModalFooter>
                 </ModalContent>
             </Modal>
