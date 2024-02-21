@@ -59,12 +59,12 @@ export const useCoursesMainProps = () => {
       key: 'beginning_date_course',
       width: 124,
     },
-    {
-      title: 'Дата окончания',
-      dataIndex: 'end_date',
-      key: 'end_date',
-      width: 104,
-    },
+    // {
+    //   title: 'Дата окончания',
+    //   dataIndex: 'end_date',
+    //   key: 'end_date',
+    //   width: 104,
+    // },
     {
       title: 'Оценка',
       dataIndex: 'grade',

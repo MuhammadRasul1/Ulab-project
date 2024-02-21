@@ -1,5 +1,7 @@
-import { Box, Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
+import { Box, Button, FormControl, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
+import { InputModal } from "components/InputModal";
+import { Select } from "../Select";
 export const AddModal = ({
     isOpen, 
     onClose,
@@ -17,6 +19,46 @@ export const AddModal = ({
                 <ModalHeader className={cls.title}>{Title}</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
+                    <FormControl as='form'>
+                        <Box className={cls.wrapper}>
+                            <InputModal
+                                type="text"
+                                placeholder="Имя"
+                                // {...register("first_name")}  
+                            />
+                        </Box>
+                        <Box className={cls.wrapper}>
+                            <InputModal
+                                type="text"
+                                placeholder="Фамилия"
+                                // {...register("last_name")}  
+                            />
+                        </Box>
+                        <Box className={cls.wrapper}>
+                            <InputModal
+                                type="number"
+                                placeholder="Номер телефона"
+                                // {...register("phone_number")}  
+                            />
+                        </Box>
+                        <Box className={cls.wrapper}>
+                            <InputModal
+                                type="email"
+                                placeholder="Email"
+                                // {...register("email")}  
+                            />
+                        </Box>
+                        <Box className={cls.wrapper}>
+                            <InputModal
+                                type="password"
+                                placeholder="Пароль"
+                                // {...register("email")}  
+                            />
+                        </Box>
+                        <Box className={cls.wrapper}>
+                            <Select />
+                        </Box>
+                    </FormControl>
                     {children}
                 </ModalBody>
                 <ModalFooter>

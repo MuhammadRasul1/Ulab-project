@@ -12,44 +12,48 @@ export const ListUsers = () => {
     data, 
     isOpen,
     onClose,
-    register  
+    register,
+    activeUserId,
+    // onSubmit,
+    handleSubmit,
+    onOpen,
+    setActiveUserId,
    } = useListUsersProps();
 
   return(
     <Box marginTop="20px">
       <CustomTable columns={columns} data={data} />
-      <EditModal isOpen={isOpen} register={register} onClose={onClose}>
-        <FormControl as='form'>
+      <EditModal isOpen={isOpen} register={register} onClose={() => {
+        onClose()
+        setActiveUserId("")
+      }}>
+        <FormControl  as='form'>
           <Box className={cls.wrapper}>
             <InputModal
-                type="text"
-                name="first_name"
-                placeholder="Имя"
-                {...register("first_name")}  
+              type="text"
+              placeholder="Имя"
+              {...register("first_name")}  
             />
           </Box>
           <Box className={cls.wrapper}>
             <InputModal
-                type="text"
-                name="last_name"
-                placeholder="Фамилия"
-                {...register("last_name")}  
+              type="text"
+              placeholder="Фамилия"
+              {...register("last_name")}  
             />
           </Box>
           <Box className={cls.wrapper}>
             <InputModal
-                type="number"
-                name="phone_number"
-                placeholder="Номер телефона"
-                {...register("phone_number")}  
+              type="number"
+              placeholder="Номер телефона"
+              {...register("phone_number")}  
             />
           </Box>
           <Box className={cls.wrapper}>
             <InputModal
-                type="email"
-                name="email"
-                placeholder="Email"
-                {...register("email")}  
+              type="email"
+              placeholder="Email"
+              {...register("email")}  
             />
           </Box>
         </FormControl>

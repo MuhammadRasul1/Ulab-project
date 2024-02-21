@@ -11,7 +11,7 @@ export const EditModal = ({
     children
     }) => {
 
-    const { handleDeleteUser, handleSubmit } = useEditModalProps();
+    const { handleDeleteUser } = useEditModalProps();
       
     return (
         <Box>
