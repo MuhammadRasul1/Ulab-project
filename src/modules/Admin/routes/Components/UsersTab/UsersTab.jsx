@@ -8,14 +8,19 @@ import { ListUsers } from "../../Users/UsersMain/ListUsers";
 import { ListMentors } from "../../Users/UsersMain/ListMentors";
 import { Header } from "components/Header";
 import { Footer } from "components/Footer";
+import { useUsersTabProps } from "./useUsersTabProps";
+import { AddModal } from "../../Users/Components/AddModal";
 
 export const UsersTab = () => {
+  const {isOpen, onClose, onOpen} = useUsersTabProps();
 
   return(
     <Box>
       <Header
         title="Пользователи"
+        onOpen={() => onOpen}
       />
+      <AddModal />
       <Container>
         <Box marginTop="78px">
           <Tabs>

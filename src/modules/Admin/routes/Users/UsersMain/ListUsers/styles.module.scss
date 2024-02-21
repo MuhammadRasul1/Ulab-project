@@ -34,3 +34,7 @@
 .link:hover {
     color: $link-blue;
 }
+
+.wrapper:not(:last-child) {
+    margin-bottom: 18px;
+}

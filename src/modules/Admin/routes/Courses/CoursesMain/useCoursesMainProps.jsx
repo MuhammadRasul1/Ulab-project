@@ -102,7 +102,7 @@ export const useCoursesMainProps = () => {
     },
   ];
 
-  authStore.hasNewData(createUsers?.data?.data?.courses)
+  authStore.hasNewData(createUsers?.data?.courses)
   const data = authStore.newData
 
   return {

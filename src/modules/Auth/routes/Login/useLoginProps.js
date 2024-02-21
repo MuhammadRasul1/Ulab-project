@@ -22,22 +22,22 @@ export const useLoginProps = () => {
         authStore.updateUserData({
           status: res.data.status,
           description: res.data.description,
-          id: res.data.data.id,
-          user_type: res.data.data.user_type,
-          role_id: res.data.data.role_id,
-          first_name: res.data.data.first_name,
-          last_name: res.data.data.last_name,
-          email: res.data.data.email,
-          phone_number: res.data.data.phone_number,
-          password: res.data.data.password,
-          created_at: res.data.data.created_at,
-          updated_at: res.data.data.updated_at,
+          id: res.data.id,
+          user_type: res.data.user_type,
+          role_id: res.data.role_id,
+          first_name: res.data.first_name,
+          last_name: res.data.last_name,
+          email: res.data.email,
+          phone_number: res.data.phone_number,
+          password: res.data.password,
+          created_at: res.data.created_at,
+          updated_at: res.data.updated_at,
         })
         authStore.login()
       },
       onError: (error) => {
-        setError("email", { message: error.message  })
-        setError("password", { message: error.message })
+        setError("email", { message: "Неверный email"  })
+        setError("password", { message: "Неверный пароль" })
       }
     })
   };

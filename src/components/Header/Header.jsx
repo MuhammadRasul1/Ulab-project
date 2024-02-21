@@ -17,7 +17,7 @@ export const Header = (props) => {
             <BtnDownload /> 
             <SearchInput className={cls.searchInput}/>
             <Filter />
-            <BtnAdd className={cls.btnAdd}/>
+            <BtnAdd className={cls.btnAdd} onClick={props.onOpen}/>
           </Box>
         </Box>
       </Container>

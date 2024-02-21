@@ -73,7 +73,7 @@ export const useListMentorsProps = () => {
     },
   ];
 
-  authStore.hasNewData(createUsers?.data?.data?.users)
+  authStore.hasNewData(createUsers?.data?.users)
   const data = authStore.newData
 
   return {

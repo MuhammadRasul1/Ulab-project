@@ -5,17 +5,18 @@ import request from 'services/httpRequest';
 import { authStore } from 'store/auth.store';
 import Edit from "assets/img/icon/edit.svg";
 import { useForm } from 'react-hook-form';
-// import { useGetCourses, useDeleteCourses } from 'services/api/courses/courses.service';
+import { useGetUsers } from 'api';
 
 export const useListUsersProps = () => {
   const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure()
 
-  const createUsers = useQuery({queryKey: ['students'], queryFn: () => request.get('/students').then(res => res.data)})
+  const { data: users } = useGetUsers();
 
-  const {mutateAsync} = useMutation({mutationFn: (id) => request.delete(`students/${id}`)})
+  const { mutateAsync } = useMutation({mutationFn: (id) => request.delete(`user/${id}`)})
+  
   const handleDeleteUser = (id) => {
-    mutateAsync(id)
+    mutateAsync(id);
   };
 
   const { 
@@ -63,7 +64,7 @@ export const useListUsersProps = () => {
              <Button  
               padding="4px" 
               colorScheme="transparent" 
-              onClick={() => onOpen(`/students/${item?.id}`)}>
+              onClick={() => onOpen(`/user/${item?.id}`)}>
               <img src={Edit} width={20} height={20} alt="edit" />
             </Button>
             {/* <Button
@@ -76,16 +77,17 @@ export const useListUsersProps = () => {
             <Button colorScheme="teal" onClick={() => navigate(`/users/${item?.id}`)}>
               Edit
             </Button>
+            */}
             <Button colorScheme="red" onClick={() => handleDeleteUser(item?.id)}>
               Delete
-            </Button> */}
+            </Button> 
           </div>
         );
       },
     },
   ];
 
-  authStore.hasNewData(createUsers?.data?.data?.users)
+  authStore.hasNewData(users?.users)
   const data = authStore.newData
 
   return {

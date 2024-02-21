@@ -21,8 +21,8 @@ export const useForgotPasswordMainProps = () => {
     mutate(data, {
       onSuccess: (res) => {
         authStore.forgotPasswordData({
-          request_id: res.data.data.request_id,
-          email: res.data.data.email,
+          request_id: res.data.request_id,
+          email: res.data.email,
         })
         navigate("forgotPasswordStepTwo")
       },
