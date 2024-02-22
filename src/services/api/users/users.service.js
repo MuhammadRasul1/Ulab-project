@@ -9,19 +9,20 @@ const usersServices = {
 };
 
 export const useGetUsers = () => {
-  return  useQuery({queryKey: ['users'], queryFn: () => request.get('/user').then(res => res.data)});
+  return  useQuery({queryKey: ['users'], queryFn: () => request.get('/students', ).then(res => res.data)});
 };
 
 export const useUpdateUser = ({userId}) => {
-  return useQuery({queryKey: ["PUT/USER/ID", userId], queryFn: () => usersServices.updateUserById(userId), enabled: !!userId})
-  // return useMutation("PUT/USERS", () => usersServices.updateuser(user_id))
+  // const { mutateAsync } = useMutation({mutationFn: (userId) => usersServices.updateUserById(userId)})
+  // return mutateAsync
+  return useMutation({mutationFn: (userId) => usersServices.updateUserById(userId)})
 }
 
 export const useGetUserById = ({userId}) => {
   return useQuery({queryKey: ["GET/USER/ID", userId], queryFn: () => usersServices.getUserById(userId), enabled: !!userId})
 }
 
-export const useDeleteUserById = () => {
-  return useQuery({queryKey: ["DELETE/USER/ID", userId], queryFn: () => usersServices.deleteUserById(userId)})
+export const useDeleteUserById = ({userId}) => {
+  return useMutation({mutationFn: (userId) => usersServices.deleteUserById(userId)})
   // return useMutation("DELETE/USER", (user_id) => usersServices.deleteUserById(user_id))
 }

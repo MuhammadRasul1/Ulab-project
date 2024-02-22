@@ -8,8 +8,11 @@ export const EditModal = ({
     cancelText = "Отменить",
     submitText = "Сохранить",
     DeleteBtn = "Удалить",
+    handleAccept=() => {},
+    id,
     children
     }) => {
+
 
     const { handleDeleteUser } = useEditModalProps();
       
@@ -25,12 +28,12 @@ export const EditModal = ({
                 </ModalBody>
 
                 <ModalFooter display="flex" justifyContent="space-between">
-                    <Button onClick={() => handleDeleteUser()} backgroundColor="transparent" border="1px solid #CF0000" color="#CF0000">{DeleteBtn}</Button>
+                    <Button onClick={() => handleDeleteUser(id)} backgroundColor="transparent" border="1px solid #CF0000" color="#CF0000">{DeleteBtn}</Button>
                     <Box>
                         <Button border="1px solid #E5E9EB" backgroundColor="transparent" mr={3} onClick={onClose}>
                             {cancelText}
                         </Button>
-                        <Button backgroundColor="#0067F4" color="white">{submitText}</Button>
+                        <Button onClick={handleAccept} backgroundColor="#0067F4" color="white">{submitText}</Button>
                     </Box>
                 </ModalFooter>
                 </ModalContent>

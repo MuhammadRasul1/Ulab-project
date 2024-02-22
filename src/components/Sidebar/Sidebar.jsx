@@ -6,6 +6,25 @@ import UsersIcon from "assets/img/icon/usersicon.svg"
 import { Box, Icon } from "@chakra-ui/react";
 import UserAvatar from "assets/img/icon/userAvatar.svg";
 
+const links = [
+  {
+    title: "Obuchenie",
+    path: "/courses",
+    src: "",
+    children: [
+      {
+        title: "Kursy",
+        path: "/courses"
+      }
+    ]
+  },
+  {
+    title: "Polzovtel",
+    path: "/users",
+    isBottom: true,
+  },
+]
+
 export const Sidebar = () => {
 
   const { auth } = useSidebarProps();

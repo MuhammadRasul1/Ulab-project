@@ -1,13 +1,13 @@
 import { Button, useDisclosure } from '@chakra-ui/react';
 import { useMutation } from '@tanstack/react-query';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 import request from 'services/httpRequest';
 import { authStore } from 'store/auth.store';
 import Edit from "assets/img/icon/edit.svg";
 import { useForm } from 'react-hook-form';
 import { useGetUserById, useGetUsers, useUpdateUser } from 'api';
 import { useEffect, useState } from 'react';
-import { isParsable } from 'utils/isParsable';
+// import { isParsable } from 'utils/isParsable';
 
 export const useListUsersProps = () => {
   // const navigate = useNavigate();
@@ -19,13 +19,30 @@ export const useListUsersProps = () => {
 
   const getUserById = useGetUserById({userId: activeUserId})
 
-  // const updateUser = useUpdateUser()
+  const {  mutate } = useMutation({ mutationFn: (data) => request.put(`user/${data.id}`, data)})
 
-  // const onSubmit = () => {
-  //   updateUser()
+  const onSubmit = (data) => {
+    mutate({...data, id: activeUserId})
+  }
+
+// const updateUser = useUpdateUser()
+
+  // const onSubmit = (data) => {
+  //   mutate(data, {
+  //     onSuccess: (res) => {
+  //       useUpdateUser({
+  //         first_name: res.data.first_name,
+  //         last_name: res.data.last_name,
+  //         email: res.data.email,
+  //         phone_number: res.data.phone_number,
+  //       })
+  //     },
+  //     onError: (error) => {
+  //       console.log(error)
+  //     },
+  //   })
   // }
 
-  // console.log(getUserById.data)
 
   const { 
     register,
@@ -34,19 +51,17 @@ export const useListUsersProps = () => {
   } = useForm();
 
   useEffect(() => {
+    console.log(getUserById.data)
     if(getUserById.isSuccess && activeUserId) {
-      if(isParsable(getUserById.data)) {
-        const userData = JSON.parse(getUserById.data)
+        const userData = getUserById.data
 
-        console.log(userData)
-        console.log(userData?.first_name)
         reset({
           first_name: userData?.first_name,
           last_name: userData?.last_name,
           phone_number: userData?.phone_number,
           email: userData?.email,
         })
-      }
+  
     }
   }, [getUserById.data])
 
@@ -96,9 +111,6 @@ export const useListUsersProps = () => {
               }}>
               <img src={Edit} width={20} height={20} alt="edit" />
             </Button>
-            {/* <Button colorScheme="red" onClick={() => handleDeleteUser(item?.id)}>
-              Delete
-            </Button>  */}
           </div>
         );
       },
@@ -116,7 +128,7 @@ export const useListUsersProps = () => {
     data,
     register,
     handleSubmit,
-    // onSubmit,
+    onSubmit,
     activeUserId,
     setActiveUserId,
   };

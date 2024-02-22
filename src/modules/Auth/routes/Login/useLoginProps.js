@@ -36,8 +36,8 @@ export const useLoginProps = () => {
         authStore.login()
       },
       onError: (error) => {
-        setError("email", { message: "Неверный email"  })
-        setError("password", { message: "Неверный пароль" })
+        setError("email", { message: error.response.data  })
+        setError("password", { message: error.response.data })
       }
     })
   };

@@ -14,16 +14,16 @@ export const ListUsers = () => {
     onClose,
     register,
     activeUserId,
-    // onSubmit,
-    handleSubmit,
-    onOpen,
+   handleSubmit,
     setActiveUserId,
+    onSubmit
    } = useListUsersProps();
+
 
   return(
     <Box marginTop="20px">
       <CustomTable columns={columns} data={data} />
-      <EditModal isOpen={isOpen} register={register} onClose={() => {
+      <EditModal handleAccept={handleSubmit(onSubmit)} id={activeUserId} isOpen={isOpen} register={register} onClose={() => {
         onClose()
         setActiveUserId("")
       }}>
@@ -32,28 +32,32 @@ export const ListUsers = () => {
             <InputModal
               type="text"
               placeholder="Имя"
-              {...register("first_name")}  
+              register={register}
+              name="first_name"
             />
           </Box>
           <Box className={cls.wrapper}>
             <InputModal
               type="text"
               placeholder="Фамилия"
-              {...register("last_name")}  
+              register={register}
+              name="last_name"
             />
           </Box>
           <Box className={cls.wrapper}>
             <InputModal
               type="number"
               placeholder="Номер телефона"
-              {...register("phone_number")}  
+              name="phone_number"
+              register={register}
             />
           </Box>
           <Box className={cls.wrapper}>
             <InputModal
               type="email"
               placeholder="Email"
-              {...register("email")}  
+              register={register}
+              name="email"
             />
           </Box>
         </FormControl>

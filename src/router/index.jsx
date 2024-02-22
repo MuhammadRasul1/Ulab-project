@@ -13,12 +13,23 @@ export const Router = observer(() => {
 
   const role = JSON.parse(localStorage.getItem("auth"));
 
+  // const RoleBasedRoutes = {
+  //   admin: <AdminRoutes/>,
+  //   user: <Users />
+  // }
+
   if (!isAuth) {
     return <Routes>
       <Route path="/auth/*" element={<AuthRoutes />} />
       <Route path="*" element={<Navigate to="/auth" />} />
     </Routes>;
   }
+
+  // return <Routes>
+  //   <Route path="" element={<MainLayout />}>
+  //     {RoleBasedRoutes[role.userData?.user_type]}
+  //   </Route>
+  // </Routes>
   
   if(role.userData?.user_type === "admin") {
     return <Routes>
