@@ -11,11 +11,6 @@ export const useCoursesMainProps = () => {
 
   const createUsers = useQuery({queryKey: ['course'], queryFn: () => request.get('/course').then(res => res.data)})
 
-  const {mutateAsync} = useMutation({mutationFn: (id) => request.delete(`course/${id}`)})
-  const handleDeleteUser = (id) => {
-    mutateAsync(id)
-  };
-
   const columns = [
     {
       title: '№',
@@ -83,19 +78,6 @@ export const useCoursesMainProps = () => {
               onClick={() => navigate(`/admin/courses/${item?.id}`)}>
               <img src={Edit} width={20} height={20} alt="edit" />
             </Button>
-            {/* <Button
-              // colorScheme={item?.has_permission ? 'linkedin' : 'green'}
-              onClick={() => handleGivePermission(item?.id)}
-              isDisabled={item?.has_permission}
-              >
-              {item?.has_permission ? 'access is allowed' : 'give access'}
-              </Button>
-              <Button colorScheme="teal" onClick={() => navigate(`/users/${item?.id}`)}>
-              Edit
-            </Button>
-            <Button colorScheme="red" onClick={() => handleDeleteUser(item?.id)}>
-              Delete
-            </Button> */}
           </div>
         );
       },

@@ -4,8 +4,8 @@ import request from 'services/httpRequest';
 const coursesServices = {
   getCourses: () => request.get('/course').then((res) => res?.data?.courses),
   updateCourse: (course_id) => request.put(`/course/${course_id}`).then(res => res?.data),
-  getCoursesById: (id) => request.get(`/course/${id}`).then(res => res?.data?.data),
-  deleteCourses: (course_id) => request.delete(`course/${course_id}`).then((res) => res?.data?.data)
+  getCourseById: (id) => request.get(`/course/${course_id}`).then(res => res?.data),
+  deleteCourses: (course_id) => request.delete(`course/${course_id}`).then((res) => res?.data)
 };
 
 export const useGetCourses = () => {
@@ -16,8 +16,8 @@ export const useUpdateCourse = (user_id) => {
   return useMutation("PUT/COURSES", () => coursesServices.updateCourse(user_id))
 }
 
-export const useGetCoursesById = (id) => {
-  return useQuery("GET/COURSE/ID", () => coursesServices.getCoursesById(id))
+export const useGetCourseById = ({userId}) => {
+  return useQuery({queryKey: ["GET/COURSE/ID", userId], queryFn: () => coursesServices.getCourseById(userId), enabled: !!userId})
 }
 
 export const useDeleteCourses = () => {

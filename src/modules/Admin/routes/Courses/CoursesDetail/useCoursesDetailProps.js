@@ -1,19 +1,21 @@
-import { useGetCoursesById, useUpdateCourse } from 'api';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 
-export const useCoursesDetailMainProps = () => {
+export const useCoursesDetailProps = () => {
   const { id } = useParams();
 
-  const { data: course } = useGetCoursesById();
+  // const [activeCourseId, setActiveCourseId] = useState("")
+
+  // const getCourseById = useGetCourseById({courseId: activeCourseId})
 
   const { handleSubmit, register } = useForm();
 
   const navigate = useNavigate();
 
-  const updatedUser = useUpdateCourse(id);
+  // const updatedUser = useUpdateCourse(id);
   const onSubmit = (data) => {
-    updatedUser.mutate({ login_name: data?.login_name });
+    // updatedUser.mutate({ login_name: data?.login_name });
   };
 
   return {

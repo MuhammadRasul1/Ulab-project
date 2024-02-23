@@ -14,7 +14,15 @@ import { CopyRight } from "../components/CopyRight";
 
 export const Login = () => {
 
-  const { onSubmit, handleSubmit, register, isPending, formState: { errors }, } = useLoginProps();
+  const { 
+    onSubmit, 
+    handleSubmit, 
+    register, 
+    isPending, 
+    formState: { errors }, 
+    show, 
+    handleClick 
+  } = useLoginProps();
 
   return (
     <Box className={cls.wrapper}>
@@ -29,6 +37,7 @@ export const Login = () => {
             type="email"
             placeholder="Введите e-mail"
             src={EmailOutline}
+            alt="email"
             {...register("login")}
             error={errors.email}
             required
@@ -38,10 +47,12 @@ export const Login = () => {
             label="Пароль"
             src={LockOpen}
             id="password"
+            type={show ? 'text' : 'password'}
             placeholder="Введите пароль"
             {...register("password")} 
             error={errors.password}
           />
+              
 
           <Box margin="8px 0 48px 0" display="flex" justifyContent="space-between">
             <InputCheck

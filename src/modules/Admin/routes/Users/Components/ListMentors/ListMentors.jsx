@@ -1,11 +1,11 @@
-import { Box, FormControl, Input } from "@chakra-ui/react";
+import { Box, FormControl } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
-import { useListUsersProps } from "./useListUsersProps";
 import { CustomTable } from "components/CustomTable";
-import { EditModal } from "../../Components/EditModal";
+import { EditModal } from "../EditModal";
 import { InputModal } from "components/InputModal";
+import { useListMentorsProps } from "./useListMentorsProps";
 
-export const ListUsers = () => {
+export const ListMentors = () => {
 
   const {
     columns, 
@@ -14,10 +14,10 @@ export const ListUsers = () => {
     onClose,
     register,
     activeUserId,
-   handleSubmit,
+    handleSubmit,
     setActiveUserId,
     onSubmit
-   } = useListUsersProps();
+   } = useListMentorsProps();
 
 
   return(
@@ -67,9 +67,3 @@ export const ListUsers = () => {
 }
 
 
-
-{/* <AddModal openModal={openModal} callback={handleSubmit(onSubmit)} onClose={handleClose}>
-  <FormControl as='form'>
-    <Input placeholder='user change' type="text" {...register('name')} />
-  </FormControl>
-</AddModal> */}

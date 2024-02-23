@@ -5,11 +5,11 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { Footer } from "components/Footer";
 import { useUsersProps } from "./useUsersProps";
-import { ListUsers } from "./ListUsers";
-import { ListMentors } from "./ListMentors";
+import { ListUsers } from "./Components/ListUsers";
+import { ListMentors } from "./Components/ListMentors";
 import { InputModal } from "components/InputModal";
-import { AddModal } from "../Components/AddModal";
-import { Header } from "../Components/Header";
+// import { AddModal } from "./Components/AddModal";
+import { Header } from "./Components/Header";
 
 export const Users = () => {
   const { handleSubmit, isOpen, onClose, register } = useUsersProps();
@@ -35,7 +35,7 @@ export const Users = () => {
       </Container>
       <Footer />
       
-      <AddModal isOpen={isOpen} register={register} onClose={onClose}>
+      {/* <AddModal isOpen={isOpen} register={register} onClose={onClose}>
         <FormControl as='form'>
           <Box className={cls.wrapper}>
             <InputModal
@@ -70,7 +70,7 @@ export const Users = () => {
             />
           </Box>
         </FormControl>
-      </AddModal>
+      </AddModal> */}
     </Box>
   ) 
 }

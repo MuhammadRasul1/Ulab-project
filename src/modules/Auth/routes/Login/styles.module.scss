@@ -12,6 +12,16 @@
     padding: 140px 76px 40px 64px;
 }
 
+.wrapperPassword {
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    display: flex;
+    border: 1px solid $icon-color;
+    background: $white;
+    border-radius: 8px;
+}
+
 .title {
     color: $dark-blue;
     margin-bottom: 40px;

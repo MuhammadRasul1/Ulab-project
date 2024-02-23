@@ -31,7 +31,7 @@ export const Router = observer(() => {
   //   </Route>
   // </Routes>
   
-  if(role.userData?.user_type === "admin") {
+  if(role.userData?.user_type === "admin" || role.userData?.user_type === "Mentors") {
     return <Routes>
       <Route path="" element={<MainLayout />}>
         <Route index path="/admin/*" element={<AdminRoutes />} />

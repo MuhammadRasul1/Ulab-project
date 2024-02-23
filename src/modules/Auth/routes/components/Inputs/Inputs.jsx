@@ -1,7 +1,7 @@
 import React from "react";
 import cls from "./styles.module.scss";
 import clsx from "clsx";
-import { Box, FormControl, InputGroup, InputRightElement } from "@chakra-ui/react";
+import { Box, InputGroup, InputRightElement } from "@chakra-ui/react";
 import Error from "assets/img/icon/error.svg";
 import { useInputProps } from "./useInputsProps";
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons'
@@ -10,21 +10,23 @@ export const Input = React.forwardRef((props, ref) => {
     const { error, ...rest } = props
 
     return (
-        <FormControl className={cls.formWrapper}>
+        <Box className={cls.wrapper}>
             <Box display="flex" flexDirection="column">
                 <label className={cls.label} htmlFor={props.id}>
                     {props.label} 
                     <span className={cls.required}>*</span>
                 </label>
                 <Box className={cls.inputWrapper}>
-                    <img src={props.src} alt="email_outline" width={24} height={24}/>
+                    <img src={props.src} alt={props.alt} width={24} height={24}/>
                     <input
                         className={clsx(cls.input, { [cls.error]: !!error?.message })}
                         {...rest}
                         ref={ref}
                         type={props.type}
                         id={props.id}
-                        placeholder={props.placeholder} 
+                        minLength={props.minLength ? props.minLength : 2}
+                        placeholder={props.placeholder}
+                        required={props.required} 
                     />
                 </Box>
             </Box>
@@ -34,7 +36,7 @@ export const Input = React.forwardRef((props, ref) => {
                 <p style={{ color: 'red', marginLeft: '8px' }}>{error?.message}</p>
              </Box>
             }
-        </FormControl>
+        </Box>
     )
 })
 
@@ -44,7 +46,7 @@ export const InputPassword = React.forwardRef((props, ref) => {
     const { handleClick, show} = useInputProps()
 
     return (
-        <Box className={cls.formWrapper}>
+        <Box className={cls.wrapper}>
             <Box display="flex" flexDirection="column">
                 <label className={cls.label} htmlFor={props.id}>
                     {props.label} 

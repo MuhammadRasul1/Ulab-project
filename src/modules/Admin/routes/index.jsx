@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import { CoursesMain } from "./Courses/CoursesMain";
 import { Profile } from "./Profile";
-import { CoursesDetailMain } from "./Courses/CoursesDetail/CoursesDetailMain";
-import { Users } from "./Users/UsersMain";
+import { Users } from "./Users";
+import { CoursesDetail } from "./Courses/CoursesDetail";
 
 
 export const AdminRoutes = () => {
@@ -10,6 +10,6 @@ export const AdminRoutes = () => {
     <Route path="users" element={<Users />} />
     <Route path="profile" element={<Profile />} />
     <Route path="courses" element={<CoursesMain />} />
-    <Route path="courses:id" element={<CoursesDetailMain />} />
+    <Route path="courses:id" element={<CoursesDetail />} />
   </Routes>;
 };

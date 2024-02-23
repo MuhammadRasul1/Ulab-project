@@ -1,16 +1,16 @@
 import cls from './styles.module.scss';
 import { Button, FormControl, Input } from '@chakra-ui/react';
-import { useCoursesDetailMainProps } from './useCoursesMainProps';
+import { useCoursesDetailProps } from './useCoursesDetailProps';
 
-export const CoursesDetailMain = () => {
+export const CoursesDetail = () => {
   const { 
-     id,
+    id,
     navigate,
     course,
     handleSubmit,
     register,
     onSubmit,
-  } = useCoursesDetailMainProps();
+  } = useCoursesDetailProps();
 
   return (
     <div>

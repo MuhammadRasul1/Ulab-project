@@ -1,23 +1,28 @@
 import { Button, useDisclosure } from '@chakra-ui/react';
 import { useMutation } from '@tanstack/react-query';
-// import { useNavigate } from 'react-router-dom';
 import request from 'services/httpRequest';
 import { authStore } from 'store/auth.store';
 import Edit from "assets/img/icon/edit.svg";
 import { useForm } from 'react-hook-form';
-import { useGetUserById, useGetUsers, useUpdateUser } from 'api';
+import { useGetStudents, useGetUserById, useUpdateUser } from 'api';
 import { useEffect, useState } from 'react';
-// import { isParsable } from 'utils/isParsable';
 
 export const useListUsersProps = () => {
-  // const navigate = useNavigate();
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const [activeUserId, setActiveUserId] = useState("")
 
-  const { data: users } = useGetUsers();
+  const { data: students } = useGetStudents();
 
   const getUserById = useGetUserById({userId: activeUserId})
+  
+  // const updateUser = useUpdateUser()
+
+  // console.log(updateUser.mutate({...data, id: activeUserId}))
+
+  // const onSubmit = (data) => {
+  //   updateUser.mutate({data, id: activeUserId})
+  // }
 
   const {  mutate } = useMutation({ mutationFn: (data) => request.put(`user/${data.id}`, data)})
 
@@ -25,30 +30,6 @@ export const useListUsersProps = () => {
     mutate({...data, id: activeUserId})
   }
 
-// const updateUser = useUpdateUser()
-
-  // const onSubmit = (data) => {
-  //   mutate(data, {
-  //     onSuccess: (res) => {
-  //       useUpdateUser({
-  //         first_name: res.data.first_name,
-  //         last_name: res.data.last_name,
-  //         email: res.data.email,
-  //         phone_number: res.data.phone_number,
-  //       })
-  //     },
-  //     onError: (error) => {
-  //       console.log(error)
-  //     },
-  //   })
-  // }
-
-
-  const { 
-    register,
-    handleSubmit,
-    reset,
-  } = useForm();
 
   useEffect(() => {
     console.log(getUserById.data)
@@ -61,9 +42,14 @@ export const useListUsersProps = () => {
           phone_number: userData?.phone_number,
           email: userData?.email,
         })
-  
     }
   }, [getUserById.data])
+
+  const { 
+    register,
+    handleSubmit,
+    reset,
+  } = useForm();
 
   const columns = [
     {
@@ -117,7 +103,7 @@ export const useListUsersProps = () => {
     },
   ];
 
-  authStore.hasNewData(users?.users)
+  authStore.hasNewData(students?.users)
   const data = authStore.newData
 
   return {
