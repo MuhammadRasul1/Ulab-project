@@ -6,7 +6,8 @@ import expends from 'assets/img/icon/expand_more.svg';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-
+import notificationIcon from 'assets/img/icon/notifications.svg';
+import chat_bubblIcon from 'assets/img/icon/chat_bubble.svg';
 export const StudentMain = () => {
   const URL = 'https://lms-vuny.onrender.com/lms/api/course';
   const [course, SetCourse] = useState([]);
@@ -25,6 +26,25 @@ export const StudentMain = () => {
   return (
     <div>
       <div className={cls.MyCourse}>
+        <div className={cls.headerWrap}>
+          <div className={cls.headerPart1}>
+            <Link>
+              <div className={cls.haderText}>
+                <p className={cls.kindSpheres}>What is IT, and what kind of spheres is in IT?</p>
+                <p className={cls.AboutINformation}>Get glimps of information about IT in order to choose sphere</p>
+                <button className={cls.btn}>Explore now</button>
+              </div>
+            </Link>
+          </div>
+          <div className={cls.headerIcons}>
+            <button>
+              <img src={notificationIcon} alt="" />
+            </button>
+            <button>
+              <img src={chat_bubblIcon} alt="" />
+            </button>
+          </div>
+        </div>
         <p className={cls.nameCourse}>Мои Курсы</p>
         <div className={cls.wraperCourse}>
           <div className={cls.MyCourseBox}>
@@ -94,10 +114,7 @@ export const StudentMain = () => {
                       <div className={cls.percentLine}> </div>
                     </div>
                   </div>
-                  <p className={cls.infoCorse}>
-                    Go (Golang) — это компилируемый многопоточный язык программирования от Google с открытым исходным
-                    кодом.
-                  </p>
+                  <p className={cls.infoCorse}>Go (Golang) — это компилируемый многопоточный</p>
                 </div>
               </div>
               <div className={cls.aboutTimeProcess}>

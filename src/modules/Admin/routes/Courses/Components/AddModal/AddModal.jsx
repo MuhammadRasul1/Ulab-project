@@ -53,7 +53,7 @@ export const AddModal = ({
                             label="Повторяемость:" 
                             id="weekly_number"
                             placeholder="Введите повторяемость"
-                            type="text"
+                            type="number"
                             register={register}
                             name="weekly_number"
                             required
@@ -71,7 +71,7 @@ export const AddModal = ({
                             label="Сумма" 
                             id="price"
                             placeholder="Введите сумму"
-                            type="text"
+                            type="number"
                             register={register}
                             name="price"
                             required

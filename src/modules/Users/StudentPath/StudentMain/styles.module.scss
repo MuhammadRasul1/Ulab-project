@@ -1,6 +1,56 @@
 .MyCourse {
-  padding: 30px;
+  padding: 90px;
 }
+//
+.headerWrap {
+  display: flex;
+  gap: 100px;
+}
+.headerIcons {
+  margin-top: -210px;
+  display: flex;
+  gap: 20px;
+}
+.headerIcons button {
+  color: transparent;
+}
+
+.headerPart1 {
+  width: 1121px;
+  height: 200px;
+}
+
+.haderText {
+  padding: 35px;
+  width: 1102px;
+  height: 203px;
+  background-color: #403ef5;
+  border-radius: 24px;
+  padding: 32px, 16px, 32px, 32px;
+}
+.kindSpheres {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.AboutINformation {
+  font-size: 13px;
+  font-weight: 400;
+  color: #ffffff;
+}
+.btn {
+  width: 124px;
+  height: 44px;
+  border-radius: 6px;
+  padding: 20px, 24px, 12px, 24px;
+  margin-top: 40px;
+  background: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  color: #403ef5;
+}
+
+//
 .wraperCourse {
   gap: 60px;
   margin-top: 20px;
@@ -19,11 +69,12 @@
 .MyCourseBox {
   margin-top: 30px;
   display: flex;
+  text-align: center;
 }
 .myCorsePart1 {
-  padding: 10px;
-  width: 435px;
-  padding: 12px, 24px, 12px, 24px;
+  padding: 35px;
+  width: 525px;
+  padding: 20px, 24px, 12px, 24px;
   gap: 20px;
   box-shadow: 4px 11px 23px -8px rgba(34, 60, 80, 0.53);
   border: 1px solid transparent;
@@ -57,6 +108,8 @@
   background-color: #1ac19d;
 }
 .infoCorse {
+  text-align: start;
+  margin-top: 20px;
   font-size: 13px;
   font-weight: 400;
   color: #747474;
@@ -72,7 +125,7 @@
 }
 .timePros {
   background: #f4f3f1;
-  width: 95px;
+  width: 105px;
   height: 45px;
   padding-left: 8px;
   border: 1px solid transparent;
@@ -84,7 +137,7 @@
   gap: 5px;
 }
 .dateBtn {
-  margin-top: 15px;
+  margin-top: 25px;
   background: #262626;
   width: 402px;
   border-radius: 8px;
@@ -138,3 +191,4 @@
 .EveryCourse {
   margin-bottom: 30px;
 }
+//

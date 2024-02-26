@@ -6,6 +6,7 @@ import { AuthRoutes } from "modules/Auth/routes";
 import { AdminRoutes } from "modules/Admin/routes";
 // import { Users } from "modules/Users/Users";
 import { StudentPath } from "modules/Users";
+import { CoursesFundamentals } from "modules/Users/CoursesFundamentals";
 
 export const Router = observer(() => {
 
@@ -31,7 +32,7 @@ export const Router = observer(() => {
   //   </Route>
   // </Routes>
   
-  if(role.userData?.user_type === "admin" || role.userData?.user_type === "Mentors") {
+  if(role.userData?.user_type === "Admin" || role.userData?.user_type === "Mentors") {
     return <Routes>
       <Route path="" element={<MainLayout />}>
         <Route index path="/admin/*" element={<AdminRoutes />} />
@@ -39,9 +40,10 @@ export const Router = observer(() => {
       </Route>
     </Routes>;
   } else {
-      return(
-        <Routes>
+    return(
+      <Routes>
           <Route path="users" element={<StudentPath />}/>
+          <Route path="users/:postId" element={<CoursesFundamentals />} />
           <Route path="*" element={<Navigate to="/users" />} />
         </Routes>
       )

@@ -9,7 +9,6 @@ export const AddModal = ({
     Title="Добавить",
     cancelText = "Отменить",
     submitText = "Сохранить",
-    // children
     }) => {
 
     const { handleSubmit, onSubmit, register} = useAddModalProps()
@@ -63,14 +62,6 @@ export const AddModal = ({
                                 name="password"
                             />
                         </Box>
-                        {/* <Box className={cls.wrapper}>
-                            <InputModal
-                                type="text"
-                                placeholder="type"
-                                register={register}
-                                name="user_type" 
-                            />
-                        </Box> */}
                         <Box className={cls.wrapper}>
                             <Select />
                         </Box>

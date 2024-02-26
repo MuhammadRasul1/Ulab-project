@@ -1,8 +1,9 @@
 import React from 'react';
-import { StudentHeader } from './StudentPath/StudentHeader';
 import { StudentMain } from './StudentPath/StudentMain/index';
 import { StudentSaidbar } from './StudentPath/StudentSaidbar/studentSaidbar';
 import cls from './style.module.scss';
+import { Route, Routes } from 'react-router-dom';
+import { CoursesFundamentals } from './CoursesFundamentals';
 export const StudentPath = () => {
   return (
     <div>
@@ -11,7 +12,6 @@ export const StudentPath = () => {
           <StudentSaidbar />
         </div>
         <div className={cls.mainBody}>
-          <StudentHeader />
           <div>
             <StudentMain />
           </div>

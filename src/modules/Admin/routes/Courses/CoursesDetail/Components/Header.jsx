@@ -2,6 +2,7 @@ import { Box } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
 import { Container } from "components/Container";
 import BackArrow from "assets/img/icon/backArrow.svg";
+import { useParams } from "react-router-dom";
 
 export const Header = () => {
 
@@ -13,7 +14,7 @@ export const Header = () => {
                 <button>
                     <img src={BackArrow} alt="back arrow" />
                 </button>
-                <h1 className={cls.title}>Курсы</h1>
+                <h1 className={cls.title}></h1>
             </Box>
         </Box>
       </Container>

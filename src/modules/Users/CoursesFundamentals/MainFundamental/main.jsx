@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import request from 'services/httpRequest';
 import cls from './style.module.scss';
+import CourseImg from 'assets/img/CourseImg.jpg';
 import { set } from 'mobx';
+import { color } from 'framer-motion';
 export const MainFundamental = () => {
   const { postId } = useParams();
 
@@ -11,7 +13,7 @@ export const MainFundamental = () => {
 
   const [post, setPost] = useState({});
   useEffect(() => {
-    request.get(`/course/${postId}`).then((res) => {
+    request.get(`/lms/api/course/${postId}`).then((res) => {
       setPost(res.data);
     });
   }, []);
@@ -29,6 +31,41 @@ export const MainFundamental = () => {
           <p>1 of 62 lessons completed</p>
           <div className={cls.lineBox}>
             <div className={cls.line}></div>
+          </div>
+        </div>
+      </div>
+      <div className={cls.CourseImgBox}>
+        <img src={CourseImg} alt={post.photo} />
+      </div>
+      <div className={cls.inofoCourse}>
+        <p className={cls.titleCourse}>Электроотрицательность и химическая связь</p>
+        <div className={cls.abouteCourse}>
+          <div className={cls.aboutRoulse}>
+            <p>В этом уроке вы узнаете</p>
+
+            <p className={cls.rule}> -что нужно знать, чтобы освоить новую профессию в сфере данных</p>
+            <p className={cls.rule}> -что нужно знать, чтобы освоить новую профессию в сфере данных</p>
+          </div>
+          <div className={cls.homworkBox}>
+            <p className={cls.homework}>
+              обсуждаются значения электроотрицательности в химических связях по шкале Полинга. Дана классификация
+              связей: ковалентных неполярных, ковалентных полярных или ионных. В видео обсуждаются значения
+              электроотрицательности в химических связях по шкале Полинга. Дана классификация связей: ковалентных
+              неполярных, ковалентных полярных или ионных. Дана классификация связей: ковалентных неполярных,
+              ковалентных полярных или ионных. В видео обсуждаются значения электроотрицательности в химических связях
+              по шкале Полинга. Дана классификация связей: ковалентных неполярных, ковалентных полярных или ионных. Дана
+              классификация связей: ковалентных неполярных, ковалентных полярных или ионных. В видео обсуждаются
+              значения электроотрицательности в химических связях по шкале Полинга. Дана классификация связей:
+              ковалентных неполярных, ковалентных полярных или ионных.
+            </p>
+            <div className={cls.btnDiv}>
+              <Link to={'/'}>
+                <button className={cls.bleckBtn}> К следующему уроку</button>
+              </Link>
+              <Link to={'/'}>
+                <button className={cls.whitheBtn}>К ратки пересказ урока</button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
