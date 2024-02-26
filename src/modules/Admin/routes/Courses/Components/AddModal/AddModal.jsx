@@ -1,8 +1,7 @@
 import { Box, Button, FormControl, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
-import { InputCourses } from "../InputCourses";
-import { InputFile } from "../InputFile";
-import { InputDate } from "../InputDate";
+import { CoursesInput } from "../CoursesInput";
+import { useAddModalProps } from "./useAddModalProps";
 
 export const AddModal = ({
     isOpen, 
@@ -12,6 +11,8 @@ export const AddModal = ({
     submitText = "Сохранить",
     children
     }) => {
+
+    const { register, handleSubmit, onSubmit } = useAddModalProps()
       
     return (
         <Box>
@@ -22,59 +23,76 @@ export const AddModal = ({
                 <ModalCloseButton />
                 <ModalBody>
                     <FormControl as='form'>
-                        <InputFile 
+                        <CoursesInput 
                             label="Загрузить фото"
                             id="download_photo"
-                            // {...register("download_photo")}
+                            type="file"
+                            register={register}
+                            name="photo"
+                            required
                         />
-                        <InputCourses 
-                            label="Название"
+                        <CoursesInput 
+                            label="Название курса"
                             id="name_course"
+                            placeholder="Введите Название курса"
                             type="text"
-                            placeholder="Введите название"
-                            // {...register("name")}
+                            register={register}
+                            name="name"
+                            required
                         />
-                        <InputCourses 
-                            label="Описание"
-                            id="description_course"
-                            type="text"
+                        <CoursesInput
+                            label="Описание" 
+                            id="desc_course"
                             placeholder="Введите описание"
-                            // {...register("for_who")}
-                        />
-                        <InputCourses 
-                            label="Повтояемость:"
-                            id="weekly_number"
                             type="text"
-                            placeholder="Повторяемость"
-                            // {...register("weekly_number")}
+                            register={register}
+                            name="for_who"
+                            required
                         />
-                        <InputCourses 
-                            label="Длительность урока"
+                        <CoursesInput
+                            label="Повторяемость:" 
+                            id="weekly_number"
+                            placeholder="Введите повторяемость"
+                            type="text"
+                            register={register}
+                            name="weekly_number"
+                            required
+                        />
+                        <CoursesInput
+                            label="Длительность урока:" 
                             id="duration"
-                            type="number"
-                            placeholder="Длительность урока"
-                            // {...register("duration")}
+                            placeholder="Введите длительность урока"
+                            type="text"
+                            register={register}
+                            name="duration"
+                            required
                         />
-                        <InputCourses 
-                            label="Сумма"
+                        <CoursesInput
+                            label="Сумма" 
                             id="price"
-                            type="number"
-                            placeholder="Сумма"
-                            // {...register("price")}
+                            placeholder="Введите сумму"
+                            type="text"
+                            register={register}
+                            name="price"
+                            required
                         />
-                        <InputDate 
-                            label="Дата начало"
-                            id="data_start"
-                            // {...register("data_start")}
+                        <CoursesInput
+                            label="Дата начало" 
+                            id="date"
+                            placeholder="Введите сумму"
+                            type="datetime-local"
+                            register={register}
+                            name="beginning_date_course"
+                            required
                         />
                     </FormControl>
-                    {children}
+                    {/* {children} */}
                 </ModalBody>
                 <ModalFooter>
                     <Button border="1px solid #E5E9EB" backgroundColor="transparent" mr={3} onClick={onClose}>
                         {cancelText}
                     </Button>
-                    <Button backgroundColor="#0067F4" color="white">{submitText}</Button>
+                    <Button onClick={handleSubmit(onSubmit)} backgroundColor="#0067F4" color="white">{submitText}</Button>
                 </ModalFooter>
                 </ModalContent>
             </Modal>

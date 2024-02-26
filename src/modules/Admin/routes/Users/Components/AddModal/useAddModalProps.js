@@ -5,11 +5,11 @@ import request from "services/httpRequest";
 
 export const useAddModalProps = () => {
 
-  const createUser = useCreateUser()
+  // const createUser = useCreateUser()
     
-  // const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("user", data) })
+  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("user", data) })
   const onSubmit = (data) => {
-    createUser.mutate({data})
+    mutate(data)
   }
 
   const { 

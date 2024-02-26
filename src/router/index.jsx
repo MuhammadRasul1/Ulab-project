@@ -4,7 +4,7 @@ import { authStore } from "store/auth.store";
 import { observer } from "mobx-react-lite";
 import { AuthRoutes } from "modules/Auth/routes";
 import { AdminRoutes } from "modules/Admin/routes";
-import { Users } from "modules/Users/Users";
+// import { Users } from "modules/Users/Users";
 import { StudentPath } from "modules/Users";
 
 export const Router = observer(() => {

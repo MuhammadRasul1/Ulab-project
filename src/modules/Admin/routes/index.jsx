@@ -10,6 +10,6 @@ export const AdminRoutes = () => {
     <Route path="users" element={<Users />} />
     <Route path="profile" element={<Profile />} />
     <Route path="courses" element={<CoursesMain />} />
-    <Route path="courses:id" element={<CoursesDetail />} />
+    <Route path="courses/:id" element={<CoursesDetail />} />
   </Routes>;
 };

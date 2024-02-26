@@ -22,7 +22,17 @@
 }
 .sidbarCours p {
   font-size: 15px;
-  color: #403ef5;
+  color: #9a9a9a;
+}
+.sidbarCours :hover {
+  font-size: 20px;
+  color: #5755f1;
+  transition: 0.5s;
+}
+.sidbarExzam :hover {
+  font-size: 20px;
+  color: #5755f1;
+  transition: 0.5s;
 }
 .sidbarExzam {
   display: flex;

@@ -1,0 +1,26 @@
+.headerContiner {
+  padding: 25px;
+  width: 1, 200px;
+  height: 75px;
+  border: 0px, 0px, 1px, 0px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid transparent;
+  border-bottom-color: #f5ebeb;
+}
+.headerContiner p {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  color: #2b86f1;
+}
+.headerContiner button {
+  width: 106px;
+  height: 27px;
+  border-radius: 28px;
+  padding: 6px, 16px, 6px, 16px;
+  background: #ffd9d9;
+  color: #cf0000;
+  font-size: 12px;
+  line-height: 12.52px;
+}

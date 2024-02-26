@@ -3,13 +3,7 @@ import clockLOder from 'assets/img/icon/clock_loader_10.svg';
 import cls from './style.module.scss';
 import { SaidbarFooter } from '../SaidbarFooter';
 import { Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
-import { authStore } from 'store/auth.store';
 export const StudentSaidbar = () => {
-  const handleLogOut = () => {
-    authStore.userData = {}
-    authStore.logout()
-  }
   return (
     <div className={cls.sidbarWrap}>
       <div className={cls.sidbarTop}>
@@ -31,7 +25,6 @@ export const StudentSaidbar = () => {
           </Link>
         </div>
         <div className={cls.line}></div>
-        <Button background={"red"} color={"white"} onClick={handleLogOut}>LOG OUT</Button>
       </div>
       <SaidbarFooter />
     </div>

@@ -2,13 +2,8 @@ import { useForm } from "react-hook-form";
 import { authStore } from "store/auth.store";
 import { useMutation } from "@tanstack/react-query"
 import request from "services/httpRequest";
-import { useState } from "react";
-
 
 export const useLoginProps = () => {
-
-  const [show, setShow] = useState(false);
-  const handleClick = () => setShow(!show);
 
   const { 
     register,
@@ -24,6 +19,7 @@ export const useLoginProps = () => {
     mutate(data, {
       onSuccess: (res) => {
         authStore.updateUserData({
+          token: res?.data?.access_token,
           id: res?.data?.data?.id,
           role_id: res?.data?.data?.role_id,
           user_type: res?.data?.data?.user_type,
@@ -36,8 +32,8 @@ export const useLoginProps = () => {
         authStore.login()
       },
       onError: (error) => {
-        setError("email", { message: error.response.data  })
-        setError("password", { message: error.response.data })
+        setError("email", { message: error?.response?.data  })
+        setError("password", { message: error?.response?.data })
       }
     })
   };
@@ -45,8 +41,6 @@ export const useLoginProps = () => {
   return {
     register,
     handleSubmit,
-    show,
-    handleClick,
     formState: { errors },
     onSubmit,
     isPending

@@ -4,9 +4,9 @@ import cls from "./styles.module.scss";
 export const Select = () => {
     return (
         <Box className={cls.wrapper}>
-            <select className={cls.select} name="select" id="select">
-                <option value="student">Студент</option>
-                <option value="mentor">Ментор</option>
+            <select className={cls.select} name="user_type" id="select">
+                <option value="Student">Студент</option>
+                <option value="Mentor">Ментор</option>
             </select>
         </Box>
     );

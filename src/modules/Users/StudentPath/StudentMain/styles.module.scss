@@ -2,9 +2,14 @@
   padding: 30px;
 }
 .wraperCourse {
-  display: flex;
   gap: 60px;
   margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.wraperItem {
+  display: flex;
+  flex-wrap: wrap;
 }
 .nameCourse {
   font-size: 24px;
@@ -12,10 +17,12 @@
   margin-top: 30px;
 }
 .MyCourseBox {
+  margin-top: 30px;
+  display: flex;
 }
 .myCorsePart1 {
   padding: 10px;
-  width: 425px;
+  width: 435px;
   padding: 12px, 24px, 12px, 24px;
   gap: 20px;
   box-shadow: 4px 11px 23px -8px rgba(34, 60, 80, 0.53);
@@ -30,6 +37,7 @@
 .titlePart1 {
   display: flex;
   justify-content: space-between;
+  gap: 4px;
 }
 .titleCourse {
   font-size: 17;
@@ -66,16 +74,17 @@
   background: #f4f3f1;
   width: 95px;
   height: 45px;
-  padding-left: 10px;
+  padding-left: 8px;
   border: 1px solid transparent;
   border-radius: 10px;
 }
 .timeDate {
   display: flex;
+  padding-top: 4px;
   gap: 5px;
 }
 .dateBtn {
-  margin-top: 10px;
+  margin-top: 15px;
   background: #262626;
   width: 402px;
   border-radius: 8px;
@@ -99,6 +108,9 @@
   border-radius: 6px;
   padding: 12px, 128px, 12px, 12px;
 }
+.infoTimeP {
+  font-size: 9px;
+}
 .btnSearch {
   width: 94px;
   height: 44px;
@@ -106,6 +118,7 @@
   padding: 12px, 24px, 12px, 24px;
   color: #ffffff;
   border-radius: 6px;
+  margin-bottom: 20px;
 }
 .getDate {
   gap: 20px;

@@ -27,37 +27,50 @@ export const AddModal = ({
                             <InputModal
                                 type="text"
                                 placeholder="Имя"
-                                {...register("first_name")}  
+                                register={register}
+                                name="first_name"  
                             />
                         </Box>
                         <Box className={cls.wrapper}>
                             <InputModal
                                 type="text"
                                 placeholder="Фамилия"
-                                {...register("last_name")}  
+                                register={register}
+                                name="last_name"
                             />
                         </Box>
                         <Box className={cls.wrapper}>
                             <InputModal
                                 type="number"
                                 placeholder="Номер телефона"
-                                {...register("phone_number")}  
+                                register={register}
+                                name="phone_number" 
                             />
                         </Box>
                         <Box className={cls.wrapper}>
                             <InputModal
                                 type="email"
                                 placeholder="Email"
-                                {...register("email")}  
+                                register={register}
+                                name="email"  
                             />
                         </Box>
                         <Box className={cls.wrapper}>
                             <InputModal
                                 type="password"
                                 placeholder="Пароль"
-                                {...register("password")}  
+                                register={register}
+                                name="password"
                             />
                         </Box>
+                        {/* <Box className={cls.wrapper}>
+                            <InputModal
+                                type="text"
+                                placeholder="type"
+                                register={register}
+                                name="user_type" 
+                            />
+                        </Box> */}
                         <Box className={cls.wrapper}>
                             <Select />
                         </Box>

@@ -1,3 +1,4 @@
+import React from 'react';
 import { StudentHeader } from './StudentPath/StudentHeader';
 import { StudentMain } from './StudentPath/StudentMain/index';
 import { StudentSaidbar } from './StudentPath/StudentSaidbar/studentSaidbar';

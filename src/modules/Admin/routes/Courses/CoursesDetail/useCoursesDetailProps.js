@@ -1,9 +1,18 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
+import request from 'services/httpRequest';
 
 export const useCoursesDetailProps = () => {
-  const { id } = useParams();
+
+    const [detail, setDetail] = useState()
+    const param = useParams()
+    console.log(param)
+
+    useEffect(() => {
+        request.get(`course/${param.id}`)
+        .then(res => setDetail(res.data))
+    }, [])
 
   // const [activeCourseId, setActiveCourseId] = useState("")
 
@@ -19,8 +28,9 @@ export const useCoursesDetailProps = () => {
   };
 
   return {
-    id,
-    course,
+    // id,
+    // course,
+    detail,
     navigate,
     onSubmit,
     handleSubmit,

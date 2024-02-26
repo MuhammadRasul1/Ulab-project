@@ -6,37 +6,33 @@ class AuthStore {
   isAuth = false;
 
   userData = {
-    status: "",
-    description: "",
+    access_token: "",
     id: "",
-    user_type: "",
     role_id: "",
+    user_type: "",
     first_name: "",
     last_name: "",
     email: "",
     phone_number: "",
-    password: "",
-    created_at: "",
-    updated_at: ""
+    password: ""
   };
 
   userRegisterData = {
+    request_id: "",
     first_name: "",
     last_name: "",
-    email: "",
+    email: ""
   }
   
   userInfoRegisterData = {
-    first_name: "",
-    last_name: "",
-    email: "",
+    data: "",
   }
 
-  userForgotPasswordData = {
+  userResetPasswordData = {
     request_id: ""
   }
 
-  userForgotPasswordInfoData = {
+  userResetPasswordInfoData = {
     email: ""
   }
 
@@ -49,7 +45,7 @@ class AuthStore {
     makePersistable(this, {
       name: "auth",
       storage: window.localStorage,
-      properties: ["isAuth", "userData", "userRegisterData", "userInfoRegisterData", "userForgotPasswordData", "userForgotPasswordInfoData"]
+      properties: ["isAuth", "userData", "userRegisterData", "userInfoRegisterData", "userResetPasswordData", "userResetPasswordInfoData"]
     });
   }
 
@@ -69,12 +65,12 @@ class AuthStore {
     this.userInfoRegisterData = data
   }
   
-  forgotPasswordData(data) {
-    this.userForgotPasswordData = data
+  resetPasswordData(data) {
+    this.userResetPasswordData = data
   }
 
-  forgotPasswordInfoData(data) {
-    this.userForgotPasswordInfoData = data
+  resetPasswordInfoData(data) {
+    this.userResetPasswordInfoData = data
   }
 
   login() {

@@ -8,7 +8,7 @@ import { BtnDownload } from "components/BtnDownload";
 import { useDisclosure } from "@chakra-ui/react"
 import { AddModal } from "../AddModal";
 
-export const Header = (props) => {
+export const Header = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
