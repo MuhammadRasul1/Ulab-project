@@ -14,7 +14,7 @@ export const useResetPasswordProps = () => {
     setError
   } = useForm();
 
-  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/sendExistEmail", data) })
+  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/restorePassword", data) })
 
   const onSubmit = (data) => {
     mutate(data, {

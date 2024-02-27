@@ -47,7 +47,7 @@ export const CoursesDetail = () => {
 
   return(
     <Box>
-      <Header />
+      <Header title={detail?.name} />
       <Container>
         <Box marginTop="78px">
           <Tabs>

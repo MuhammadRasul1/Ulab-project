@@ -2,26 +2,37 @@ import { Link } from "react-router-dom";
 import cls from "./styles.module.scss";
 import { useSidebarProps } from "./useSidebarProps";
 import Courses from "assets/img/icon/courses.svg";
-import UsersIcon from "assets/img/icon/usersicon.svg"
+import UserIcon from "assets/img/icon/usersicon.svg"
 import { Box, Icon } from "@chakra-ui/react";
 import UserAvatar from "assets/img/icon/userAvatar.svg";
+import InfoIcon from "assets/img/icon/info.svg";
+import Device from "assets/img/icon/devices.svg";
+
 
 const links = [
   {
-    title: "Obuchenie",
-    path: "/courses",
-    src: "",
-    children: [
-      {
-        title: "Kursy",
-        path: "/courses"
-      }
-    ]
+    title: "Курсы",
+    path: "admin/courses",
+    src: Courses,
+    alt: "Courses",
   },
   {
-    title: "Polzovtel",
-    path: "/users",
-    isBottom: true,
+    title: "Пользователи",
+    path: "admin/users",
+    src: UserIcon,
+    alt: "UserIcon",
+  },
+  {
+    title: "Данные",
+    path: "admin/info",
+    src: InfoIcon,
+    alt: "InfoIcon",
+  },
+  {
+    title: "Устройство",
+    path: "admin/device",
+    src: Device,
+    alt: "Device",
   },
 ]
 
@@ -47,20 +58,21 @@ export const Sidebar = () => {
       </Box>
       <nav className={cls.navbar}>
         <ul className={cls.navList}>
-          <li className={cls.navItem}> 
-            <Link className={cls.navLink} to="admin/courses">
-              <img src={Courses} alt="courses" width={20} height={20} />
-              <span className={cls.navText}>Курсы</span>
-            </Link>
-          </li>  
-          <li className={cls.navItem}> 
-            <Link className={cls.navLink} to="admin/users">
-              <img src={UsersIcon} alt="UsersIcon" width={20} height={20} />
-              <span className={cls.navText}>Пользователи</span>
-            </Link>
-          </li>  
+          {
+            links.map((link) => (
+              <li className={cls.navItem}> 
+                <Link className={cls.navLink} to={link?.path}>
+                  <img src={link?.src} alt={link?.alt} width={20} height={20} />
+                  <span className={cls.navText}>{link.title}</span>
+                </Link>
+              </li>
+            ))
+          }
         </ul>
       </nav>
+      <footer>
+
+      </footer>
       <Box position="fixed" left="0" bottom="1px" max-width="280px" z-index="20">
         <Box className={cls.profileWrapper}>
           <Link className={cls.userProfile} to="admin/profile">

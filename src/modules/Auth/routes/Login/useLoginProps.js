@@ -19,7 +19,7 @@ export const useLoginProps = () => {
     mutate(data, {
       onSuccess: (res) => {
         authStore.updateUserData({
-          // access_token: res?.data?.access_token,
+          access_token: res?.data?.access_token,
           id: res?.data?.data?.id,
           role_id: res?.data?.data?.role_id,
           user_type: res?.data?.data?.user_type,
