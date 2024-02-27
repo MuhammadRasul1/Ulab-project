@@ -2,12 +2,14 @@
   font-family: Inter;
   width: 233px;
   position: fixed;
-  height: 100vh;
-  padding: 25px;
+  height: 740px;
   border-right: 1px solid #f5ebeb;
+  border-bottom: 1px solid #f5ebeb;
   background-color: #fff;
 }
-
+.sidbrTop {
+  padding: 25px;
+}
 .LMS {
   font-size: 20px;
   color: #403ef5;
@@ -24,13 +26,15 @@
   color: #9a9a9a;
 }
 .sidbarCours :hover {
-  font-size: 20px;
   color: #5755f1;
   transition: 0.5s;
 }
 .sidbarExzam :hover {
-  font-size: 20px;
   color: #5755f1;
+  transition: 0.5s;
+}
+.logOut:hover {
+  color: #f15555;
   transition: 0.5s;
 }
 .sidbarExzam {
@@ -42,6 +46,21 @@
   font-size: 15px;
   color: #9a9a9a;
 }
+.logOut {
+  display: flex;
+  padding-top: 20px;
+  gap: 10px;
+
+  color: #9a9a9a;
+}
+
+.IconLogOut {
+  font-size: 23px;
+}
+.btnLog {
+  font-size: 15px;
+}
+
 .line {
   margin-top: 30px;
   border-bottom: 1px solid #f5ebeb;
@@ -54,13 +73,15 @@
   display: flex;
   text-align: center;
   gap: 10px;
+  position: fixed;
+  padding-left: 25px;
 }
 .SaidbarFooterWrap {
   border-top: 1px solid #f5ebeb;
-  border-right: 1px solid #f5ebeb;
-  width: 208px;
-  margin-top: 590px;
-
+  position: relative;
+  width: 100%;
+  top: 480px;
+  padding: 0px;
   padding-top: 10px;
   background-color: #fff;
 }

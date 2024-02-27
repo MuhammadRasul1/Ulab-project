@@ -8,11 +8,11 @@ import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import notificationIcon from 'assets/img/icon/notifications.svg';
 import chat_bubblIcon from 'assets/img/icon/chat_bubble.svg';
+import request from 'services/httpRequest';
 export const StudentMain = () => {
-  const URL = 'https://lms-vuny.onrender.com/lms/api/course';
   const [course, SetCourse] = useState([]);
   React.useEffect(() => {
-    axios.get(URL).then((response) => {
+    request.get('/course').then((response) => {
       SetCourse(response.data.courses);
     });
   }, []);
@@ -28,7 +28,11 @@ export const StudentMain = () => {
       <div className={cls.MyCourse}>
         <div className={cls.headerWrap}>
           <div className={cls.headerPart1}>
-            <Link>
+            <Link
+              to={
+                'https://www.google.com/search?client=ubuntu-sn&hs=tvP&sca_esv=5bdde8b43c3acd18&channel=fs&q=what+is+it+%3F&tbm=vid&source=lnms&sa=X&ved=2ahUKEwjmopbx18mEAxXhMhAIHTauA_wQ0pQJegQIDRAB&biw=1366&bih=656&dpr=1#fpstate=ive&vld=cid:7baeb6ee,vid:kbXoSgmrNnU,st:0'
+              }
+            >
               <div className={cls.haderText}>
                 <p className={cls.kindSpheres}>What is IT, and what kind of spheres is in IT?</p>
                 <p className={cls.AboutINformation}>Get glimps of information about IT in order to choose sphere</p>

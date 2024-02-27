@@ -1,15 +1,16 @@
 .MyCourse {
-  padding: 90px;
+  padding: 30px;
 }
 //
 .headerWrap {
   display: flex;
-  gap: 100px;
+  gap: 30px;
 }
 .headerIcons {
   margin-top: -210px;
   display: flex;
   gap: 20px;
+  width: 100px;
 }
 .headerIcons button {
   color: transparent;

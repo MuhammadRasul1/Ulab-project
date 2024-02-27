@@ -31,7 +31,9 @@ export const CoursesFundamentals = () => {
 
   return (
     <div>
-      <HeaderFundamentals />
+      <div>
+        <HeaderFundamentals />
+      </div>
       <SaidbarFundamental />
       <div className={cls.main}>
         <MainFundamental />

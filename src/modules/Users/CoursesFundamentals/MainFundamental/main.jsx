@@ -13,7 +13,7 @@ export const MainFundamental = () => {
 
   const [post, setPost] = useState({});
   useEffect(() => {
-    request.get(`/lms/api/course/${postId}`).then((res) => {
+    request.get(`/course/${postId}`).then((res) => {
       setPost(res.data);
     });
   }, []);
@@ -35,7 +35,7 @@ export const MainFundamental = () => {
         </div>
       </div>
       <div className={cls.CourseImgBox}>
-        <img src={CourseImg} alt={post.photo} />
+        <img src={post.photo} alt={post.name} />
       </div>
       <div className={cls.inofoCourse}>
         <p className={cls.titleCourse}>Электроотрицательность и химическая связь</p>
