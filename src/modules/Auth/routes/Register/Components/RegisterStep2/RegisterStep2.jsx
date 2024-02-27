@@ -10,7 +10,7 @@ import { AuthInputPassword } from "modules/Auth/routes/components/AuthInputPassw
 
 export const RegisterStep2 = () => {
 
-  const { onSubmit, handleSubmit, register, isPending, formState: { errors }, } = useRegisterStep2Props();
+  const { onSubmit, handleSubmit, register, checkCode, formState: { errors }, } = useRegisterStep2Props();
 
   return (
     <Box className={cls.wrapper}>
@@ -47,7 +47,7 @@ export const RegisterStep2 = () => {
           <Box marginTop="32px" display="flex" flexDirection="column">
             <BtnSubmit
               text="Следующий шаг"
-              disabled={isPending} 
+              disabled={checkCode.isPending} 
             />
             <LinkPage 
               text="Вернуться назад"

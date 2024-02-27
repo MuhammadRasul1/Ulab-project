@@ -2,7 +2,7 @@ import { Box, FormControl } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
 import { CustomTable } from "components/CustomTable";
 import { EditModal } from "../EditModal";
-import { InputModal } from "components/InputModal";
+import { Input } from "components/Input";
 import { useListMentorsProps } from "./useListMentorsProps";
 
 export const ListMentors = () => {
@@ -16,20 +16,21 @@ export const ListMentors = () => {
     activeUserId,
     handleSubmit,
     setActiveUserId,
-    onSubmit
+    handleEdit,
+    handleDeleteUser,
    } = useListMentorsProps();
 
 
   return(
     <Box marginTop="20px">
       <CustomTable columns={columns} data={data} />
-      <EditModal handleAccept={handleSubmit(onSubmit)} id={activeUserId} isOpen={isOpen} register={register} onClose={() => {
+      <EditModal handleDelete={handleDeleteUser} handleAccept={handleSubmit(handleEdit)} id={activeUserId} isOpen={isOpen} register={register} onClose={() => {
         onClose()
         setActiveUserId("")
       }}>
         <FormControl  as='form'>
           <Box className={cls.wrapper}>
-            <InputModal
+            <Input
               type="text"
               placeholder="Имя"
               register={register}
@@ -37,7 +38,7 @@ export const ListMentors = () => {
             />
           </Box>
           <Box className={cls.wrapper}>
-            <InputModal
+            <Input
               type="text"
               placeholder="Фамилия"
               register={register}
@@ -45,7 +46,7 @@ export const ListMentors = () => {
             />
           </Box>
           <Box className={cls.wrapper}>
-            <InputModal
+            <Input
               type="number"
               placeholder="Номер телефона"
               name="phone_number"
@@ -53,7 +54,7 @@ export const ListMentors = () => {
             />
           </Box>
           <Box className={cls.wrapper}>
-            <InputModal
+            <Input
               type="email"
               placeholder="Email"
               register={register}

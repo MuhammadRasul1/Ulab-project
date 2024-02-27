@@ -1,15 +1,15 @@
-import { useMutation, useQuery } from 'react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import request from 'services/httpRequest';
 
 const coursesServices = {
-  getCourses: () => request.get('/course').then((res) => res?.data?.courses),
+  getCourses: () => request.get('/course').then((res) => res?.data),
   updateCourse: (course_id) => request.put(`/course/${course_id}`).then(res => res?.data),
   getCourseById: (id) => request.get(`/course/${course_id}`).then(res => res?.data),
   deleteCourses: (course_id) => request.delete(`course/${course_id}`).then((res) => res?.data)
 };
 
 export const useGetCourses = () => {
-  return useQuery({ queryKey: 'GET/COURSES', queryFn: coursesServices.getCourses });
+  return useQuery({ queryKey: ['GET/COURSES'], queryFn: () => coursesServices.getCourses()});
 };
 
 export const useUpdateCourse = (user_id) => {

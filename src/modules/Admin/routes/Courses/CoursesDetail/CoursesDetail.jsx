@@ -32,7 +32,8 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { Footer } from "components/Footer";
 import { useCoursesDetailProps } from "./useCoursesDetailProps";
-import { Header } from "./Components/Header";
+import { Header } from "./Components/Header/Header";
+import { Details } from "./Components/Details";
 
 
 export const CoursesDetail = () => {
@@ -58,10 +59,12 @@ export const CoursesDetail = () => {
               <Tab>Ученики</Tab>
             </TabList>
             <TabPanel>
-              {/* <ListUsers /> */}
+              <Details />
             </TabPanel>
             <TabPanel>
               {/* <ListMentors /> */}
+              {/* <a href={detail?.photo}>photo</a>
+              <img src={detail?.photo} alt="sadsad" /> */}
             </TabPanel>
             <TabPanel>
               {/* <ListMentors /> */}

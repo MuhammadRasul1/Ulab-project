@@ -11,7 +11,7 @@ import { useResetPasswordStep3Props } from "./useResetPasswordStep3Props";
 
 export const ResetPasswordStep3 = () => {
 
-  const { onSubmit, handleSubmit, register, isPending, formState: { errors }, } = useResetPasswordStep3Props();
+  const { onSubmit, handleSubmit, register, updatePassword, formState: { errors }, } = useResetPasswordStep3Props();
 
   return (
     <Box className={cls.wrapper}>
@@ -51,7 +51,7 @@ export const ResetPasswordStep3 = () => {
           <Box marginTop="32px" display="flex" flexDirection="column">
             <BtnSubmit 
               text="Восстановить пароль"
-              disabled={isPending}
+              disabled={updatePassword.isPending}
             />
              <LinkPage  
               text="Вернуться назад" 

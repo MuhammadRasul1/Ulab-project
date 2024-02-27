@@ -24,7 +24,7 @@ const links = [
   },
   {
     title: "Данные",
-    path: "admin/info",
+    path: "admin/profile",
     src: InfoIcon,
     alt: "InfoIcon",
   },
@@ -70,10 +70,7 @@ export const Sidebar = () => {
           }
         </ul>
       </nav>
-      <footer>
-
-      </footer>
-      <Box position="fixed" left="0" bottom="1px" max-width="280px" z-index="20">
+      <footer className={cls.footer}>
         <Box className={cls.profileWrapper}>
           <Link className={cls.userProfile} to="admin/profile">
             <img className={cls.userAvatar} src={UserAvatar} alt="user_avatar" width="32px" height="32px" />
@@ -92,7 +89,7 @@ export const Sidebar = () => {
             <p className={cls.email}>{auth?.userData?.email}</p>
           </Box>
         </Box>
-      </Box>
+      </footer>
     </Box>
   )
 };

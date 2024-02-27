@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
 
-export const InputModal = ({name, register = () => {}, placeholder, type, ariaLabel, id, ...props}) => {
+export const Input = ({name, register = () => {}, placeholder, type, ariaLabel, id, ...props}) => {
 
     return(
         <input

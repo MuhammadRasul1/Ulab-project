@@ -119,6 +119,14 @@
   margin-left: 12px;
 }
 
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 1px;
+  max-width: 280px;
+  z-index: 20;
+}
+
 .profileWrapper {
   position: relative;
   display: flex;

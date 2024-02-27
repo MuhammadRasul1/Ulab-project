@@ -1,17 +1,17 @@
 import { Box, Button, FormControl, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
-import { InputModal } from "components/InputModal";
+import { Input } from "components/Input";
 import { Select } from "../Select";
 import { useAddModalProps } from "./useAddModalProps";
 export const AddModal = ({
     isOpen, 
-    onClose,
+    onClose = () => {},
     Title="Добавить",
     cancelText = "Отменить",
     submitText = "Сохранить",
     }) => {
 
-    const { handleSubmit, onSubmit, register} = useAddModalProps()
+    const { handleSubmit, onSubmit, register,} = useAddModalProps(onClose)
       
     return (
         <Box>
@@ -23,7 +23,7 @@ export const AddModal = ({
                 <ModalBody>
                     <FormControl as='form'>
                         <Box className={cls.wrapper}>
-                            <InputModal
+                            <Input
                                 type="text"
                                 placeholder="Имя"
                                 register={register}
@@ -31,7 +31,7 @@ export const AddModal = ({
                             />
                         </Box>
                         <Box className={cls.wrapper}>
-                            <InputModal
+                            <Input
                                 type="text"
                                 placeholder="Фамилия"
                                 register={register}
@@ -39,7 +39,7 @@ export const AddModal = ({
                             />
                         </Box>
                         <Box className={cls.wrapper}>
-                            <InputModal
+                            <Input
                                 type="number"
                                 placeholder="Номер телефона"
                                 register={register}
@@ -47,7 +47,7 @@ export const AddModal = ({
                             />
                         </Box>
                         <Box className={cls.wrapper}>
-                            <InputModal
+                            <Input
                                 type="email"
                                 placeholder="Email"
                                 register={register}
@@ -55,7 +55,7 @@ export const AddModal = ({
                             />
                         </Box>
                         <Box className={cls.wrapper}>
-                            <InputModal
+                            <Input
                                 type="password"
                                 placeholder="Пароль"
                                 register={register}
@@ -63,7 +63,10 @@ export const AddModal = ({
                             />
                         </Box>
                         <Box className={cls.wrapper}>
-                            <Select />
+                            <Select 
+                                register={register}
+                                name="user_type"
+                            />
                         </Box>
                     </FormControl>
                 </ModalBody>

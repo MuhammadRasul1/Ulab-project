@@ -1,8 +1,7 @@
 import { useForm } from "react-hook-form";
 import { authStore } from "store/auth.store";
-import { useMutation } from "@tanstack/react-query";
-import request from "services/httpRequest";
 import { useNavigate } from "react-router-dom";
+import { useResetPassword } from "services/api/auth/auth.service";
 
 export const useResetPasswordProps = () => {
   const navigate = useNavigate()
@@ -14,10 +13,10 @@ export const useResetPasswordProps = () => {
     setError
   } = useForm();
 
-  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/restorePassword", data) })
+  const  resetPassword = useResetPassword()
 
   const onSubmit = (data) => {
-    mutate(data, {
+    resetPassword.mutate(data, {
       onSuccess: (res) => {
         authStore.resetPasswordData({
           request_id: res?.data?.request_id,
@@ -36,6 +35,6 @@ export const useResetPasswordProps = () => {
     handleSubmit,
     formState: { errors },
     onSubmit,
-    isPending
+    resetPassword
   };
 };

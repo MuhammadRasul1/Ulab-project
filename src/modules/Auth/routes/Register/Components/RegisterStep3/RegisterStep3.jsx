@@ -11,7 +11,7 @@ import { AuthInputPassword } from "modules/Auth/routes/components/AuthInputPassw
 
 export const RegisterStep3 = () => {
 
-  const { onSubmit, handleSubmit, register, isPending, formState: { errors }, } = useRegisterStep3Props();
+  const { onSubmit, handleSubmit, register, authRegister, formState: { errors }, } = useRegisterStep3Props();
 
   return (
     <Box className={cls.wrapper}>
@@ -62,7 +62,7 @@ export const RegisterStep3 = () => {
           <Box marginTop="32px" display="flex" flexDirection="column">
             <BtnSubmit 
               text="Зарегистрироваться"
-              disabled={isPending}
+              disabled={authRegister.isPending}
             />
             <LinkPage 
               text="Вернуться назад"

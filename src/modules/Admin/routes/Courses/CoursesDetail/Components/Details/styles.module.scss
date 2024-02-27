@@ -1,23 +1,27 @@
-.wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 18px;
-}
-
-.label {
+.title {
+    position: relative;
+    margin-bottom: 12px;
     font-family: Inter;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 24px;
-    letter-spacing: 0px;
-    color: #1A2024;    
+    letter-spacing: 0px; 
+}
+
+.title::after {
+    position: absolute;
+    bottom: -12px;
+    left: -18px;
+    width: 550px;
+    height: 1px;
+    background-color: #EBEDEE;
+    content: '';
 }
 
 .input {
     max-width: 322px;
     width: 100%;
-    padding: 12px;
+    padding: 6px;
     padding-right: 0;
     border-radius: 8px;
     border: 1px solid #E5E9EB;

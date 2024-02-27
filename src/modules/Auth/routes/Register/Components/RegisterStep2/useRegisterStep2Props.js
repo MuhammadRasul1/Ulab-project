@@ -1,8 +1,7 @@
 import { useForm } from "react-hook-form";
 import { authStore } from "store/auth.store";
-import { useMutation } from "@tanstack/react-query"
-import request from "services/httpRequest";
 import { useNavigate } from "react-router-dom";
+import { useCheckCode } from "services/api/auth/auth.service";
 
 export const useRegisterStep2Props = () => {
   
@@ -16,11 +15,10 @@ export const useRegisterStep2Props = () => {
     setError
   } = useForm();
 
-  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/checkCode", data) })
-
+  const checkCode = useCheckCode()
   const onSubmit = (data) => {
     console.log(data);
-    mutate({
+    checkCode.mutate({
       ...data,
       request_id: auth?.userRegisterData?.request_id
     }, {
@@ -41,6 +39,6 @@ export const useRegisterStep2Props = () => {
     handleSubmit,
     formState: { errors },
     onSubmit,
-    isPending
+    checkCode
   };
 };

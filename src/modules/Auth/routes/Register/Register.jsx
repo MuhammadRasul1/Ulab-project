@@ -11,7 +11,7 @@ import { AuthInput } from "../components/AuthInput";
 
 export const Register = () => {
 
-  const { onSubmit, handleSubmit, register, formState: { errors }, isPending } = useRegisterProps();
+  const { onSubmit, handleSubmit, register, formState: { errors }, checkEmail } = useRegisterProps();
 
   return (
     <Box className={cls.wrapper}>
@@ -73,7 +73,7 @@ export const Register = () => {
           <Box display="flex" flexDirection="column">
             <BtnSubmit
               text="Получить код активации"
-              disabled={isPending} 
+              disabled={checkEmail.isPending} 
             />
             <LinkPage 
               text="Войти в аккаунт"

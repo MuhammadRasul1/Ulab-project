@@ -1,10 +1,8 @@
 import { Button, useDisclosure } from '@chakra-ui/react';
-import { useMutation } from '@tanstack/react-query';
-import request from 'services/httpRequest';
 import { authStore } from 'store/auth.store';
 import Edit from "assets/img/icon/edit.svg";
 import { useForm } from 'react-hook-form';
-import { useGetUserById, useUpdateUser } from 'api';
+import { useDeleteUserById, useGetUserById, useUpdateUser } from 'api';
 import { useEffect, useState } from 'react';
 import { useGetMentors } from 'services/api/mentors/mentors.service';
 
@@ -17,10 +15,18 @@ export const useListMentorsProps = () => {
 
   const getUserById = useGetUserById({userId: activeUserId})
 
-  const {  mutate } = useMutation({ mutationFn: (data) => request.put(`user/${data.id}`, data)})
+  const updateUser = useUpdateUser()
 
-  const onSubmit = (data) => {
-    mutate({...data, id: activeUserId})
+  const handleEdit = (data) => {
+    updateUser.mutate({...data, id: activeUserId})
+    onClose()
+  }
+  
+  const deleteUser = useDeleteUserById()
+
+  const handleDeleteUser = (data) => {
+    deleteUser.mutate({...data, id: activeUserId})
+    onClose()
   }
 
   const { 
@@ -107,7 +113,8 @@ export const useListMentorsProps = () => {
     data,
     register,
     handleSubmit,
-    onSubmit,
+    handleDeleteUser,
+    handleEdit,
     activeUserId,
     setActiveUserId,
   };

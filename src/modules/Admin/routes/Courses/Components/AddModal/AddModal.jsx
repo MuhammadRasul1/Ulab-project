@@ -27,7 +27,7 @@ export const AddModal = ({
                             label="Загрузить фото"
                             id="download_photo"
                             type="file"
-                            register={register}
+                            // register={register}
                             name="photo"
                             required
                         />

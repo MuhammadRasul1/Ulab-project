@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { authStore } from "store/auth.store";
 import { useMutation } from "@tanstack/react-query"
 import request from "services/httpRequest";
+import { useRegister } from "services/api/auth/auth.service";
 
 export const useRegisterStep3Props = () => {
 
@@ -14,10 +15,10 @@ export const useRegisterStep3Props = () => {
     setError
   } = useForm();
 
-  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/register", data) })
+  const authRegister = useRegister()
 
   const onSubmit = (data) => {
-    mutate({
+    authRegister.mutate({
       ...data,
       first_name: auth?.userRegisterData?.first_name,
       last_name: auth?.userRegisterData?.last_name,
@@ -47,6 +48,6 @@ export const useRegisterStep3Props = () => {
     handleSubmit,
     formState: { errors },
     onSubmit,
-    isPending
+    authRegister
   };
 };

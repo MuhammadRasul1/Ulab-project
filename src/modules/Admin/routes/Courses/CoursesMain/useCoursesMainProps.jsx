@@ -5,11 +5,12 @@ import request from 'services/httpRequest';
 import { authStore } from 'store/auth.store';
 import Edit from "assets/img/icon/edit.svg";
 import { Button } from "@chakra-ui/react";
+import { useGetCourses } from "api";
 
 export const useCoursesMainProps = () => {
   const navigate = useNavigate();
 
-  const createUsers = useQuery({queryKey: ['course'], queryFn: () => request.get('/course').then(res => res.data)})
+  const getCourses = useGetCourses()
 
   const columns = [
     {
@@ -54,12 +55,6 @@ export const useCoursesMainProps = () => {
       key: 'beginning_date_course',
       width: 124,
     },
-    // {
-    //   title: 'Дата окончания',
-    //   dataIndex: 'end_date',
-    //   key: 'end_date',
-    //   width: 104,
-    // },
     {
       title: 'Оценка',
       dataIndex: 'grade',
@@ -84,7 +79,7 @@ export const useCoursesMainProps = () => {
     },
   ];
 
-  authStore.hasNewData(createUsers?.data?.courses)
+  authStore.hasNewData(getCourses?.data?.courses)
   const data = authStore.newData
 
   return {

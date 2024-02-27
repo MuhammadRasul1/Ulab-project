@@ -11,7 +11,7 @@ import { AuthInput } from "../components/AuthInput";
 
 export const ResetPassword = () => {
 
-  const { onSubmit, handleSubmit, register, isPending, formState: { errors }, } = useResetPasswordProps();
+  const { onSubmit, handleSubmit, register, resetPassword, formState: { errors }, } = useResetPasswordProps();
 
   return (
     <Box className={cls.wrapper}>
@@ -38,7 +38,7 @@ export const ResetPassword = () => {
           <Box display="flex" flexDirection="column">
             <BtnSubmit
               text="Получить код активации"
-              disabled={isPending} 
+              disabled={resetPassword.isPending} 
             />
             <LinkPage 
               text="Войти в аккаунт" 

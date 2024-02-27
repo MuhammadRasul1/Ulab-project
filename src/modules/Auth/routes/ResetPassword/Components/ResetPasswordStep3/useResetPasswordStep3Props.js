@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { authStore } from "store/auth.store";
-import { useMutation } from "@tanstack/react-query"
-import request from "services/httpRequest";
+import { useUpdatePassword } from "services/api/auth/auth.service";
 
 export const useResetPasswordStep3Props = () => {
 
@@ -14,10 +13,10 @@ export const useResetPasswordStep3Props = () => {
     setError
   } = useForm();
 
-  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("auth/updatePassword", data) })
+  const updatePassword = useUpdatePassword()
 
   const onSubmit = (data) => {
-    mutate({
+    updatePassword.mutate({
       ...data,
       email: auth?.userResetPasswordData?.email
     }, {
@@ -45,6 +44,6 @@ export const useResetPasswordStep3Props = () => {
     handleSubmit,
     formState: { errors },
     onSubmit,
-    isPending
+    updatePassword
   };
 };

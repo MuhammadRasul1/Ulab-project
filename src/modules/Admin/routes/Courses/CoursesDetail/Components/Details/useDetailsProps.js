@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import request from "services/httpRequest";
 
 
-export const useAddModalProps = () => {
+export const useDetailProps = () => {
     
     const { 
         register,
@@ -24,7 +24,14 @@ export const useAddModalProps = () => {
         mutate(datas)
     }
 
+    const { mutateAsync } = useMutation({mutationFn: (id) => request.delete(`course/${id}`)})
+  
+    const handleDeleteCourse = (id) => {
+        mutateAsync(id);
+    };
+
     return {
+        handleDeleteCourse,
         register,
         onSubmit,
         handleSubmit,

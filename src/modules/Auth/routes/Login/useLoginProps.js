@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { authStore } from "store/auth.store";
-import { useMutation } from "@tanstack/react-query"
-import request from "services/httpRequest";
+import { useLogin } from "services/api/auth/auth.service";
 
 export const useLoginProps = () => {
 
@@ -12,11 +11,11 @@ export const useLoginProps = () => {
     setError
   } = useForm();
 
-  const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("/auth/login", data) })
+  const login = useLogin()
 
   const onSubmit = (data) => {
     console.log(data);
-    mutate(data, {
+    login.mutate(data, {
       onSuccess: (res) => {
         authStore.updateUserData({
           access_token: res?.data?.access_token,
@@ -43,6 +42,6 @@ export const useLoginProps = () => {
     handleSubmit,
     formState: { errors },
     onSubmit,
-    isPending
+    login
   };
 };

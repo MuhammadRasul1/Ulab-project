@@ -1,10 +1,8 @@
 import { Button, useDisclosure } from '@chakra-ui/react';
-import { useMutation } from '@tanstack/react-query';
-import request from 'services/httpRequest';
 import { authStore } from 'store/auth.store';
 import Edit from "assets/img/icon/edit.svg";
 import { useForm } from 'react-hook-form';
-import { useGetStudents, useGetUserById, useUpdateUser } from 'api';
+import { useDeleteUserById, useGetStudents, useGetUserById, useUpdateUser } from 'api';
 import { useEffect, useState } from 'react';
 
 export const useListUsersProps = () => {
@@ -16,20 +14,19 @@ export const useListUsersProps = () => {
 
   const getUserById = useGetUserById({userId: activeUserId})
   
-  // const updateUser = useUpdateUser()
-
-  // console.log(updateUser.mutate({...data, id: activeUserId}))
-
-  // const onSubmit = (data) => {
-  //   updateUser.mutate({data, id: activeUserId})
-  // }
-
-  const {  mutate } = useMutation({ mutationFn: (data) => request.put(`user/${data.id}`, data)})
-
-  const onSubmit = (data) => {
-    mutate({...data, id: activeUserId})
+  const updateUser = useUpdateUser()
+  
+  const handleEdit = (data) => {
+    updateUser.mutate({...data, id: activeUserId})
+    onClose()
   }
+  
+  const deleteUser = useDeleteUserById()
 
+  const handleDeleteUser = (data) => {
+    deleteUser.mutate({...data, id: activeUserId})
+    onClose()
+  }
 
   useEffect(() => {
     console.log(getUserById.data)
@@ -114,7 +111,8 @@ export const useListUsersProps = () => {
     data,
     register,
     handleSubmit,
-    onSubmit,
+    handleDeleteUser,
+    handleEdit,
     activeUserId,
     setActiveUserId,
   };
