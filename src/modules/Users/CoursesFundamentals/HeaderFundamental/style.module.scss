@@ -1,20 +1,16 @@
 .headerContiner {
   position: fixed;
-  left: 280px;
   top: 0;
-  width: 1160px;
-  z-index: 20;
-  font-family: Inter;
-  padding: 10px 0;
+  width: 100%;
   border-bottom: 1px solid #e5e9eb;
-  background-color: #fff;
   padding: 25px;
   height: 75px;
   display: flex;
   justify-content: space-between;
   border: 1px solid transparent;
   border-bottom-color: #f5ebeb;
-  background-color: red;
+  background-color: #fff;
+  z-index: 1px;
 }
 .nav {
   position: relative;

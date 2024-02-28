@@ -1,0 +1,17 @@
+.headerProfile {
+  padding: 16px;
+  width: 100%;
+  font-size: 20px;
+  border-bottom: 1px solid #e5e9eb;
+}
+.headerWrap {
+  display: flex;
+  justify-content: space-between;
+}
+.headerBtn {
+  display: flex;
+  gap: 15px;
+}
+.editBtn {
+  margin-top: -10px;
+}

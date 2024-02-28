@@ -18,11 +18,16 @@ export const MainFundamental = () => {
     });
   }, []);
 
-  console.log(post);
+  // console.log(post);
 
   return (
     <div className={cls.mainWraper}>
-      <p>course / {post.for_who}</p>
+      <p className={cls.linkCourse}>
+        <Link className={cls.Link} to={'/'}>
+          course
+        </Link>{' '}
+        / {post.for_who}
+      </p>
       <div className={cls.percentageBox}>
         <p className={cls.beginingDate}>{post.beginning_date_course}</p>
         <p className={cls.forWho}>{post.name}</p>

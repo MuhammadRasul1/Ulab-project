@@ -4,6 +4,7 @@
   height: 127px;
   border-radius: 8px;
   padding: 10px;
+  margin-top: 10px;
 }
 .beginingDate {
   color: #d87750;
@@ -21,6 +22,15 @@
   height: 8px;
   background-color: #bbf6f4;
   border-radius: 8px;
+}
+.linkCourse {
+  color: blue;
+  font-size: 15px;
+}
+.Link {
+  font-size: 15px;
+
+  color: #262626;
 }
 .line {
   background-color: #1ac19d;
@@ -45,7 +55,6 @@
   color: #262626;
 }
 .abouteCourse p {
-  font-size: 23px;
   padding-top: 10px;
 
   // font-weight: 700;
@@ -68,7 +77,7 @@
 .homework {
   width: 996px;
   margin-top: 20px;
-  font-size: 14px;
+  font-size: 15px;
   color: #262626;
 }
 

@@ -1,0 +1,52 @@
+.WraperProfilePath {
+  margin: 20px;
+  padding: 10px;
+  padding-left: 20px;
+  border: 1px solid #e5e9eb;
+  border-radius: 8px;
+}
+
+.haderBoxColor {
+  width: 994px;
+  padding: 40px;
+  background-color: #f5fafe;
+  border-radius: 5px;
+}
+.wraperData {
+  display: flex;
+  gap: 55px;
+  position: relative;
+}
+.imgWraper {
+  position: absolute;
+  top: -40px;
+  left: 30px;
+  width: 135px;
+  padding: 50px;
+  background-color: #f5f7fa;
+  border-radius: 100px;
+}
+.changeData {
+  margin-top: 130px;
+  margin-left: 30px;
+  background: #0067f4;
+  width: 147px;
+  padding: 14px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+}
+.titleUserINfo {
+  color: #6e8bb7;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+.bakendInfo {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #000000;
+  font-weight: 600;
+}
