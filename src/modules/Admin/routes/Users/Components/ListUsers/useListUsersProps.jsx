@@ -107,6 +107,8 @@ export const useListUsersProps = () => {
   authStore.hasNewData(students?.users)
   const data = authStore.newData
 
+  const count = students?.count
+  
   // const [currentPage, setCurrentPage] = useState(1) 
   // const [postsPerPage, setPostsPerPage] = useState(8) 
 

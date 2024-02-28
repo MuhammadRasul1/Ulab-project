@@ -7,7 +7,7 @@ import { ListUsers } from "./Components/ListUsers";
 import { ListMentors } from "./Components/ListMentors";
 import { Header } from "./Components/Header";
 // import { Footer } from "./Components/Footer";
-import { Paginatoin } from "components/Pagination";
+import { Pagination } from "components/Pagination";
 
 export const Users = () => {
 
@@ -30,7 +30,7 @@ export const Users = () => {
           </Tabs>
         </Box>
       </Container>
-      <Paginatoin />
+      <Pagination />
     </Box>
   ) 
 }

@@ -2,7 +2,7 @@ import { Container } from "components/Container";
 import cls from "./styles.module.scss";
 import { Box } from "@chakra-ui/react";
 
-export const Paginatoin = () => {
+export const Pagination = () => {
 
   return(
     <Box className={cls.footer}>
