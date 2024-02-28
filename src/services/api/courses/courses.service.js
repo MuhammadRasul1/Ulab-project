@@ -3,6 +3,7 @@ import request from 'services/httpRequest';
 
 const coursesServices = {
   getCourses: () => request.get('/course').then((res) => res?.data),
+  downloadGetCourses: () => request.get('/excel/courses').then((res) => res?.data),
   updateCourse: (course_id) => request.put(`/course/${course_id}`).then(res => res?.data),
   getCourseById: (id) => request.get(`/course/${course_id}`).then(res => res?.data),
   deleteCourses: (course_id) => request.delete(`course/${course_id}`).then((res) => res?.data)
@@ -15,6 +16,11 @@ export const useCreateCourse = () => {
 export const useGetCourses = () => {
   return useQuery({ queryKey: ['GET/COURSES'], queryFn: () => coursesServices.getCourses()});
 };
+
+export const useGetDownloadCourses = () => {
+  return useQuery({ queryKey: ['DOWNLOAD/COURSES'], queryFn: () => coursesServices.downloadGetCourses()});
+};
+
 
 export const useUpdateCourse = () => {
   return useMutation({ mutationFn: (data) => request.put(`course/${data.id}`, data)})

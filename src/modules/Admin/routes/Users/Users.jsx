@@ -6,7 +6,8 @@ import 'react-tabs/style/react-tabs.css';
 import { ListUsers } from "./Components/ListUsers";
 import { ListMentors } from "./Components/ListMentors";
 import { Header } from "./Components/Header";
-import { Footer } from "./Components/Footer";
+// import { Footer } from "./Components/Footer";
+import { Paginatoin } from "components/Pagination";
 
 export const Users = () => {
 
@@ -29,7 +30,7 @@ export const Users = () => {
           </Tabs>
         </Box>
       </Container>
-      <Footer />
+      <Paginatoin />
     </Box>
   ) 
 }

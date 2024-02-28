@@ -1,44 +1,12 @@
 import { Link } from "react-router-dom";
 import cls from "./styles.module.scss";
 import { useSidebarProps } from "./useSidebarProps";
-import Courses from "assets/img/icon/courses.svg";
-import UserIcon from "assets/img/icon/usersicon.svg"
 import { Box, Icon } from "@chakra-ui/react";
 import UserAvatar from "assets/img/icon/userAvatar.svg";
-import InfoIcon from "assets/img/icon/info.svg";
-import Device from "assets/img/icon/devices.svg";
-
-
-const links = [
-  {
-    title: "Курсы",
-    path: "admin/courses",
-    src: Courses,
-    alt: "Courses",
-  },
-  {
-    title: "Пользователи",
-    path: "admin/users",
-    src: UserIcon,
-    alt: "UserIcon",
-  },
-  {
-    title: "Данные",
-    path: "admin/profile",
-    src: InfoIcon,
-    alt: "InfoIcon",
-  },
-  {
-    title: "Устройство",
-    path: "admin/device",
-    src: Device,
-    alt: "Device",
-  },
-]
 
 export const Sidebar = () => {
 
-  const { auth } = useSidebarProps();
+  const { auth, links } = useSidebarProps();
 
   return (
     <Box className={cls.sidebar}>

@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useCreateCourse } from "api";
+import { useCreateCourse, useGetDownloadCourses } from "api";
 import { useDisclosure } from "@chakra-ui/react";
 
 export const useHeaderProps = () => {
@@ -10,6 +10,12 @@ export const useHeaderProps = () => {
         register,
         handleSubmit,
     } = useForm();
+
+    const downloadCourses = useGetDownloadCourses();    
+
+    const handleDownload = (data) => {
+        downloadCourses
+    }
 
     const createCourse = useCreateCourse();
     const onSubmit = (data) => {
@@ -32,6 +38,7 @@ export const useHeaderProps = () => {
         handleSubmit,
         isOpen, 
         onOpen, 
+        handleDownload,
         onClose 
     };
 }

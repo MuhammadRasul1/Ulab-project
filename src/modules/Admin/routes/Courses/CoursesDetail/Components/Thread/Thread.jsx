@@ -28,14 +28,14 @@ export const Thread = () => {
       <StatusModal>
         <FormControl as={"form"}>
           <Select 
-              register={register}
-              name="Status"
-              id={"Status"}
-              text1="Активный"
-              text2="Пассивный"
-              value1="Active"
-              value2="Passive"
-            />
+            register={register}
+            name="Status"
+            id="Status"
+            text1="Активный"
+            text2="Пассивный"
+            value1="Active"
+            value2="Passive"
+          />
         </FormControl>
       </StatusModal>
       <EditModal handleDelete={handleDeleteUser} handleAccept={handleSubmit(handleEdit)} id={activeUserId} isOpen={isOpen} register={register} onClose={() => {

@@ -10,7 +10,11 @@ export const useListUsersProps = () => {
 
   const [activeUserId, setActiveUserId] = useState("")
 
-  const { data: students } = useGetStudents();
+  const { data: students } = useGetStudents(
+    {
+      offset: 1
+    }
+  );
 
   const getUserById = useGetUserById({userId: activeUserId})
   

@@ -1,10 +1,11 @@
 import { Container } from "components/Container";
 import cls from "./styles.module.scss";
+import { Box } from "@chakra-ui/react";
 
-export const Footer = () => {
+export const Paginatoin = () => {
 
   return(
-    <footer className={cls.footer}>
+    <Box className={cls.footer}>
       <Container>
         <nav className={cls.nav}>
           <ol className={cls.navList}>
@@ -14,6 +15,6 @@ export const Footer = () => {
           </ol>
         </nav>
       </Container>
-    </footer>
+    </Box>
   ) 
 };

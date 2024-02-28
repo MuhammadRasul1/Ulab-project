@@ -11,7 +11,7 @@ import { useHeaderProps } from "./useHeaderProps"
 
 export const Header = () => {
 
-  const { handleSubmit, onSubmit, register, isOpen, onClose, onOpen } = useHeaderProps();
+  const { handleSubmit, onSubmit, register, isOpen, onClose, onOpen, handleDownload } = useHeaderProps();
 
   return (
     <header className={cls.header}>
@@ -94,7 +94,9 @@ export const Header = () => {
         <Box display="flex" alignItems="center" justifyContent="space-between"> 
           <h1 className={cls.title}>Курсы</h1>
           <Box display="flex" alignItems="start">
-            <BtnDownload /> 
+            <BtnDownload 
+              download={handleDownload}
+            /> 
             <SearchInput className={cls.searchInput}/>
             <Filter />
             <BtnAdd className={cls.btnAdd} onClick={onOpen}/>
