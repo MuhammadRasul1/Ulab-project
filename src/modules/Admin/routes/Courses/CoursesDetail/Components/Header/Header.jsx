@@ -4,15 +4,18 @@ import { Container } from "components/Container";
 import BackArrow from "assets/img/icon/backArrow.svg";
 import Eye from "assets/img/icon/EyeView.svg";
 import Folder from "assets/img/icon/folder.svg";
+import { useNavigate } from "react-router-dom";
 
 export const Header = ({title}) => {
+
+  const navigate = useNavigate();
 
   return (
     <header className={cls.header}>
       <Container >
         <Box display="flex" alignItems="center" justifyContent="space-between"> 
             <Box display="flex" alignItems="center">
-                <button className={cls.btnBack}>
+                <button onClick={() => navigate(-1)} className={cls.btnBack}>
                     <img src={BackArrow} alt="back arrow" />
                 </button>
                 <Box ml="8px" display="flex" alignItems="center">

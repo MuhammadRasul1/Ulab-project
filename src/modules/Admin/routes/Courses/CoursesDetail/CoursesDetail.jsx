@@ -1,30 +1,3 @@
-// import cls from './styles.module.scss';
-// import { Button, FormControl, Input } from '@chakra-ui/react';
-// import { useCoursesDetailProps } from './useCoursesDetailProps';
-
-// export const CoursesDetail = () => {
-//   const { 
-//     // id,
-//     navigate,
-//     detail,
-//     handleSubmit,
-//     register,
-//     onSubmit,
-//   } = useCoursesDetailProps();
-
-//   return (
-//     <div>
-//       <h1>Course id: </h1>
-//       <Button onClick={() => navigate(-1)}>Back</Button>
-//       <span>Created at:{detail?.created_at} </span>
-//       <FormControl as="form" onSubmit={handleSubmit(onSubmit)}>
-//         <Input placeholder="Title" {...register("title")} />
-//         <Button type="submit">Save</Button>
-//       </FormControl>
-//     </div>
-//   );
-// };
-
 import { Box } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
 import { Container } from "components/Container";
@@ -34,16 +7,13 @@ import { Footer } from "components/Footer";
 import { useCoursesDetailProps } from "./useCoursesDetailProps";
 import { Header } from "./Components/Header/Header";
 import { Details } from "./Components/Details";
+import { Thread } from "./Components/Thread";
 
 
 export const CoursesDetail = () => {
 
   const { 
-        navigate,
         detail,
-        handleSubmit,
-        register,
-        onSubmit,
       } = useCoursesDetailProps();
 
   return(
@@ -56,21 +26,19 @@ export const CoursesDetail = () => {
               <Tab>Детали</Tab>
               <Tab>Уроки</Tab>
               <Tab>Отчеты</Tab>
-              <Tab>Ученики</Tab>
+              <Tab>Потоки</Tab>
             </TabList>
             <TabPanel>
-              <Details />
+              <Details detail={detail} />
+            </TabPanel>
+            <TabPanel>
+             
             </TabPanel>
             <TabPanel>
               {/* <ListMentors /> */}
-              {/* <a href={detail?.photo}>photo</a>
-              <img src={detail?.photo} alt="sadsad" /> */}
             </TabPanel>
             <TabPanel>
-              {/* <ListMentors /> */}
-            </TabPanel>
-            <TabPanel>
-              {/* <ListMentors /> */}
+              <Thread detail={detail} />
             </TabPanel>
           </Tabs>
         </Box>

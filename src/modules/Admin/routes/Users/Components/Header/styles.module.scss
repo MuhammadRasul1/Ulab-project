@@ -10,6 +10,10 @@
   background-color: #fff;
 }
 
+.wrapper:not(:last-child) {
+  margin-bottom: 18px;
+}
+
 .title {
   font-size: 20px;
   font-weight: 600;

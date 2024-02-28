@@ -1,39 +1,58 @@
 import { useForm } from "react-hook-form";
-import { useMutation } from "@tanstack/react-query";
-import request from "services/httpRequest";
+import { useDeleteCourse, useUpdateCourse } from "api";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
-
-export const useDetailProps = () => {
+export const useDetailProps = (detail) => {
     
+    const activeUserId = detail?.id 
+
+    const navigate = useNavigate();
+    
+    const updateCourse = useUpdateCourse()
+  
+    const handleEdit = (data) => {
+        // const datas = {
+        //     photo: data?.photo,
+        //     name: data?.name,
+        //     for_who: data?.for_who,
+        //     weekly_number: data?.weekly_number - 0,
+        //     duration: data?.duration,
+        //     price: data?.price - 0,
+        // }
+        updateCourse.mutate({...data, id: activeUserId})
+        navigate("/admin/courses")
+    }
+
+    useEffect(() => {
+        reset({
+          photo: detail?.photo,
+          name: detail?.name,
+          for_who: detail?.for_who,
+          type: detail?.type,
+          weekly_number: detail?.weekly_number,
+          duration: detail?.duration,
+          price: detail?.price,
+        })
+      }, [detail])
+
     const { 
         register,
         handleSubmit,
+        reset
     } = useForm();
 
-    const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("course", data) })
-    const onSubmit = (data) => {
-        const datas = {
-            photo: data?.photo,
-            name: data?.name,
-            for_who: data?.for_who,
-            weekly_number: data?.weekly_number - 0,
-            duration: data?.duration,
-            price: data?.price - 0,
-            beginning_date_course: data?.beginning_date_course,
-        }
-        mutate(datas)
-    }
+    const deleteCourse = useDeleteCourse()
 
-    const { mutateAsync } = useMutation({mutationFn: (id) => request.delete(`course/${id}`)})
-  
-    const handleDeleteCourse = (id) => {
-        mutateAsync(id);
-    };
+    const handleDeleteCourse = (data) => {
+      deleteCourse.mutate({...data, id: activeUserId})
+      navigate("/admin/courses")
+    }
 
     return {
         handleDeleteCourse,
         register,
-        onSubmit,
         handleSubmit,
+        handleEdit
     };
 }

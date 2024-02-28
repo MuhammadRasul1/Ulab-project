@@ -3,9 +3,9 @@ import cls from "./styles.module.scss";
 import { CoursesInput } from "../../../Components/CoursesInput";
 import { useDetailProps } from "./useDetailsProps";
 
-export const Details = () => {
+export const Details = ({ detail }) => {
 
-    const { handleSubmit, register, onSubmit, handleDeleteCourse } = useDetailProps();
+    const { handleSubmit, handleEdit, register, handleDeleteCourse } = useDetailProps(detail);
     
     return (
         <FormControl maxWidth="550px" mt="4px" as="form">
@@ -44,6 +44,16 @@ export const Details = () => {
                 />
                 <CoursesInput
                     className={cls.input}
+                    label="Тип" 
+                    id="type"
+                    placeholder="Введите тип"
+                    type="text"
+                    register={register}
+                    name="type"
+                    required
+                />
+                <CoursesInput
+                    className={cls.input}
                     label="Повторяемость:" 
                     id="weekly_number"
                     placeholder="Введите повторяемость"
@@ -74,17 +84,22 @@ export const Details = () => {
                 />
             </Box>
             <Box display="flex" justifyContent="space-between" mt="24px">
-                <Button onClick={handleDeleteCourse} colorScheme='red' variant='outline' size='md'>
-                    Удалить
-                </Button>
-                <Box display="flex" alignItems="center">
-                    <Button onClick={handleSubmit(onSubmit)} border="1px solid #E5E9EB" backgroundColor="transparent" mr={3}>
-                        Отменить
+                <Box>
+                    <Button mr={3} onClick={handleDeleteCourse} colorScheme='red' size='md'>
+                        Удалить
                     </Button>
-                    <Button onClick={handleSubmit(onSubmit)}  backgroundColor="#0067F4" color="white">
-                        Изменить
+                    <Button onClick={handleDeleteCourse} colorScheme='red' variant='outline' size='md'>
+                        Заблокировать
                     </Button>
                 </Box>
+                {/* <Box display="flex" alignItems="center"> */}
+                    {/* <Button border="1px solid #E5E9EB" backgroundColor="transparent" mr={3}>
+                        Отменить
+                    </Button> */}
+                    <Button onClick={handleSubmit(handleEdit)}  backgroundColor="teal" color="white">
+                        Изменить
+                    </Button>
+                {/* </Box> */}
             </Box>
         </FormControl>
     )

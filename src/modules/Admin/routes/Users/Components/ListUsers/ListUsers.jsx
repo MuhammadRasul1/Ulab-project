@@ -2,7 +2,7 @@ import { Box, FormControl } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
 import { useListUsersProps } from "./useListUsersProps";
 import { CustomTable } from "components/CustomTable";
-import { EditModal } from "../EditModal";
+import { EditModal } from "components/EditModal";
 import { Input } from "components/Input";
 
 export const ListUsers = () => {

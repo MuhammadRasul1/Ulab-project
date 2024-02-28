@@ -3,10 +3,10 @@ import cls from "./styles.module.scss";
 import { Container } from "components/Container";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { Footer } from "components/Footer";
 import { ListUsers } from "./Components/ListUsers";
 import { ListMentors } from "./Components/ListMentors";
 import { Header } from "./Components/Header";
+import { Footer } from "./Components/Footer";
 
 export const Users = () => {
 

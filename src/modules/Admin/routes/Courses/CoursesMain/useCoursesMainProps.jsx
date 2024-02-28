@@ -1,16 +1,19 @@
 import cls from "./styles.module.scss";
-import { useMutation, useQuery } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
-import request from 'services/httpRequest';
 import { authStore } from 'store/auth.store';
 import Edit from "assets/img/icon/edit.svg";
 import { Button } from "@chakra-ui/react";
-import { useGetCourses } from "api";
+import { useGetCourseById, useGetCourses } from "api";
+import { useState } from "react";
 
 export const useCoursesMainProps = () => {
   const navigate = useNavigate();
 
   const getCourses = useGetCourses()
+
+  // const [activeUserId, setActiveUserId] = useState("")
+  
+  // const getCourseById = useGetCourseById({courseId: activeUserId})
 
   const columns = [
     {
@@ -70,7 +73,9 @@ export const useCoursesMainProps = () => {
             <Button  
               padding="4px" 
               colorScheme="transparent" 
-              onClick={() => navigate(`/admin/courses/${item?.id}`)}>
+              onClick={() => 
+              navigate(`/admin/courses/${item?.id}`)}
+              >
               <img src={Edit} width={20} height={20} alt="edit" />
             </Button>
           </div>

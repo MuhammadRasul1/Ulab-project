@@ -59,11 +59,11 @@ export const Sidebar = () => {
       <nav className={cls.navbar}>
         <ul className={cls.navList}>
           {
-            links.map((link) => (
+            links?.map((link) => (
               <li className={cls.navItem}> 
                 <Link className={cls.navLink} to={link?.path}>
                   <img src={link?.src} alt={link?.alt} width={20} height={20} />
-                  <span className={cls.navText}>{link.title}</span>
+                  <span className={cls.navText}>{link?.title}</span>
                 </Link>
               </li>
             ))
@@ -91,5 +91,4 @@ export const Sidebar = () => {
         </Box>
       </footer>
     </Box>
-  )
-};
+  )}

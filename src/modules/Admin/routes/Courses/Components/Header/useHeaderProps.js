@@ -1,16 +1,17 @@
 import { useForm } from "react-hook-form";
-import { useMutation } from "@tanstack/react-query";
-import request from "services/httpRequest";
+import { useCreateCourse } from "api";
+import { useDisclosure } from "@chakra-ui/react";
 
-
-export const useAddModalProps = () => {
+export const useHeaderProps = () => {
     
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
     const { 
         register,
         handleSubmit,
     } = useForm();
 
-    const { mutate, isPending } = useMutation({ mutationFn: (data) => request.post("course", data) })
+    const createCourse = useCreateCourse();
     const onSubmit = (data) => {
         const datas = {
             photo: data?.photo,
@@ -21,12 +22,16 @@ export const useAddModalProps = () => {
             price: data?.price - 0,
             beginning_date_course: data?.beginning_date_course,
         }
-        mutate(datas)
+        createCourse.mutate(datas)
+        onClose()
     }
 
     return {
         register,
         onSubmit,
         handleSubmit,
+        isOpen, 
+        onOpen, 
+        onClose 
     };
 }

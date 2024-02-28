@@ -6,7 +6,7 @@ import { Container } from "components/Container";
 import { Filter } from "components/Filter";
 import { BtnDownload } from "components/BtnDownload";
 import { useDisclosure } from "@chakra-ui/react"
-import { AddModal } from "modules/Admin/routes/Users/Components/AddModal";
+import { AddModal } from "components/AddModal";
 
 export const Header = (props) => {
 

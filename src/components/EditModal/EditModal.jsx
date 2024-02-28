@@ -5,7 +5,7 @@ export const EditModal = ({
     onClose,
     Title="Изменить данные ученика",
     cancelText = "Отменить",
-    submitText = "Сохранить",
+    submitText = "Изменить",
     DeleteBtn = "Удалить",
     handleAccept=() => {},
     handleDelete = () => {},
@@ -29,7 +29,7 @@ export const EditModal = ({
                         <Button border="1px solid #E5E9EB" backgroundColor="transparent" mr={3} onClick={onClose}>
                             {cancelText}
                         </Button>
-                        <Button onClick={handleAccept} backgroundColor="#0067F4" color="white">{submitText}</Button>
+                        <Button onClick={handleAccept} backgroundColor="teal" color="white">{submitText}</Button>
                     </Box>
                 </ModalFooter>
                 </ModalContent>
