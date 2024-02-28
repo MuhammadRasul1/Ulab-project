@@ -1,0 +1,16 @@
+.wrapper {  
+    font-family: "Inter", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $black-white-white;
+}
+
+.wrapperContent {
+    max-width: 732px;
+    width: 100%;
+    height: 100vh;
+    border-radius: 48px 0px 0px 48px;
+    background-color: #FFF;
+    padding: 40px 76px 24px 64px;
+}

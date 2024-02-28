@@ -3,18 +3,18 @@ import cls from "./styles.module.scss";
 import { Container } from "components/Container";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { Footer } from "components/Footer";
 import { useCoursesDetailProps } from "./useCoursesDetailProps";
 import { Header } from "./Components/Header/Header";
 import { Details } from "./Components/Details";
 import { Thread } from "./Components/Thread";
+import { Pagination } from "components/Pagination";
 
 
 export const CoursesDetail = () => {
 
   const { 
-        detail,
-      } = useCoursesDetailProps();
+    detail,
+  } = useCoursesDetailProps();
 
   return(
     <Box>
@@ -32,10 +32,10 @@ export const CoursesDetail = () => {
               <Details detail={detail} />
             </TabPanel>
             <TabPanel>
-             
+              Уроки
             </TabPanel>
             <TabPanel>
-              {/* <ListMentors /> */}
+              Отчеты
             </TabPanel>
             <TabPanel>
               <Thread detail={detail} />
@@ -43,7 +43,7 @@ export const CoursesDetail = () => {
           </Tabs>
         </Box>
       </Container>
-      <Footer />
+      <Pagination />
     </Box>
   ) 
 }

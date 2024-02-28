@@ -3,8 +3,8 @@ import cls from './styles.module.scss';
 import { Box } from '@chakra-ui/react';
 import { useCoursesMainProps } from './useCoursesMainProps';
 import { Container } from 'components/Container';
-import { Footer } from 'components/Footer';
 import { Header } from '../Components/Header';
+import { Pagination } from 'components/Pagination';
 
 export const CoursesMain = () => {
   const {columns, data} = useCoursesMainProps();
@@ -15,7 +15,7 @@ export const CoursesMain = () => {
       <Box marginBottom="100px" marginTop="84px">
           <CustomTable columns={columns} data={data} />
       </Box>
-      <Footer />
+      <Pagination />
     </Container>
   )
 };

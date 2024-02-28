@@ -1,32 +1,29 @@
-import { Container } from "components/Container";
+import { Box, Icon } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
-import { Link } from "react-router-dom";
+import UserAvatar from "assets/img/icon/userAvatar.svg";
 
-export const Footer = () => {
+export const Footer = ({auth}) => {
 
   return(
     <footer className={cls.footer}>
-      <Container>
-        <nav className={cls.nav}>
-          <ol className={cls.navList}>
-            <li className={cls.navItem}>
-                <Link className={cls.link} to="admin/courses/1">1</Link>
-            </li>
-            <li className={cls.navItem}>
-                <Link className={cls.link} to="admin/courses/2">2</Link>
-            </li>
-            <li className={cls.navItem}>
-                <Link className={cls.link} to="admin/courses/3">3</Link>
-            </li>
-            <li className={cls.navItem}>
-                <Link className={cls.link} to="admin/courses/4">4</Link>
-            </li>
-            <li className={cls.navItem}>
-                <Link className={cls.link} to="admin/courses/5">5</Link>
-            </li>
-          </ol>
-        </nav>
-      </Container>
+        <Box className={cls.profileWrapper}>
+          <Box className={cls.userProfile}>
+            <img className={cls.userAvatar} src={UserAvatar} alt="user_avatar" width="32px" height="32px" />
+            <Icon className={cls.status} viewBox='0 0 200 200' color='green'>
+              <path
+                fill='currentColor'
+                d='M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0'
+              />
+            </Icon>
+          </Box>
+          <Box>
+            <Box display="flex" alignItems="start">
+              <span className={cls.userFirstName}>{auth?.userData?.first_name}</span>
+              <span className={cls.userLastName}>{auth?.userData?.last_name}</span>
+            </Box>
+            <p className={cls.email}>{auth?.userData?.email}</p>
+          </Box>
+        </Box>
     </footer>
   ) 
 };

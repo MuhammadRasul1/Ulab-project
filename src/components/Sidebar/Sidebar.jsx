@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import cls from "./styles.module.scss";
 import { useSidebarProps } from "./useSidebarProps";
-import { Box, Icon } from "@chakra-ui/react";
-import UserAvatar from "assets/img/icon/userAvatar.svg";
+import { Box } from "@chakra-ui/react";
+import { Footer } from "components/Footer";
 
 export const Sidebar = () => {
 
@@ -38,25 +38,8 @@ export const Sidebar = () => {
           }
         </ul>
       </nav>
-      <footer className={cls.footer}>
-        <Box className={cls.profileWrapper}>
-          <Link className={cls.userProfile} to="admin/profile">
-            <img className={cls.userAvatar} src={UserAvatar} alt="user_avatar" width="32px" height="32px" />
-            <Icon className={cls.status} viewBox='0 0 200 200' color='green'>
-              <path
-                fill='currentColor'
-                d='M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0'
-              />
-            </Icon>
-          </Link>
-          <Box>
-            <Box display="flex" alignItems="start">
-              <span className={cls.userFirstName}>{auth?.userData?.first_name}</span>
-              <span className={cls.userLastName}>{auth?.userData?.last_name}</span>
-            </Box>
-            <p className={cls.email}>{auth?.userData?.email}</p>
-          </Box>
-        </Box>
-      </footer>
+      <Footer 
+        auth={auth}
+      />
     </Box>
   )}

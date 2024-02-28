@@ -4,9 +4,9 @@ import { authStore } from "store/auth.store";
 import { observer } from "mobx-react-lite";
 import { AuthRoutes } from "modules/Auth/routes";
 import { AdminRoutes } from "modules/Admin/routes";
-// import { Users } from "modules/Users/Users";
 import { StudentPath } from "modules/Users";
 import { CoursesFundamentals } from "modules/Users/CoursesFundamentals";
+import { AuthLayout } from "../Layouts/AuthLayout";
 
 export const Router = observer(() => {
 
@@ -20,10 +20,14 @@ export const Router = observer(() => {
   // }
 
   if (!isAuth) {
-    return <Routes>
-      <Route path="/auth/*" element={<AuthRoutes />} />
-      <Route path="*" element={<Navigate to="/auth" />} />
-    </Routes>;
+    return (
+      <Routes>
+        <Route path="" element={<AuthLayout />}>
+          <Route index path="/auth/*" element={<AuthRoutes />} />
+          <Route path="" element={<Navigate to="/auth" />} />
+        </Route>
+      </Routes>
+    );
   }
 
   // return <Routes>
@@ -33,12 +37,14 @@ export const Router = observer(() => {
   // </Routes>
   
   if(role.userData?.user_type === "Admin" || role.userData?.user_type === "Mentor") {
-    return <Routes>
-      <Route path="" element={<MainLayout />}>
-        <Route index path="/admin/*" element={<AdminRoutes />} />
-        <Route path="*" element={<Navigate to="/admin/courses" />} />
-      </Route>
-    </Routes>;
+    return (
+      <Routes>
+        <Route path="" element={<MainLayout />}>
+          <Route index path="/admin/*" element={<AdminRoutes />} />
+          <Route path="*" element={<Navigate to="/admin/courses" />} />
+        </Route>
+      </Routes>
+    );
   } else {
     return(
       <Routes>

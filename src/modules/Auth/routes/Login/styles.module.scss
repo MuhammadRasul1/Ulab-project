@@ -1,27 +1,3 @@
-.wrapper {
-    font-family: "Inter", sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: $black-white-white;
-}
-
-.wrapperRight {
-    border-radius: 48px 0px 0px 48px;
-    background-color: #FFF;
-    padding: 140px 76px 40px 64px;
-}
-
-.wrapperPassword {
-    padding-left: 12px;
-    display: flex;
-    align-items: center;
-    display: flex;
-    border: 1px solid $icon-color;
-    background: $white;
-    border-radius: 8px;
-}
-
 .title {
     color: $dark-blue;
     margin-bottom: 40px;
