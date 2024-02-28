@@ -9,7 +9,7 @@ export const AdminRoutes = () => {
   return <Routes>
     <Route path="users" element={<Users />} />
     <Route path="profile" element={<Profile />} />
-    <Route path="detail" element={<ProfileDetail />} />
+    <Route path="profile/detail" element={<ProfileDetail />} />
     <Route path="courses" element={<CoursesMain />} />
     <Route path="courses/:id" element={<CoursesDetail />} />
   </Routes>;
