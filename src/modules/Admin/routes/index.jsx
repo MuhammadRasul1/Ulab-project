@@ -3,7 +3,8 @@ import { CoursesMain } from "./Courses/CoursesMain";
 import { Profile } from "./Profile";
 import { Users } from "./Users";
 import { CoursesDetail } from "./Courses/CoursesDetail";
-import { ProfileDetail } from "./ProfileDetail";
+import { ProfileDetail } from "./Profile/ProfileDetail";
+
 
 export const AdminRoutes = () => {
   return (
