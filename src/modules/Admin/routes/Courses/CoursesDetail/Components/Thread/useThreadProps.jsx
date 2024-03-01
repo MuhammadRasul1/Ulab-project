@@ -3,15 +3,14 @@ import { authStore } from 'store/auth.store';
 import EyeView from "assets/img/icon/EyeView.svg";
 import Edit from "assets/img/icon/edit.svg";
 import { useForm } from 'react-hook-form';
-import { useDeleteUserById, useGetStudents, useGetUserById, useUpdateUser } from 'api';
+import { useDeleteUserById, useGetUserById, useUpdateUser } from 'api';
 import { useEffect, useState } from 'react';
 
-export const useThreadProps = () => {
+export const useThreadProps = (detail) => {
+  console.log(detail?.groups)
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const [activeUserId, setActiveUserId] = useState("")
-
-  const { data: students } = useGetStudents();
 
   const getUserById = useGetUserById({userId: activeUserId})
   
@@ -88,13 +87,13 @@ export const useThreadProps = () => {
     },
     {
       title: 'Завершение',
-      dataIndex: 'no_study_all',
-      key: 'no_study_all',
+      dataIndex: 'end_date',
+      key: 'end_date',
       width: 132,
     },
     {
       title: 'Статус',
-      key: 'operations',
+      key: 'status',
       render: (item) => {
         return (
           <div>
@@ -141,7 +140,7 @@ export const useThreadProps = () => {
     },
   ];
 
-  authStore.hasNewData(students?.users)
+  authStore.hasNewData(detail?.groups)
   const data = authStore.newData
 
   return {

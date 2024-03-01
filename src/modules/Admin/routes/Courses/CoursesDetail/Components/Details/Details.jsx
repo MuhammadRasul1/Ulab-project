@@ -82,6 +82,15 @@ export const Details = ({ detail }) => {
                     name="price"
                     required
                 />
+                <CoursesInput
+                    label="Дата начало" 
+                    id="date"
+                    placeholder="Введите сумму"
+                    type="datetime-local"
+                    register={register}
+                    name="beginning_date_course"
+                    required
+                />
             </Box>
             <Box display="flex" justifyContent="space-between" mt="24px">
                 <Box>

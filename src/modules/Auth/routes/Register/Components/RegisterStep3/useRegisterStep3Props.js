@@ -15,10 +15,10 @@ export const useRegisterStep3Props = () => {
     setError
   } = useForm();
 
-  const authRegister = useRegister()
+  const { mutate, isPending } = useRegister()
 
   const onSubmit = (data) => {
-    authRegister.mutate({
+    mutate({
       ...data,
       first_name: auth?.userRegisterData?.first_name,
       last_name: auth?.userRegisterData?.last_name,
@@ -30,6 +30,7 @@ export const useRegisterStep3Props = () => {
           role_id: res?.data?.role_id,
           first_name: res?.data?.first_name,
           last_name: res?.data?.last_name,
+          email: res?.data?.email,
           phone_number: res?.data?.phone_number,
           password: res?.data?.password,
           user_type: res?.data?.user_type,
@@ -48,6 +49,6 @@ export const useRegisterStep3Props = () => {
     handleSubmit,
     formState: { errors },
     onSubmit,
-    authRegister
+    isPending
   };
 };

@@ -15,10 +15,10 @@ export const useRegisterStep2Props = () => {
     setError
   } = useForm();
 
-  const checkCode = useCheckCode()
+  const { mutate, isPending } = useCheckCode()
   const onSubmit = (data) => {
     console.log(data);
-    checkCode.mutate({
+    mutate({
       ...data,
       request_id: auth?.userRegisterData?.request_id
     }, {
@@ -39,6 +39,6 @@ export const useRegisterStep2Props = () => {
     handleSubmit,
     formState: { errors },
     onSubmit,
-    checkCode
+    isPending
   };
 };

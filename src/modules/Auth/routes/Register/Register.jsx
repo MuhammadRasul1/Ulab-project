@@ -10,7 +10,7 @@ import { AuthInput } from "../components/AuthInput";
 
 export const Register = () => {
 
-  const { onSubmit, handleSubmit, register, formState: { errors }, checkEmail } = useRegisterProps();
+  const { onSubmit, handleSubmit, register, formState: { errors }, isPending } = useRegisterProps();
 
   return (
     <Box>
@@ -67,7 +67,7 @@ export const Register = () => {
         <Box display="flex" flexDirection="column">
           <BtnSubmit
             text="Получить код активации"
-            disabled={checkEmail.isPending} 
+            disabled={isPending} 
           />
           <LinkPage 
             text="Войти в аккаунт"

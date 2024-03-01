@@ -23,6 +23,7 @@ export const useHeaderProps = () => {
             photo: data?.photo,
             name: data?.name,
             for_who: data?.for_who,
+            type: data?.type,
             weekly_number: data?.weekly_number - 0,
             duration: data?.duration,
             price: data?.price - 0,

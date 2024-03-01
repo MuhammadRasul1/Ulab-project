@@ -12,15 +12,17 @@ export const useDetailProps = (detail) => {
     const updateCourse = useUpdateCourse()
   
     const handleEdit = (data) => {
-        // const datas = {
-        //     photo: data?.photo,
-        //     name: data?.name,
-        //     for_who: data?.for_who,
-        //     weekly_number: data?.weekly_number - 0,
-        //     duration: data?.duration,
-        //     price: data?.price - 0,
-        // }
-        updateCourse.mutate({...data, id: activeUserId})
+        const datas = {
+            photo: data?.photo,
+            name: data?.name,
+            type: data?.type,
+            beginning_date_course: data?.beginning_date_course,
+            for_who: data?.for_who,
+            weekly_number: data?.weekly_number - 0,
+            duration: data?.duration,
+            price: data?.price - 0,
+        }
+        updateCourse.mutate({...datas, id: activeUserId})
         navigate("/admin/courses")
     }
 

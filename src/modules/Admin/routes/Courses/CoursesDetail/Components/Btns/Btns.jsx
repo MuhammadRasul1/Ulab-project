@@ -8,9 +8,9 @@ import { SearchInput } from "components/SearchInput";
 import { useBtnsProps } from "./useBtnsProps";
 import { CoursesInput } from "../../../Components/CoursesInput";
 
-export const Btns = () => {
+export const Btns = ({detail}) => {
 
-    const { isOpen, onOpen, onClose, handleDownload, handleSubmit, onSubmit, register } = useBtnsProps()
+    const { isOpen, onOpen, onClose, handleDownload, handleSubmit, onSubmit, register } = useBtnsProps(detail)
 
     return (
         <Box>
@@ -28,7 +28,7 @@ export const Btns = () => {
                         />
                     </Box>
                     <Box mb="24px">
-                        <CoursesInput
+                        {/* <CoursesInput
                             label="Дата начало" 
                             id="date"
                             placeholder="Дата начало"
@@ -36,7 +36,7 @@ export const Btns = () => {
                             register={register}
                             name="beginning_date_course"
                             required
-                        />
+                        /> */}
                     </Box>
                     <Box mb="24px">
                         <CoursesInput
@@ -45,7 +45,7 @@ export const Btns = () => {
                             placeholder="Дата завершения"
                             type="datetime-local"
                             register={register}
-                            name="beginning_date_course"
+                            name="end_date"
                             required
                         />
                     </Box>

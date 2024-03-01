@@ -95,7 +95,7 @@ export const Header = () => {
           <h1 className={cls.title}>Курсы</h1>
           <Box display="flex" alignItems="start">
             <BtnDownload 
-              download={handleDownload}
+              // download={handleDownload}
             /> 
             <SearchInput className={cls.searchInput}/>
             <Filter />

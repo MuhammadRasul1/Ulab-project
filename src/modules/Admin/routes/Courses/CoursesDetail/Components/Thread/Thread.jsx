@@ -4,28 +4,37 @@ import { CustomTable } from "components/CustomTable";
 import { Input } from "components/Input";
 import { useThreadProps } from "./useThreadProps";
 import { EditModal } from "components/EditModal";
-import { StatusModal } from "modules/Admin/routes/Components/StatusModal";
-import { Select } from "components/Select";
+import { BtnDownload } from "components/BtnDownload";
+import { SearchInput } from "components/SearchInput";
+import { Filter } from "components/Filter";
+import { BtnAdd } from "components/BtnAdd";
+import { Btns } from "../Btns";
+// import { StatusModal } from "modules/Admin/routes/Components/StatusModal";
+// import { Select } from "components/Select";
 
-export const Thread = () => {
+export const Thread = ({ detail }) => {
 
   const {
     columns, 
     data, 
     isOpen,
     onClose,
+    onOpen,
     register,
     activeUserId,
     handleSubmit,
     setActiveUserId,
     handleEdit,
     handleDeleteUser,
-   } = useThreadProps();
+   } = useThreadProps(detail);
 
   return(
     <Box marginTop="20px">
+      <Btns 
+        detail={detail}      
+      />
       <CustomTable columns={columns} data={data} />
-      <StatusModal>
+      {/* <StatusModal>
         <FormControl as={"form"}>
           <Select 
             register={register}
@@ -37,7 +46,7 @@ export const Thread = () => {
             value2="Passive"
           />
         </FormControl>
-      </StatusModal>
+      </StatusModal> */}
       <EditModal handleDelete={handleDeleteUser} handleAccept={handleSubmit(handleEdit)} id={activeUserId} isOpen={isOpen} register={register} onClose={() => {
         onClose()
         setActiveUserId("")

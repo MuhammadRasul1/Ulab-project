@@ -11,11 +11,11 @@ export const useLoginProps = () => {
     setError
   } = useForm();
 
-  const login = useLogin()
+  const { mutate, isPending } = useLogin()
 
   const onSubmit = (data) => {
     console.log(data);
-    login.mutate(data, {
+    mutate(data, {
       onSuccess: (res) => {
         authStore.updateUserData({
           access_token: res?.data?.access_token,
@@ -42,6 +42,6 @@ export const useLoginProps = () => {
     handleSubmit,
     formState: { errors },
     onSubmit,
-    login
+    isPending
   };
 };

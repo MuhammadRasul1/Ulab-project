@@ -13,10 +13,10 @@ export const useRegisterProps = () => {
     setError
   } = useForm();
 
-  const checkEmail = useCheckEmail()
+  const { mutate, isPending } = useCheckEmail()
 
   const onSubmit = (data) => {
-    checkEmail.mutate(data, {
+    mutate(data, {
       onSuccess: (res) => {
         authStore.registerData({
           request_id: res?.data?.request_id,
@@ -39,6 +39,6 @@ export const useRegisterProps = () => {
     handleSubmit,
     formState: { errors },
     onSubmit,
-    checkEmail
+    isPending
   };
 };

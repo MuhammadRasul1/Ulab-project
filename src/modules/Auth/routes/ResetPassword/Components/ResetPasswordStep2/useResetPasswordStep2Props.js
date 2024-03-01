@@ -15,10 +15,10 @@ export const useResetPasswordStep2Props = () => {
     setError
   } = useForm();
 
-  const checkCode = useCheckCode()
+  const { mutate, isPending } = useCheckCode()
 
   const onSubmit = (data) => {
-    checkCode.mutate({
+    mutate({
       ...data,
       request_id: auth?.userResetPasswordData?.request_id
     }, {
@@ -39,6 +39,6 @@ export const useResetPasswordStep2Props = () => {
     handleSubmit,
     formState: { errors },
     onSubmit,
-    checkCode
+    isPending
   };
 };

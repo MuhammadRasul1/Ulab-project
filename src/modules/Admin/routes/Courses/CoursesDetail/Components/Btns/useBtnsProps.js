@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useCreateCourse, useGetDownloadCourses } from "api";
 import { useDisclosure } from "@chakra-ui/react";
+import { useCreateGroup } from "services/groups.service";
 
-export const useBtnsProps = () => {
+export const useBtnsProps = (detail) => {
     
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -17,18 +18,12 @@ export const useBtnsProps = () => {
         downloadCourses
     }
 
-    const createCourse = useCreateCourse();
+    const { mutate} = useCreateGroup();
     const onSubmit = (data) => {
-        const datas = {
-            photo: data?.photo,
-            name: data?.name,
-            for_who: data?.for_who,
-            weekly_number: data?.weekly_number - 0,
-            duration: data?.duration,
-            price: data?.price - 0,
-            beginning_date_course: data?.beginning_date_course,
-        }
-        createCourse.mutate(datas)
+        mutate({
+            course_id: detail?.id,
+            ...data
+        },)
         onClose()
     }
 

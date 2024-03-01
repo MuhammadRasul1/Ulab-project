@@ -10,7 +10,7 @@ export const useListUsersProps = () => {
 
   const [activeUserId, setActiveUserId] = useState("")
 
-  const { data: students } = useGetStudents(
+  const { data: students, refetch } = useGetStudents(
     {
       offset: 1
     }
@@ -18,11 +18,15 @@ export const useListUsersProps = () => {
 
   const getUserById = useGetUserById({userId: activeUserId})
   
-  const updateUser = useUpdateUser()
+  const { mutate, isSuccess } = useUpdateUser()
   
   const handleEdit = (data) => {
-    updateUser.mutate({...data, id: activeUserId})
+    mutate({
+      ...data, 
+      id: activeUserId
+    })
     onClose()
+    refetch()
   }
   
   const deleteUser = useDeleteUserById()
@@ -106,8 +110,6 @@ export const useListUsersProps = () => {
 
   authStore.hasNewData(students?.users)
   const data = authStore.newData
-
-  const count = students?.count
   
   // const [currentPage, setCurrentPage] = useState(1) 
   // const [postsPerPage, setPostsPerPage] = useState(8) 

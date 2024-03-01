@@ -13,10 +13,10 @@ export const useResetPasswordProps = () => {
     setError
   } = useForm();
 
-  const  resetPassword = useResetPassword()
+  const  { mutate, isPending } = useResetPassword()
 
   const onSubmit = (data) => {
-    resetPassword.mutate(data, {
+    mutate(data, {
       onSuccess: (res) => {
         authStore.resetPasswordData({
           request_id: res?.data?.request_id,
@@ -35,6 +35,6 @@ export const useResetPasswordProps = () => {
     handleSubmit,
     formState: { errors },
     onSubmit,
-    resetPassword
+    isPending
   };
 };

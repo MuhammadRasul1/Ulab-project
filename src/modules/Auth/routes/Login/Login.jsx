@@ -17,7 +17,7 @@ export const Login = () => {
     onSubmit, 
     handleSubmit, 
     register, 
-    login,
+    isPending,
     formState: { errors }, 
   } = useLoginProps();
 
@@ -61,7 +61,7 @@ export const Login = () => {
         <Box display="flex" flexDirection="column">
           <BtnSubmit
             text="Войти"
-            disabled={login?.isPending} 
+            disabled={isPending} 
           />
           
           <LinkPage

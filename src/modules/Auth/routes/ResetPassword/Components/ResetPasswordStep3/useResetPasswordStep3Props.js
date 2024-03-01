@@ -13,10 +13,10 @@ export const useResetPasswordStep3Props = () => {
     setError
   } = useForm();
 
-  const updatePassword = useUpdatePassword()
+  const { mutate, isPending } = useUpdatePassword()
 
   const onSubmit = (data) => {
-    updatePassword.mutate({
+    mutate({
       ...data,
       email: auth?.userResetPasswordData?.email
     }, {
@@ -28,6 +28,7 @@ export const useResetPasswordStep3Props = () => {
           last_name: res?.data?.last_name,
           phone_number: res?.data?.phone_number,
           password: res?.data?.password,
+          email: res?.data?.email,
           user_type: res?.data?.user_type,
         })
         authStore.login()
@@ -44,6 +45,6 @@ export const useResetPasswordStep3Props = () => {
     handleSubmit,
     formState: { errors },
     onSubmit,
-    updatePassword
+    isPending
   };
 };

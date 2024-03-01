@@ -24,7 +24,7 @@ export const Router = observer(() => {
       <Routes>
         <Route path="" element={<AuthLayout />}>
           <Route index path="/auth/*" element={<AuthRoutes />} />
-          <Route path="" element={<Navigate to="/auth" />} />
+          <Route path="*" element={<Navigate to="/auth" />} />
         </Route>
       </Routes>
     );
