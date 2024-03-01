@@ -18,8 +18,8 @@ export const Profile = () => {
               <div className={cls.imgWraper}>
                 <img src={userData.userData.last_name} alt="no foto" />
               </div>
-              <Link>
-                <button className={cls.changeData}>Изменить данные</button>
+              <Link to="detail" className={cls.changeData}>
+                Изменить данные
               </Link>
             </div>
             <div className={cls.userInfo}>

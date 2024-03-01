@@ -1,60 +1,54 @@
 import { Button, useDisclosure } from '@chakra-ui/react';
 import { authStore } from 'store/auth.store';
-import Edit from "assets/img/icon/edit.svg";
+import Edit from 'assets/img/icon/edit.svg';
 import { useForm } from 'react-hook-form';
 import { useDeleteUserById, useGetStudents, useGetUserById, useUpdateUser } from 'api';
 import { useEffect, useState } from 'react';
 
 export const useListUsersProps = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const [activeUserId, setActiveUserId] = useState("")
+  const [activeUserId, setActiveUserId] = useState('');
 
-  const { data: students, refetch } = useGetStudents(
-    {
-      offset: 1
-    }
-  );
+  const { data: students, refetch } = useGetStudents({
+    offset: 1,
+  });
 
-  const getUserById = useGetUserById({userId: activeUserId})
-  
-  const { mutate, isSuccess } = useUpdateUser()
-  
+  const getUserById = useGetUserById({ userId: activeUserId });
+
+  const { mutate, isSuccess } = useUpdateUser();
+
   const handleEdit = (data) => {
     mutate({
-      ...data, 
-      id: activeUserId
-    })
-    onClose()
-    refetch()
-  }
-  
-  const deleteUser = useDeleteUserById()
+      ...data,
+      id: activeUserId,
+    });
+    onClose();
+    refetch();
+  };
+
+  const deleteUser = useDeleteUserById();
 
   const handleDeleteUser = (data) => {
-    deleteUser.mutate({...data, id: activeUserId})
-    onClose()
-  }
+    deleteUser.mutate({ ...data, id: activeUserId });
+    onClose();
+  };
 
   useEffect(() => {
-    console.log(getUserById.data)
-    if(getUserById.isSuccess && activeUserId) {
-        const userData = getUserById.data
+    console.log(getUserById.data);
+    if (getUserById.isSuccess && activeUserId) {
+      const userData = getUserById.data;
 
-        reset({
-          first_name: userData?.first_name,
-          last_name: userData?.last_name,
-          phone_number: userData?.phone_number,
-          email: userData?.email,
-        })
+      reset({
+        first_name: userData?.first_name,
+        last_name: userData?.last_name,
+        phone_number: userData?.phone_number,
+        email: userData?.email,
+      });
     }
-  }, [getUserById.data])
+  }, [getUserById.data]);
 
-  const { 
-    register,
-    handleSubmit,
-    reset,
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const columns = [
     {
@@ -93,13 +87,14 @@ export const useListUsersProps = () => {
       render: (item) => {
         return (
           <div>
-             <Button  
-              padding="4px" 
-              colorScheme="transparent" 
+            <Button
+              padding="4px"
+              colorScheme="transparent"
               onClick={() => {
-                onOpen()
-                setActiveUserId(item?.id)
-              }}>
+                onOpen();
+                setActiveUserId(item?.id);
+              }}
+            >
               <img src={Edit} width={20} height={20} alt="edit" />
             </Button>
           </div>
@@ -108,18 +103,18 @@ export const useListUsersProps = () => {
     },
   ];
 
-  authStore.hasNewData(students?.users)
-  const data = authStore.newData
-  
-  // const [currentPage, setCurrentPage] = useState(1) 
-  // const [postsPerPage, setPostsPerPage] = useState(8) 
+  authStore.hasNewData(students?.users);
+  const data = authStore.newData;
 
-  // const lastPostIndex = currentPage * postsPerPage 
-  // const firstPostIndex = lastPostIndex - postsPerPage 
-  // const currentPosts = data ? data.slice(firstPostIndex, lastPostIndex) : [] 
-  // const paginate = (evt, pageNumber) => { 
-  //   evt.preventDefault() 
-  //   setCurrentPage(pageNumber) 
+  // const [currentPage, setCurrentPage] = useState(1)
+  // const [postsPerPage, setPostsPerPage] = useState(8)
+
+  // const lastPostIndex = currentPage * postsPerPage
+  // const firstPostIndex = lastPostIndex - postsPerPage
+  // const currentPosts = data ? data.slice(firstPostIndex, lastPostIndex) : []
+  // const paginate = (evt, pageNumber) => {
+  //   evt.preventDefault()
+  //   setCurrentPage(pageNumber)
   // }
 
   return {

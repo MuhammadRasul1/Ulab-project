@@ -1,0 +1,76 @@
+.imgeEditerBox {
+  display: flex;
+  gap: 70px;
+  margin-top: 30px;
+}
+.userImgEditer {
+  border-radius: 100px;
+}
+.editorBox {
+  margin-top: 40px;
+}
+.upDatePhoto {
+  width: 131px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #0067f4;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.dalatePhoto {
+  margin-left: 30px;
+  width: 131px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #cf0000;
+  font-size: 15px;
+  font-weight: 500;
+  color: #cf0000;
+  margin-bottom: 20px;
+}
+.rulse {
+  margin-top: 5px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #747474;
+}
+
+.lable {
+  display: block;
+  font-size: 14px;
+  margin-left: 3px;
+  // margin-top: 30px;
+}
+
+.inputEditerBox {
+  gap: 30px;
+  display: flex;
+}
+.inputEditerBox input {
+  width: 400px;
+}
+.cancelBtn {
+  width: 106px;
+  background-color: #ffffff;
+  border: 1px solid #e5e9eb;
+  color: #1a2024;
+  font-size: 14px;
+  padding: 15px;
+
+  border-radius: 8px;
+}
+.saveBtn {
+  padding: 15px;
+  width: 180px;
+  background-color: #0067f4;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 8px;
+}
+.btnWraper {
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
+}

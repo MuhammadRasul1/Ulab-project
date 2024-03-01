@@ -18,8 +18,6 @@ export const MainFundamental = () => {
     });
   }, []);
 
-  // console.log(post);
-
   return (
     <div className={cls.mainWraper}>
       <p className={cls.linkCourse}>
