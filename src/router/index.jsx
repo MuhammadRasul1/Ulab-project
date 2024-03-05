@@ -25,6 +25,7 @@ export const Router = observer(() => {
         <Route path="" element={<AuthLayout />}>
           <Route index path="/auth/*" element={<AuthRoutes />} />
           <Route path="*" element={<Navigate to="/auth" />} />
+          <Route path="" element={<Navigate to="/auth" />} />
         </Route>
       </Routes>
     );
@@ -36,7 +37,7 @@ export const Router = observer(() => {
   //   </Route>
   // </Routes>
   
-  if(role.userData?.user_type === "Admin" || role.userData?.user_type === "Mentor") {
+  if(role.userData?.data?.user_type === "Admin" || role.userData?.data?.user_type === "Mentor") {
     return (
       <Routes>
         <Route path="" element={<MainLayout />}>

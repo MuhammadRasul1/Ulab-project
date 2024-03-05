@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { authStore } from "store/auth.store";
 import { useNavigate } from "react-router-dom";
-import { useCheckEmail } from "services/api/auth/auth.service";
+import { useCheckEmail } from "services/auth.service";
 
 export const useRegisterProps = () => {
   const navigate = useNavigate();
@@ -18,12 +18,7 @@ export const useRegisterProps = () => {
   const onSubmit = (data) => {
     mutate(data, {
       onSuccess: (res) => {
-        authStore.registerData({
-          request_id: res?.data?.request_id,
-          first_name: res?.data?.first_name,
-          last_name: res?.data?.last_name,
-          email: res?.data?.email
-        })
+        authStore.registerData = res?.data
         navigate("Step2")
       },
       onError: (error) => {

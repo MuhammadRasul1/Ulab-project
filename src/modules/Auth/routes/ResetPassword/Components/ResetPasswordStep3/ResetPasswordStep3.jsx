@@ -41,7 +41,7 @@ export const ResetPasswordStep3 = () => {
         <CheckInput 
           text="Нажимая кнопку «Зарегистрироваться», вы даёте согласие на обработку данных"
         />
-        <Box marginTop="32px" display="flex" flexDirection="column">
+        <Box className={cls.btnWrapper}>
           <BtnSubmit 
             text="Восстановить пароль"
             disabled={isPending}
@@ -51,9 +51,7 @@ export const ResetPasswordStep3 = () => {
             to="/auth/forgotPassword/forgotPasswordStepTwo" 
           />
         </Box>
-        <Box marginTop="10px">
-          <CopyRight />
-        </Box>
+        <CopyRight />
       </FormControl>
     </Box>
   )

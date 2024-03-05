@@ -2,7 +2,18 @@ import React from 'react';
 import cls from './styles.module.scss';
 import { Box } from '@chakra-ui/react';
 
-export const CoursesInput = React.forwardRef(({name, required, register = () => {}, placeholder, type, label, id, ref, ...props}) => {
+export const CoursesInput = React.forwardRef(({
+    name, 
+    required, 
+    register = () => {}, 
+    placeholder, 
+    type, 
+    label, 
+    id, 
+    ref, 
+    ...props
+}) => {
+    
     const { ...rest } = props
 
     return (

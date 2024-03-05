@@ -7,11 +7,16 @@ import { Filter } from "components/Filter";
 import { BtnDownload } from "components/BtnDownload";
 import { AddModal } from "components/AddModal";
 import { CoursesInput } from "../CoursesInput";
-import { useHeaderProps } from "./useHeaderProps"
 
-export const Header = () => {
-
-  const { handleSubmit, onSubmit, register, isOpen, onClose, onOpen, handleDownload } = useHeaderProps();
+export const Header = ({
+  isOpen ,
+  onClose = () => {},
+  onOpen = () => {}, 
+  handleDownload = () => {},
+  handleSubmit = () => {},
+  onSubmit = () => {},
+  register = () => {}, 
+}) => {
 
   return (
     <header className={cls.header}>

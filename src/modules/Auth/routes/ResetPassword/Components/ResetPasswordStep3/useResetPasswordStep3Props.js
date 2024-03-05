@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { authStore } from "store/auth.store";
-import { useUpdatePassword } from "services/api/auth/auth.service";
+import { useUpdatePassword } from "services/auth.service";
 
 export const useResetPasswordStep3Props = () => {
 
@@ -18,19 +18,11 @@ export const useResetPasswordStep3Props = () => {
   const onSubmit = (data) => {
     mutate({
       ...data,
-      email: auth?.userResetPasswordData?.email
+      email: auth?.data?.email
     }, {
       onSuccess: (res) => {
-        authStore.updateUserData({
-          id: res?.data?.id,
-          role_id: res?.data?.role_id,
-          first_name: res?.data?.first_name,
-          last_name: res?.data?.last_name,
-          phone_number: res?.data?.phone_number,
-          password: res?.data?.password,
-          email: res?.data?.email,
-          user_type: res?.data?.user_type,
-        })
+        authStore.userData = res?.data
+        authStore.data = {};
         authStore.login()
       },
       onError: (error) => {

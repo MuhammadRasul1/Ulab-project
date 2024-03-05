@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
-import { authStore } from "store/auth.store";
 import { useNavigate } from "react-router-dom";
-import { useCheckCode } from "services/api/auth/auth.service";
+import { useCheckCode } from "services/auth.service";
 
 export const useResetPasswordStep2Props = () => {
 
@@ -20,12 +19,9 @@ export const useResetPasswordStep2Props = () => {
   const onSubmit = (data) => {
     mutate({
       ...data,
-      request_id: auth?.userResetPasswordData?.request_id
+      request_id: auth?.data?.request_id
     }, {
-      onSuccess: (res) => {
-        authStore.resetPasswordInfoData({
-          data: res?.data?.data,
-        })
+      onSuccess: () => {
         navigate("Step3")
       },
       onError: (error) => {

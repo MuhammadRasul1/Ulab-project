@@ -39,7 +39,6 @@ export const Register = () => {
           error={errors.first_name}
           required
         />
-
         <AuthInput
           label="Фамилия"
           id="lastName"
@@ -64,7 +63,7 @@ export const Register = () => {
           error={errors.email}
           required
         /> 
-        <Box display="flex" flexDirection="column">
+        <Box className={cls.btnWrapper}>
           <BtnSubmit
             text="Получить код активации"
             disabled={isPending} 

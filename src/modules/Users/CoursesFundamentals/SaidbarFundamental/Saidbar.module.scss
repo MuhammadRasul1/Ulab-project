@@ -34,9 +34,44 @@
   padding: 8px 8px 8px 20px;
   font-size: 13px;
 }
+
 .wrapVD:hover {
   transition: 0.5s;
   padding: 10px 10px 10px 10px;
   background-color: #403ef51f;
   color: #403ef5;
+}
+//
+
+.sidepanel {
+  height: 0;
+  position: fixed;
+  z-index: 1;
+  height: 250px;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidepanel .closebtn {
+  position: absolute;
+
+  top: 25px;
+  font-size: 36px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
 }

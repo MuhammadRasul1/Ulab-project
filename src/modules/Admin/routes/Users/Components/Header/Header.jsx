@@ -1,4 +1,4 @@
-import { Box, FormControl } from "@chakra-ui/react";
+import { Box, FormControl, useDisclosure } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
 import { SearchInput } from "components/SearchInput";
 import { BtnAdd } from "components/BtnAdd";
@@ -6,20 +6,26 @@ import { Container } from "components/Container";
 import { Filter } from "components/Filter";
 import { BtnDownload } from "components/BtnDownload";
 import { AddModal } from "components/AddModal";
-import { useHeaderProps } from "./useHeaderProps";
 import { Input } from "components/Input";
 import { Select } from "components/Select";
 
-export const Header = () => {
+export const Header = ({
+  // onOpen = () => {},
+  // isOpen, 
+  // onClose = () => {}, 
+  handleSubmit = () => {}, 
+  onSubmit = () => {}, 
+  register, 
+}) => {
 
-  const { handleSubmit, onSubmit, register, isOpen, onClose, onOpen } = useHeaderProps();
+  const {  onOpen, isOpen, onClose } = useDisclosure()
 
   return (
     <header className={cls.header}>
       <Container >
         <AddModal handleAccept={handleSubmit(onSubmit)} register={register} isOpen={isOpen} onClose={onClose} >
           <FormControl as='form'>
-            <Box className={cls.wrapper}>
+            <Box className={cls.inputWrapper}>
                 <Input
                     type="text"
                     placeholder="Имя"
@@ -27,7 +33,7 @@ export const Header = () => {
                     name="first_name"  
                 />
             </Box>
-            <Box className={cls.wrapper}>
+            <Box className={cls.inputWrapper}>
                 <Input
                     type="text"
                     placeholder="Фамилия"
@@ -35,7 +41,7 @@ export const Header = () => {
                     name="last_name"
                 />
             </Box>
-            <Box className={cls.wrapper}>
+            <Box className={cls.inputWrapper}>
                 <Input
                     type="number"
                     placeholder="Номер телефона"
@@ -43,7 +49,7 @@ export const Header = () => {
                     name="phone_number" 
                 />
             </Box>
-            <Box className={cls.wrapper}>
+            <Box className={cls.inputWrapper}>
                 <Input
                     type="email"
                     placeholder="Email"
@@ -51,7 +57,7 @@ export const Header = () => {
                     name="email"  
                 />
             </Box>
-            <Box className={cls.wrapper}>
+            <Box className={cls.inputWrapper}>
                 <Input
                     type="password"
                     placeholder="Пароль"
@@ -59,7 +65,7 @@ export const Header = () => {
                     name="password"
                 />
             </Box>
-            <Box className={cls.wrapper}>
+            <Box className={cls.inputWrapper}>
                 <Select 
                     register={register}
                     name="user_type"
@@ -72,9 +78,9 @@ export const Header = () => {
             </Box>
           </FormControl>
         </AddModal>
-        <Box display="flex" alignItems="center" justifyContent="space-between"> 
+        <Box className={cls.wrapper}> 
           <h1 className={cls.title}>Пользователи</h1>
-          <Box display="flex" alignItems="start">
+          <Box className={cls.btnsWrapper}>
             <BtnDownload /> 
             <SearchInput className={cls.searchInput}/>
             <Filter />

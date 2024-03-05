@@ -52,7 +52,7 @@ export const RegisterStep3 = () => {
         <CheckInput 
           text="Нажимая кнопку «Зарегистрироваться», вы даёте согласие на обработку данных"
         />
-        <Box marginTop="32px" display="flex" flexDirection="column">
+        <Box className={cls.btnWrapper}>
           <BtnSubmit 
             text="Зарегистрироваться"
             disabled={isPending}

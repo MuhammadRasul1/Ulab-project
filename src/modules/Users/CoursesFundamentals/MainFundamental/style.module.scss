@@ -61,13 +61,14 @@
   // color: #222222;
 }
 .aboutRoulse {
-  margin-top: 10px;
+  margin: 10px;
   background: #f5f5f5;
-  width: 996px;
   padding: 20px;
-
+  text-align: center;
   font-weight: 400;
   color: #222222;
+  display: flex;
+  justify-content: center;
 }
 .rule {
   padding: 20px;
@@ -80,7 +81,9 @@
   font-size: 15px;
   color: #262626;
 }
-
+.homworkBox {
+  margin-left: 20px;
+}
 .btnDiv {
   margin-top: 30px;
   display: flex;

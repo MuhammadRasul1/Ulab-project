@@ -3,27 +3,24 @@ import cls from "./styles.module.scss";
 import { CustomTable } from "components/CustomTable";
 import { EditModal } from "components/EditModal";
 import { Input } from "components/Input";
-import { useListMentorsProps } from "./useListMentorsProps";
 
-export const ListMentors = () => {
-
-  const {
-    columns, 
-    data, 
-    isOpen,
-    onClose,
-    register,
-    activeUserId,
-    handleSubmit,
-    setActiveUserId,
-    handleEdit,
-    handleDeleteUser,
-   } = useListMentorsProps();
-
+export const ListMentors = ({
+  isOpen, 
+  key,
+  onClose = () => {}, 
+  columns, 
+  data,
+  handleSubmit = () => {},
+  handleEdit = () => {}, 
+  handleDeleteUser = () => {},
+  activeUserId,
+  register,
+  setActiveUserId
+}) => {
 
   return(
     <Box marginTop="20px">
-      <CustomTable columns={columns} data={data} />
+      <CustomTable key={key} columns={columns} data={data} />
       <EditModal handleDelete={handleDeleteUser} handleAccept={handleSubmit(handleEdit)} id={activeUserId} isOpen={isOpen} register={register} onClose={() => {
         onClose()
         setActiveUserId("")

@@ -30,7 +30,7 @@ export const ResetPassword = () => {
         />
           
         <p className={cls.text}>Введите номер телефона чтобы получить код активации</p>
-        <Box display="flex" flexDirection="column">
+        <Box className={cls.btnWrapper}>
           <BtnSubmit
             text="Получить код активации"
             disabled={isPending} 
@@ -40,9 +40,7 @@ export const ResetPassword = () => {
             to="/auth/login" 
           />
         </Box>
-        <Box marginTop="125px">
-          <CopyRight />
-        </Box>
+        <CopyRight />
       </FormControl>
     </Box>
   )

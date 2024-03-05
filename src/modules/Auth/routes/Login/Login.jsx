@@ -49,21 +49,19 @@ export const Login = () => {
           required
         />
             
-        <Box margin="8px 0 48px 0" display="flex" justifyContent="space-between">
+        <Box className={cls.wrapper}>
           <CheckInput
            text="Запомнить меня"
           //  register={register}
            name="rememberMe" 
-           required
           />
-          <Link className={cls.ForgotPassword} to="/auth/resetPassword">Забыли пароль?</Link>
+          <Link className={cls.restorePassword} to="/auth/resetPassword">Забыли пароль?</Link>
         </Box>
-        <Box display="flex" flexDirection="column">
+        <Box className={cls.btnWrapper}>
           <BtnSubmit
             text="Войти"
             disabled={isPending} 
           />
-          
           <LinkPage
            text="Зарегистрироваться"
            to="/auth/register"

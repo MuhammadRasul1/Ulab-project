@@ -8,15 +8,7 @@
     letter-spacing: -0.792px;
 }
 
-.btn {
-    padding: 0;
-    background-color: transparent;
-    border: none;
-    margin-bottom: 32px;
-    color: $grey;
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 32px;
-    letter-spacing: -0.006em;
-    text-align: left;    
+.btnWrapper {
+    display: flex;
+    flex-direction: column;
 }

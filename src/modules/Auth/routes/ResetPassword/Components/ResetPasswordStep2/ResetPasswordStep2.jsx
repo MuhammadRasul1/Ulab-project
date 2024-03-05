@@ -28,7 +28,7 @@ export const ResetPasswordStep2 = () => {
           error={errors.verify_code}
           required
         />
-        <Box display="flex" flexDirection="column">
+        <Box className={cls.btnWrapper}>
           <BtnSubmit
             text="Следующий шаг"
             disabled={isPending} 
@@ -38,9 +38,7 @@ export const ResetPasswordStep2 = () => {
             to="/auth/resetPassword" 
           />
         </Box>
-        <Box marginTop="185px">
-          <CopyRight />
-        </Box>
+        <CopyRight />
       </FormControl>
     </Box>
   )

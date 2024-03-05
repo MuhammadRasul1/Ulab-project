@@ -7,7 +7,7 @@ export const Select = ({register = () => {}, name, value1, value2, value3, text1
             <select className={cls.select}  {...register(name)} id={id} >
                 <option value={value1}>{text1}</option>
                 <option value={value2}>{text2}</option>
-                <option value={value3}>{text3}</option>
+                {/* <option value={value3}>{text3}</option> */}
             </select>
         </Box>
     );

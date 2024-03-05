@@ -39,7 +39,7 @@ export const RegisterStep2 = () => {
           error={errors.verify_code}
           required
         />
-        <Box marginTop="32px" display="flex" flexDirection="column">
+        <Box className={cls.btnWrapper}>
           <BtnSubmit
             text="Следующий шаг"
             disabled={isPending} 
@@ -49,9 +49,7 @@ export const RegisterStep2 = () => {
             to="/auth/register"
           />
         </Box>
-        <Box marginTop="90px">
-          <CopyRight />
-        </Box>
+        <CopyRight />
       </FormControl>
     </Box>
   )

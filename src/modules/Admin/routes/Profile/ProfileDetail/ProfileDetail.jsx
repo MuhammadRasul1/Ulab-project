@@ -3,7 +3,7 @@ import { DetaileHeader } from './ProfileDetailHeader/DetaileHeader';
 import userImgEditer from 'assets/img/icon/userAvatar.svg';
 import cls from './style.module.scss';
 import { useEffect, useState } from 'react';
-import { useDeleteUserById, useGetStudents, useGetUserById, useUpdateUser } from 'api';
+import { useUpdateUserById } from 'services/users.service';
 import { authStore } from 'store/auth.store';
 import { useForm } from 'react-hook-form';
 import { Input } from 'components/Input';
@@ -14,7 +14,7 @@ export const ProfileDetail = () => {
   const userData = JSON.parse(localStorage.getItem('auth'));
   const activeUserId = userData?.userData?.id;
   console.log(activeUserId);
-  const updateUser = useUpdateUser();
+  const updateUser = useUpdateUserById();
   const handleEdit = (data) => {
     updateUser.mutate(
       {

@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
-import { authStore } from "store/auth.store";
 import { useNavigate } from "react-router-dom";
-import { useCheckCode } from "services/api/auth/auth.service";
+import { useCheckCode } from "services/auth.service";
 
 export const useRegisterStep2Props = () => {
   
@@ -17,15 +16,11 @@ export const useRegisterStep2Props = () => {
 
   const { mutate, isPending } = useCheckCode()
   const onSubmit = (data) => {
-    console.log(data);
     mutate({
       ...data,
-      request_id: auth?.userRegisterData?.request_id
+      request_id: auth?.data?.request_id
     }, {
-      onSuccess: (res) => {
-        authStore.registerInfoData({
-          data: res?.data?.data,
-        })
+      onSuccess: () => {
         navigate("Step3")
       },
       onError: (error) => {

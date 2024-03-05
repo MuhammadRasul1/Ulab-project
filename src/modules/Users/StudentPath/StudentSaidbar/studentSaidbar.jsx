@@ -4,11 +4,12 @@ import cls from './style.module.scss';
 import { authStore } from 'store/auth.store';
 import { CiLogout } from 'react-icons/ci';
 // import { SaidbarFooter } from '../SaidbarFooter';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import UserNameImg from 'assets/img/icon/userAvatar.svg';
 import ErroIcon from 'assets/img/icon/arrow_drop_down.svg';
 import { Box } from '@chakra-ui/react';
 import { Button } from 'react-bootstrap';
+import { Exam } from 'modules/Users/Exam/Exam';
 export const StudentSaidbar = () => {
   const handleLogOut = () => {
     authStore.userData = {};
@@ -30,9 +31,9 @@ export const StudentSaidbar = () => {
           </div>
           <div className={cls.sidbarExzam}>
             <img src={clockLOder} alt="" />
-            <Link>
+            <NavLink to={'/Exam'}>
               <p>Экзамен</p>
-            </Link>
+            </NavLink>
           </div>
           <div className={cls.logOut}>
             <div className={cls.IconLogOut}>

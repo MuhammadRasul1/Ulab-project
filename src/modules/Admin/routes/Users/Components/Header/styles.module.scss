@@ -10,8 +10,18 @@
   background-color: #fff;
 }
 
-.wrapper:not(:last-child) {
+.inputWrapper:not(:last-child) {
   margin-bottom: 18px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btnsWrapper {
+  display: flex;
 }
 
 .title {

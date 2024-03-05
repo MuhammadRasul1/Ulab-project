@@ -1,12 +1,49 @@
 import { Link } from "react-router-dom";
 import cls from "./styles.module.scss";
-import { useSidebarProps } from "./useSidebarProps";
 import { Box } from "@chakra-ui/react";
 import { Footer } from "components/Footer";
+import Courses from "assets/img/icon/courses.svg";
+import UserIcon from "assets/img/icon/usersicon.svg"
+import InfoIcon from "assets/img/icon/info.svg";
+import Device from "assets/img/icon/devices.svg";
 
 export const Sidebar = () => {
 
-  const { auth, links } = useSidebarProps();
+  
+  const links = [
+    {
+      title: "Курсы",
+      path: "admin/courses",
+      src: Courses,
+      alt: "Courses",
+    },
+    {
+      title: "Группы",
+      path: "admin/groups",
+      src: Courses,
+      alt: "Группы",
+    },
+    {
+      title: "Пользователи",
+      path: "admin/users",
+      src: UserIcon,
+      alt: "UserIcon",
+    },
+    {
+      title: "Профиль",
+      path: "admin/profile",
+      src: InfoIcon,
+      alt: "InfoIcon",
+    },
+    {
+      title: "Устройство",
+      path: "admin/device",
+      src: Device,
+      alt: "Device",
+    },
+  ]
+
+  const auth = JSON.parse(localStorage.getItem("auth"));
 
   return (
     <Box className={cls.sidebar}>

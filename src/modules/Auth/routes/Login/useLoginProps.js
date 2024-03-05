@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { authStore } from "store/auth.store";
-import { useLogin } from "services/api/auth/auth.service";
+import { useLogin } from "services/auth.service";
 
 export const useLoginProps = () => {
 
@@ -8,32 +8,22 @@ export const useLoginProps = () => {
     register,
     handleSubmit,
     formState: { errors },
-    setError
+    setError,
+    
   } = useForm();
 
-  const { mutate, isPending } = useLogin()
+  const { mutate, isPending } = useLogin();
 
   const onSubmit = (data) => {
-    console.log(data);
     mutate(data, {
       onSuccess: (res) => {
-        authStore.updateUserData({
-          access_token: res?.data?.access_token,
-          id: res?.data?.data?.id,
-          role_id: res?.data?.data?.role_id,
-          user_type: res?.data?.data?.user_type,
-          first_name: res?.data?.data?.first_name,
-          last_name: res?.data?.data?.last_name,
-          email: res?.data?.data?.email,
-          phone_number: res?.data?.data?.phone_number,
-          password: res?.data?.data?.password,
-        })
-        authStore.login()
+        authStore.userData = res?.data
+        authStore.login();
       },
       onError: (error) => {
         setError("email", { message: error?.response?.data  })
         setError("password", { message: error?.response?.data })
-      }
+      },
     })
   };
 
