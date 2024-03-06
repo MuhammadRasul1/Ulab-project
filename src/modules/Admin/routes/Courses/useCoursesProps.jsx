@@ -3,6 +3,7 @@ import Edit from "assets/img/icon/edit.svg";
 import { Button, useDisclosure } from "@chakra-ui/react";
 import { useCreateCourse, useGetCourses } from "services/courses.service";
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 
 export const useCoursesProps = () => {
   const navigate = useNavigate();
@@ -16,7 +17,14 @@ export const useCoursesProps = () => {
 
   const { refetch, data: courses } = useGetCourses()
 
-  const { mutate: createCourse } = useCreateCourse()
+  const [currentPage, setCurrentPage] = useState(1);
+  const [recordsPerPage] = useState(10);
+  const indexOfLastRecord = currentPage * recordsPerPage;
+  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+  const nPages = Math.ceil(courses?.count / recordsPerPage) || 1;
+  const currentRecords = courses?.courses.slice(indexOfFirstRecord, indexOfLastRecord);
+
+  const { mutate: createCourse, reset } = useCreateCourse()
     
   const onSubmit = (data) => {
     const datas = {
@@ -34,6 +42,7 @@ export const useCoursesProps = () => {
     }, {
       onSuccess: () => {
         onClose()
+        reset()
         refetch();
       }
     })
@@ -108,9 +117,12 @@ export const useCoursesProps = () => {
     },
   ];
 
-  const data = courses?.courses
+  const data = currentRecords
 
   return {
+    setCurrentPage,
+    currentPage,
+    nPages,
     isOpen,
     onOpen,
     onClose,

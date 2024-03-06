@@ -6,11 +6,19 @@ import Courses from "assets/img/icon/courses.svg";
 import UserIcon from "assets/img/icon/usersicon.svg"
 import InfoIcon from "assets/img/icon/info.svg";
 import Device from "assets/img/icon/devices.svg";
+import Reports from "assets/img/icon/reports.svg";
+import GroupsIcon from "assets/img/icon/groupsIcon.svg";
+import DashbordIcon from "assets/img/icon/DashboardIcon.svg";
 
 export const Sidebar = () => {
-
   
   const links = [
+    {
+      title: "Дашборд",
+      path: "admin/dashbord",
+      src: DashbordIcon,
+      alt: "dashbordIcon",
+    },
     {
       title: "Курсы",
       path: "admin/courses",
@@ -20,14 +28,26 @@ export const Sidebar = () => {
     {
       title: "Группы",
       path: "admin/groups",
-      src: Courses,
+      src: GroupsIcon,
       alt: "Группы",
     },
     {
-      title: "Пользователи",
+      title: "Ученики",
       path: "admin/users",
       src: UserIcon,
       alt: "UserIcon",
+    },
+    {
+      title: "Менторы",
+      path: "admin/mentors",
+      src: UserIcon,
+      alt: "UserIcon",
+    },
+    {
+      title: "Отчеты",
+      path: "admin/reports",
+      src: Reports,
+      alt: "отчеты",
     },
     {
       title: "Профиль",
@@ -48,7 +68,7 @@ export const Sidebar = () => {
   return (
     <Box className={cls.sidebar}>
       <Box className={cls.wrapper}>
-        <p className={cls.logo}>LMS</p>
+        <a className={cls.logo} href="">LMS</a>
         <button className={cls.sidebarBtn} type="button">
           <Box display="flex" flexDirection="column">
             <span></span>
@@ -64,8 +84,8 @@ export const Sidebar = () => {
       <nav className={cls.navbar}>
         <ul className={cls.navList}>
           {
-            links?.map((link) => (
-              <li className={cls.navItem}> 
+            links?.map((link, index) => (
+              <li className={cls.navItem} key={index}> 
                 <Link className={cls.navLink} to={link?.path}>
                   <img src={link?.src} alt={link?.alt} width={20} height={20} />
                   <span className={cls.navText}>{link?.title}</span>

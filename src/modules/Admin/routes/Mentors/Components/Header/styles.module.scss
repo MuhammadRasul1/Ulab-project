@@ -1,0 +1,41 @@
+.header {
+  position: fixed;
+  left: 280px;
+  top: 0;
+  max-width: 1160px;
+  z-index: 20;
+  font-family: Inter;
+  padding: 10px 0;
+  border-bottom: 1px solid #E5E9EB;
+  background-color: #fff;
+}
+
+.inputWrapper:not(:last-child) {
+  margin-bottom: 18px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btnsWrapper {
+  display: flex;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.searchInput {
+  margin-right: 18px;
+}
+
+.btnAdd {
+  margin-left: 18px;
+}

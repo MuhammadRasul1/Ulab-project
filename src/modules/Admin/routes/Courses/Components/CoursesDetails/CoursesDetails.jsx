@@ -5,9 +5,8 @@ import 'react-tabs/style/react-tabs.css';
 import { useCoursesDetailsProps } from "./useCoursesDetailsProps";
 import { Header } from "../DetailHeader";
 import { Thread } from "../Thread";
-import { Pagination } from "components/Pagination";
 import { Detail } from "../Detail";
-import WithBasicExample from "../Lessons/Lessons";
+// import WithBasicExample from "../Lessons/Lessons";
 
 export const CoursesDetails = () => {
 
@@ -34,8 +33,6 @@ export const CoursesDetails = () => {
             <TabList >
               <Tab>Детали</Tab>
               <Tab>Уроки</Tab>
-              <Tab>Отчеты</Tab>
-              <Tab>Потоки</Tab>
             </TabList>
             <TabPanel>
               <Detail 
@@ -47,14 +44,11 @@ export const CoursesDetails = () => {
               />
             </TabPanel>
             <TabPanel>
-
-              <WithBasicExample />
+              {/* <input type="file" name="" id="" /> */}
+              {/* <WithBasicExample /> */}
               {/* <YooptaEditor value={editorValue} onChange={onChange} /> */}
             </TabPanel>
-            <TabPanel>
-              Отчеты
-            </TabPanel>
-            <TabPanel>
+            {/* <TabPanel>
               <Thread
                 isOpen={isOpen}
                 onClose={onClose}
@@ -68,11 +62,10 @@ export const CoursesDetails = () => {
                 register={register}
                 handleSubmit={handleSubmit}
               />
-            </TabPanel>
+            </TabPanel> */}
           </Tabs>
         </Box>
       </Container>
-      <Pagination />
     </Box>
   ) 
 }

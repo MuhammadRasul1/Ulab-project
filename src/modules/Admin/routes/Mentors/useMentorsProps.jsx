@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
 import { useDeleteUserById, useGetUserById, useUpdateUserById, useGetStudents, useGetMentors, useCreateUser } from 'services/users.service';
 
-export const useUsersProps = () => {
+export const useMentorsProps = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -15,26 +15,26 @@ export const useUsersProps = () => {
     handleSubmit, 
     reset 
   } = useForm();
-
-  const { data: students, refetch } = useGetStudents({
+  
+  const { data: mentors, refetch } = useGetMentors({
     offset: 1,
   });
 
   const { data: getUserById, isSuccess} = useGetUserById({ userId: activeUserId });
 
-  // const { mutate: createUser } = useCreateUser()
+  const { mutate: createUser } = useCreateUser()
     
-  // const onSubmit = (data) => {
-  //   createUser({
-  //     ...data,
-  //     user_type: 'Student'
-  //   }, {
-  //     onSuccess: () => {
-  //       refetch();
-  //       onClose()
-  //     }
-  //   })
-  // }
+  const onSubmit = (data) => {
+    createUser({
+      ...data,
+      user_type: 'Mentor'
+    }, {
+      onSuccess: () => {
+        refetch();
+        onClose()
+      }
+    })
+  }
 
   const { mutate: updateUser } = useUpdateUserById();
 
@@ -133,17 +133,17 @@ export const useUsersProps = () => {
     },
   ];
 
-  const usersData = students?.users;
+  const mentorsData = mentors?.users;
 
   return {
     isOpen,
     onOpen,
     onClose,
     columns,
-    usersData,
+    mentorsData,
     register,
     handleSubmit,
-    // onSubmit,
+    onSubmit,
     handleDeleteUser,
     handleEdit,
     activeUserId,

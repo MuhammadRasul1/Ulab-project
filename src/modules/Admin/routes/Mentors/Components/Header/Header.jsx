@@ -8,7 +8,7 @@ import { BtnDownload } from "components/BtnDownload";
 import { AddModal } from "components/AddModal";
 import { Input } from "components/Input";
 import { Select } from "components/Select";
-import { useCreateUser, useGetStudents } from "services/users.service";
+import { useCreateUser, useGetMentors } from "services/users.service";
 
 export const Header = ({
   // onOpen = () => {},
@@ -20,21 +20,20 @@ export const Header = ({
   register, 
 }) => {
 
-  const { data: students, refetch } = useGetStudents({
+  const { data: students, refetch } = useGetMentors({
     offset: 1,
   });
 
-  const { mutate: createUser, reset } = useCreateUser()
+  const { mutate: createUser } = useCreateUser()
     
   const onSubmit = (data) => {
     createUser({
       ...data,
-      user_type: 'Student'
+      user_type: 'Mentor'
     }, {
       onSuccess: () => {
-        onClose()
-        reset();
         refetch();
+        onClose();
       }
     })
   }
@@ -97,7 +96,7 @@ export const Header = ({
           </FormControl>
         </AddModal>
         <Box className={cls.wrapper}> 
-          <h1 className={cls.title}>Ученики</h1>
+          <h1 className={cls.title}>Менторы</h1>
           <Box className={cls.btnsWrapper}>
             <BtnDownload /> 
             <SearchInput className={cls.searchInput}/>

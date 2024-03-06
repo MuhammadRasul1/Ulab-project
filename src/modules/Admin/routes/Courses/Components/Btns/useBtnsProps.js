@@ -21,7 +21,7 @@ export const useBtnsProps = (activeCourse) => {
     // const { refetch } = useGetCourseById( course_id )
     const { refetch } = useGetGroups({ groupId: activeCourse.id });
 
-    const { mutate} = useCreateGroup();
+    const { mutate, reset} = useCreateGroup();
     const onSubmit = (data) => {
         mutate({
             course_id: activeCourse?.id,
@@ -29,6 +29,7 @@ export const useBtnsProps = (activeCourse) => {
         }, {
             onSuccess: () => {
               refetch()
+              reset
               onClose()
             }
         })

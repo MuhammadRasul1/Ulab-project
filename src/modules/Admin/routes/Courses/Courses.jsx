@@ -7,6 +7,9 @@ import { Pagination } from 'components/Pagination';
 
 export const Courses = () => {
   const {
+    currentPage,
+    nPages,
+    setCurrentPage,
     isOpen,
     onClose,
     onOpen,
@@ -30,7 +33,11 @@ export const Courses = () => {
       <Box marginBottom="100px" marginTop="84px">
         <CustomTable columns={columns} data={data} />
       </Box>
-      <Pagination />
+      <Pagination 
+        nPages={nPages}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </Container>
   )
 };
