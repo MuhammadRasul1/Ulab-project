@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import cls from "./styles.module.scss";
 import clsx from "clsx";
 import { Box, InputGroup, InputRightElement } from "@chakra-ui/react";
 import Error from "assets/img/icon/error.svg";
 import { ViewOffIcon, ViewIcon } from '@chakra-ui/icons'
-import { useAuthInputPasswordProps } from "./useAuthInputPasswordProps";
 
 export const AuthInputPassword = React.forwardRef(({name, maxLength, error, minLength, required, alt, src, register = () => {}, placeholder, type, label, id, ref, ...props}) => {
     const { ...rest } = props
-
-    const { handleClick, show} = useAuthInputPasswordProps()
+    
+    const [show, setShow] = useState(false);
+    const handleClick = () => setShow(!show);
 
     return (
         <Box className={cls.wrapper}>

@@ -1,0 +1,39 @@
+.wrapper {
+    // background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .item {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+  }
+  
+  .item:active {
+    cursor: grabbing;
+  }
+
+.input {
+    width: 422px;
+    padding: 6px;
+    padding-right: 0;
+    border-radius: 8px;
+    border: 1px solid #b0b3b4;
+    background-color: transparent;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; 
+    letter-spacing: -0.084px;
+}
+

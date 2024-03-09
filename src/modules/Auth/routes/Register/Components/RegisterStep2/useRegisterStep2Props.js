@@ -6,6 +6,7 @@ export const useRegisterStep2Props = () => {
   
   const navigate = useNavigate()
   const auth = JSON.parse(localStorage.getItem("auth"))
+  console.log(auth.data.request_id)
 
   const { 
     register,

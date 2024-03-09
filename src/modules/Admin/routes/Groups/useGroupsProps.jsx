@@ -1,3 +1,139 @@
+import Edit from "assets/img/icon/edit.svg";
+import { Button, useDisclosure } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate, useParams } from "react-router-dom";
+import { useGetCourses } from "services/courses.service";
+import request from "services/httpRequest";
+import EyeView from "assets/img/icon/EyeView.svg";
+
+export const useGroupsProps = () => {
+  
+  const [activeGroup, setActiveGroup] = useState("")
+  const [activeGroupId, setActiveGroupId] = useState("")
+  
+  const param = useParams()
+  const navigate = useNavigate();
+  
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const { 
+    register, 
+    handleSubmit, 
+    reset 
+  } = useForm();
+        
+  useEffect(() => {
+    request.get(`group/${param.id}`)
+    .then(res => setActiveGroup(res.data))
+  }, [])
+
+  const { data: courses, refetch } = useGetCourses();
+  
+  const columns = [
+    {
+      title: 'Название потока',
+      dataIndex: 'name',
+      key: 'name',
+      width: 140,
+    },
+    {
+      title: 'Учеников',
+      dataIndex: 'number_of_students',
+      key: 'number_of_students',
+      width: 100,
+    },
+    {
+      title: 'Изучили всё',
+      dataIndex: 'done_all',
+      key: 'done_all',
+      width: 128,
+    },
+    {
+      title: 'Не изучили всё',
+      dataIndex: 'progress',
+      key: 'progress',
+      width: 128,
+    },
+    {
+      title: 'Не приступали',
+      dataIndex: 'not_all',
+      key: 'not_all',
+      width: 132,
+    },
+    {
+      title: 'Начало',
+      dataIndex: 'data',
+      key: 'data',
+      width: 116,
+    },
+    {
+      title: 'Завершение',
+      dataIndex: 'end_date',
+      key: 'end_date',
+      width: 132,
+    },
+    {
+      title: 'Статус',
+      key: 'status',
+      width: 160,
+      render: (item) => {
+        return (
+          <div>
+             <Button  
+                padding="4px" 
+                color="#4094F7"
+                backgroundColor="#4094F726" 
+                onClick={() => {
+                  onOpen()
+                  // setActiveUserId(item?.id)
+                }}>
+                Status
+            </Button>
+          </div>
+        );
+      },
+    },
+    {
+      title: '',
+      key: 'operations',
+      render: (item) => {
+        return (
+          <div>
+             <Button  
+              padding="4px" 
+              colorScheme="transparent" 
+              onClick={() => {
+                onOpen()
+                // setActiveUserId(item?.id)
+              }}>
+              <img src={Edit} width={20} height={20} alt="edit" />
+            </Button>
+             <Button  
+              padding="4px" 
+              colorScheme="transparent" 
+              onClick={() => {
+                onOpen()
+                // setActiveUserId(item?.id)
+              }}>
+              <img src={EyeView} width={20} height={20} alt="edit" />
+            </Button>
+          </div>
+        );
+      },
+    },
+  ];
+      
+  const data = courses?.courses;
+  
+  return {
+    courses,
+    columns,
+    data,
+  }
+}
+
+
 // import { Button, useDisclosure } from '@chakra-ui/react';
 // import { useForm } from 'react-hook-form';
 // import { useEffect, useState } from 'react';

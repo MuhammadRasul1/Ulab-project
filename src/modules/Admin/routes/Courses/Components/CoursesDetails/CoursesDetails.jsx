@@ -6,22 +6,17 @@ import { useCoursesDetailsProps } from "./useCoursesDetailsProps";
 import { Header } from "../DetailHeader";
 import { Thread } from "../Thread";
 import { Detail } from "../Detail";
+import { Lessons } from "../Lessons";
 // import WithBasicExample from "../Lessons/Lessons";
 
 export const CoursesDetails = () => {
 
   const { 
-    isOpen,
-    onClose,
-    onOpen,
     register,
     handleSubmit,
-    groupsColumns,
-    groupsData,
     activeCourse,
     handleDeleteCourse,
     handleEdit,
-    handleCreateGroup,
   } = useCoursesDetailsProps();
 
   return(
@@ -44,25 +39,8 @@ export const CoursesDetails = () => {
               />
             </TabPanel>
             <TabPanel>
-              {/* <input type="file" name="" id="" /> */}
-              {/* <WithBasicExample /> */}
-              {/* <YooptaEditor value={editorValue} onChange={onChange} /> */}
+              <Lessons />
             </TabPanel>
-            {/* <TabPanel>
-              <Thread
-                isOpen={isOpen}
-                onClose={onClose}
-                onOpen={onOpen}
-                handleCreateGroup={handleCreateGroup} 
-                activeCourse={activeCourse}
-                groupsColumns={groupsColumns}
-                groupsData={groupsData}
-                handleDeleteCourse={handleDeleteCourse}
-                handleEdit={handleEdit}
-                register={register}
-                handleSubmit={handleSubmit}
-              />
-            </TabPanel> */}
           </Tabs>
         </Box>
       </Container>

@@ -1,4 +1,4 @@
-import { Box, FormControl} from "@chakra-ui/react";
+import { Box, FormControl, FormLabel} from "@chakra-ui/react";
 import cls from "./styles.module.scss";
 import { Link } from "react-router-dom";
 import { useLoginProps } from "./useLoginProps";
