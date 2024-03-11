@@ -5,6 +5,10 @@
   border: 1px solid #E5E9EB;
 }
 
+.table tr:nth-child(even) {
+  background-color: #d7dbd7;
+}
+
 .table th,
 .table td {
   text-align: left;

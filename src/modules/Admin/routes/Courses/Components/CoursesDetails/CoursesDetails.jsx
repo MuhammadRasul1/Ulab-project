@@ -39,7 +39,9 @@ export const CoursesDetails = () => {
               />
             </TabPanel>
             <TabPanel>
-              <Lessons />
+              <Lessons 
+                activeCourse={activeCourse} 
+              />
             </TabPanel>
           </Tabs>
         </Box>

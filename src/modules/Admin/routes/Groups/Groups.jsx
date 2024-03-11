@@ -20,7 +20,7 @@ export const Groups = () => {
                 />
                 <ul>
                     {
-                        courses?.courses.map((course, index) => (
+                        courses?.courses?.map((course, index) => (
                             <li>
                                 <button type="button" className="content__form-title-wrapper js-content-btn">
                                     <strong className="title">{course?.name}</strong>

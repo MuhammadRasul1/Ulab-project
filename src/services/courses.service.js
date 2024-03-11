@@ -11,7 +11,7 @@ const coursesServices = {
 };
 
 export const useCreateCourse = () => {
-  return useMutation({ mutationFn: (data) => coursesServices.createCourse(data)})
+  return useMutation({mutationFn: (data) => coursesServices.createCourse(data)})
 }
 
 export const useGetCourses = (params) => {

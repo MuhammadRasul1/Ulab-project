@@ -6,6 +6,7 @@ import { ProfileDetail } from "./Profile/ProfileDetail";
 import { CoursesDetails } from "./Courses/Components/CoursesDetails";
 import { Mentors } from "./Mentors";
 import { Groups } from "./Groups";
+import { LessonsDetail } from "./Courses/Components/LessonsDetail";
 
 
 export const AdminRoutes = () => {
@@ -13,6 +14,7 @@ export const AdminRoutes = () => {
     <Routes>
       <Route path="courses" element={<Courses />} />
       <Route path="courses/:id" element={<CoursesDetails />} />
+      <Route path="courses/:id/:id" element={<LessonsDetail />} />
       <Route path="groups" element={<Groups />} />
       <Route path="users" element={<Users />} />
       <Route path="mentors" element={<Mentors />} />

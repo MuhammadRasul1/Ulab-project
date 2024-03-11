@@ -16,13 +16,14 @@ export const useCoursesProps = () => {
   } = useForm()
 
   const { refetch, data: courses } = useGetCourses()
+  console.log(courses?.courses)
 
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(10);
   const indexOfLastRecord = currentPage * recordsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
   const nPages = Math.ceil(courses?.count / recordsPerPage) || 1;
-  const currentRecords = courses?.courses.slice(indexOfFirstRecord, indexOfLastRecord);
+  const currentRecords = courses?.courses?.slice(indexOfFirstRecord, indexOfLastRecord);
 
   const { mutate: createCourse, reset } = useCreateCourse()
     

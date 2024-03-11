@@ -1,27 +1,76 @@
 .wrapper {
-    // background-color: #fff;
-    display: flex;
-    flex-direction: column;
+  font-family: "Inter";
+  max-width: 600px;
+  padding: 20px;
+  border: 1px solid #E5E9EB;
+  border-radius: 8px;
 }
 
-.App {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .item {
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    background-color: #f9f9f9;
-    cursor: pointer;
-  }
-  
-  .item:active {
-    cursor: grabbing;
-  }
+.wrapperTop {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.wrapperTop::after {
+  position: absolute;
+  bottom: -12px;
+  left: -21px;
+  width: 600px;
+  height: 1px;
+  background-color: #EBEDEE;
+  content: '';
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.wrapperBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wrapperTitle {
+  display: flex;
+  align-items: center;
+}
+
+.subtitle {
+  margin-left: 8px;
+  color: #737576;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+
+.item {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.item:active {
+  cursor: grabbing;
+}
+.wrapperInput {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapperInput:not(:last-child) {
+  margin-bottom: 18px;
+}
 
 .input {
     width: 422px;
@@ -37,3 +86,32 @@
     letter-spacing: -0.084px;
 }
 
+.fileInput {
+  display: none; /* Скрываем стандартный input */
+}
+
+.btn {
+  /* Стили для кнопки, которая будет отображаться пользователю */
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.desc {
+  width: 400px;
+  padding: 6px;
+  border-radius: 8px;
+  border: 1px solid #b0b3b4;
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 24px; 
+  letter-spacing: -0.084px;
+}
