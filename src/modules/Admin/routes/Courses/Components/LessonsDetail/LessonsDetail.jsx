@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import { Header } from "../DetailHeader";
+import { Header } from "../Header";
 import { useRef } from "react";
 import cls from "./styles.module.scss"
 import { Container } from "components/Container";

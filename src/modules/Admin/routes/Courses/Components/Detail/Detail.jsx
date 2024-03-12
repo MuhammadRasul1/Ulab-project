@@ -4,18 +4,16 @@ import { CoursesInput } from "../CoursesInput";
 
 export const Detail = ({
     handleDeleteCourse = () => {},
-    handleEdit = () => {},
+    handleUpdate = () => {},
     register = () => {},
-    handleSubmit = () => {},
 }) => {
   
     return (
-        <FormControl maxWidth="550px" mt="4px" as="form">
-            <Box border="1px solid #EBEDEE" borderRadius="8px" padding={"18px"} pb={0}>
+        <FormControl className={cls.form} as="form">
+            <Box className={cls.wrapper}>
                 <h1 className={cls.title}>Детали</h1>
-                <Box mt="24px" >
+                <Box className={cls.content}>
                     <CoursesInput
-                        className={cls.input} 
                         label="Загрузить фото"
                         id="download_photo"
                         type="file"
@@ -23,78 +21,72 @@ export const Detail = ({
                         name="photo"
                         required
                     /> 
+                    <CoursesInput
+                        label="Название курса"
+                        id="name_course"
+                        placeholder="Введите Название курса"
+                        type="text"
+                        register={register}
+                        name="name"
+                        required
+                    />
+                    <CoursesInput
+                        label="Описание" 
+                        id="desc_course"
+                        placeholder="Введите описание"
+                        type="text"
+                        register={register}
+                        name="for_who"
+                        required
+                    />
+                    <CoursesInput
+                        label="Тип" 
+                        id="type"
+                        placeholder="Введите тип"
+                        type="text"
+                        register={register}
+                        name="type"
+                        required
+                    />
+                    <CoursesInput
+                        label="Повторяемость:" 
+                        id="weekly_number"
+                        placeholder="Введите повторяемость"
+                        type="number"
+                        register={register}
+                        name="weekly_number"
+                        required
+                    />
+                    <CoursesInput
+                        label="Длительность урока:" 
+                        id="duration"
+                        placeholder="Введите длительность урока"
+                        type="text"
+                        register={register}
+                        name="duration"
+                        required
+                    />
+                    <CoursesInput
+                        label="Сумма" 
+                        id="price"
+                        placeholder="Введите сумму"
+                        type="number"
+                        register={register}
+                        name="price"
+                        required
+                    />
+                    <CoursesInput
+                        label="Дата начало" 
+                        id="date"
+                        placeholder="Введите сумму"
+                        type="datetime-local"
+                        register={register}
+                        name="beginning_date_course"
+                        required
+                    />
                 </Box>
-                <CoursesInput
-                    className={cls.input} 
-                    label="Название курса"
-                    id="name_course"
-                    placeholder="Введите Название курса"
-                    type="text"
-                    register={register}
-                    name="name"
-                    required
-                />
-                <CoursesInput
-                    className={cls.input}
-                    label="Описание" 
-                    id="desc_course"
-                    placeholder="Введите описание"
-                    type="text"
-                    register={register}
-                    name="for_who"
-                    required
-                />
-                <CoursesInput
-                    className={cls.input}
-                    label="Тип" 
-                    id="type"
-                    placeholder="Введите тип"
-                    type="text"
-                    register={register}
-                    name="type"
-                    required
-                />
-                <CoursesInput
-                    className={cls.input}
-                    label="Повторяемость:" 
-                    id="weekly_number"
-                    placeholder="Введите повторяемость"
-                    type="number"
-                    register={register}
-                    name="weekly_number"
-                    required
-                />
-                <CoursesInput
-                    className={cls.input}
-                    label="Длительность урока:" 
-                    id="duration"
-                    placeholder="Введите длительность урока"
-                    type="text"
-                    register={register}
-                    name="duration"
-                    required
-                />
-                <CoursesInput
-                    className={cls.input}
-                    label="Сумма" 
-                    id="price"
-                    placeholder="Введите сумму"
-                    type="number"
-                    register={register}
-                    name="price"
-                    required
-                />
-                <CoursesInput
-                    label="Дата начало" 
-                    id="date"
-                    placeholder="Введите сумму"
-                    type="datetime-local"
-                    register={register}
-                    name="beginning_date_course"
-                    required
-                />
             </Box>
-            <Box display="flex" justifyContent="space-between" mt="24px">
+            <Box className={cls.wrapperBottom}>
                 <Box>
                     <Button mr={3} onClick={handleDeleteCourse} colorScheme='red' size='md'>
                         Удалить
@@ -103,7 +95,7 @@ export const Detail = ({
                         Заблокировать
                     </Button>
                 </Box>
-                <Button onClick={handleSubmit(handleEdit)}  backgroundColor="teal" color="white">
+                <Button onClick={handleUpdate}  backgroundColor="teal" color="white">
                     Изменить
                 </Button>
             </Box>

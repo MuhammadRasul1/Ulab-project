@@ -12,7 +12,6 @@ export const Pagination = ({ nPages, currentPage, setCurrentPage }) => {
   const goToPrevPage = () => {
     if (currentPage !== 1) setCurrentPage(currentPage - 1);
   };
-  // console.log(pageNumbers);
 
   return (
     <Box className={cls.footer}>

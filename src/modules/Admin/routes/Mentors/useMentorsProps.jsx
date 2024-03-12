@@ -1,24 +1,44 @@
-import { Button, useDisclosure } from '@chakra-ui/react';
+import { Button, useToast } from '@chakra-ui/react';
 import Edit from 'assets/img/icon/edit.svg';
 import { useForm } from 'react-hook-form';
 import { useEffect, useState } from 'react';
-import { useDeleteUserById, useGetUserById, useUpdateUserById, useGetStudents, useGetMentors, useCreateUser } from 'services/users.service';
+import { useDeleteUserById, useGetUserById, useUpdateUserById, useGetMentors, useCreateUser } from 'services/users.service';
 
 export const useMentorsProps = () => {
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const [isOpen, setOpen] = useState(false);
+  const [isOpenEdit, setIsOpenEdit] = useState(false);
   const [activeUserId, setActiveUserId] = useState('');
+
+  const toast = useToast()
   
   const { 
     register, 
     handleSubmit, 
-    reset 
+    reset, 
   } = useForm();
+
+  const handleOpen = () => setOpen(true);
+  const handleOpenEdit = () => setIsOpenEdit(true);
   
-  const { data: mentors, refetch } = useGetMentors({
-    offset: 1,
-  });
+  const handleEditClose = () => {
+    setIsOpenEdit(false);
+    reset();
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    reset();
+  };
+ 
+  const { data: mentors, refetch } = useGetMentors();
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [recordsPerPage] = useState(10);
+  const indexOfLastRecord = currentPage * recordsPerPage;
+  const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
+  const nPages = Math.ceil(mentors?.count / recordsPerPage) || 1;
+  const currentRecords = mentors?.users?.slice(indexOfFirstRecord, indexOfLastRecord);
 
   const { data: getUserById, isSuccess} = useGetUserById({ userId: activeUserId });
 
@@ -26,26 +46,59 @@ export const useMentorsProps = () => {
     
   const onSubmit = (data) => {
     createUser({
-      ...data,
-      user_type: 'Mentor'
+      user_type: 'Student',
+      ...data
     }, {
       onSuccess: () => {
+        handleClose();
         refetch();
-        onClose()
+        reset();
+        toast({
+          position: 'top center',
+          duration: 3000,
+          isClosable: true,
+          title: "Вы успешно добавили пользователя",
+          status: 'success',
+        })
+      },
+      onError: (error) => {
+        toast({
+          position: 'top center',
+          duration: 3000,
+          isClosable: true,
+          title: error?.response?.data,
+          status: 'error',
+        })
       }
     })
   }
 
   const { mutate: updateUser } = useUpdateUserById();
 
-  const handleEdit = (data) => {
+  const handleUpdateUser = (data) => {
     updateUser({
-      ...data,
       id: activeUserId,
+      ...data
     }, {
         onSuccess: () => {
           refetch();
-          onClose();
+          handleEditClose();
+          toast({
+            position: 'top center',
+            duration: 3000,
+            isClosable: true,
+            title: "Вы успешно изменили данные пользователя",
+            status: 'success',
+          })
+        },
+        onError: (error) => {
+          toast({
+            position: 'top center',
+            duration: 3000,
+            isClosable: true,
+            title: error?.response?.data,
+            status: 'error',
+          }) 
         }
     });
   };
@@ -54,16 +107,29 @@ export const useMentorsProps = () => {
 
   const handleDeleteUser = (data) => {
     deleteUser({ 
-        ...data, 
-        id: activeUserId 
+      id: activeUserId,
+      ...data 
     }, {
         onSuccess: () => {
+          handleEditClose();
           refetch();
-          onClose();
+          toast({
+            position: 'top center',
+            duration: 3000,
+            isClosable: true,
+            title: "Вы успешно удалили пользователя",
+            status: 'success',
+          })
         },
-        // onError: (error) => {
-        //   alert(error?.response?.data)
-        // }
+        onError: (error) => {
+          toast({
+            position: 'top center',
+            duration: 3000,
+            isClosable: true,
+            title: error?.response?.data,
+            status: 'error',
+          })
+        }
     });
   };
 
@@ -121,7 +187,7 @@ export const useMentorsProps = () => {
               padding="4px"
               colorScheme="transparent"
               onClick={() => {
-                onOpen();
+                handleOpenEdit();
                 setActiveUserId(item?.id);
               }}
             >
@@ -133,19 +199,24 @@ export const useMentorsProps = () => {
     },
   ];
 
-  const mentorsData = mentors?.users;
+  const data = currentRecords;
 
   return {
+    nPages,
+    currentPage,
+    setCurrentPage,
     isOpen,
-    onOpen,
-    onClose,
+    isOpenEdit,
+    handleEditClose,
+    handleOpen,
+    handleClose,
     columns,
-    mentorsData,
+    data,
     register,
     handleSubmit,
     onSubmit,
     handleDeleteUser,
-    handleEdit,
+    handleUpdateUser,
     activeUserId,
     setActiveUserId,
   };

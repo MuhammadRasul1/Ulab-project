@@ -5,20 +5,24 @@ import { BtnAdd } from "components/BtnAdd";
 import { Container } from "components/Container";
 import { Filter } from "components/Filter";
 import { BtnDownload } from "components/BtnDownload";
-import { useDisclosure } from "@chakra-ui/react"
 import { AddModal } from "components/AddModal";
 
-export const Header = (props) => {
-
-  const { isOpen, onOpen, onClose } = useDisclosure()
+export const Header = ({
+  onOpen = () => {},
+  isOpen,
+  register = () => {},
+  title , 
+  onClose = () => {}, 
+  handleAccept = () => {},
+}) => {
 
   return (
     <header className={cls.header}>
       <Container >
-        <AddModal isOpen={isOpen} onClose={onClose} />
-        <Box display="flex" alignItems="center" justifyContent="space-between"> 
-          <h1 className={cls.title}>{props.title}</h1>
-          <Box display="flex" alignItems="start">
+        <AddModal handleAccept={handleAccept} register={register}  isOpen={isOpen} onClose={onClose} />
+        <Box className={cls.wrapper}> 
+          <h1 className={cls.title}>{title}</h1>
+          <Box className={cls.wrapperLeft}>
             <BtnDownload /> 
             <SearchInput className={cls.searchInput}/>
             <Filter />

@@ -1,111 +1,31 @@
-import { Box, FormControl } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
-import { SearchInput } from "components/SearchInput";
-import { BtnAdd } from "components/BtnAdd";
 import { Container } from "components/Container";
-import { Filter } from "components/Filter";
-import { BtnDownload } from "components/BtnDownload";
-import { AddModal } from "components/AddModal";
-import { CoursesInput } from "../CoursesInput";
+import BackArrow from "assets/img/icon/backArrow.svg";
+import Eye from "assets/img/icon/EyeView.svg";
+import Folder from "assets/img/icon/folder.svg";
+import { useNavigate } from "react-router-dom";
 
-export const Header = ({
-  isOpen ,
-  onClose = () => {},
-  onOpen = () => {}, 
-  handleDownload = () => {},
-  handleSubmit = () => {},
-  onSubmit = () => {},
-  register = () => {}, 
-}) => {
+export const Header = ({title}) => {
+
+  const navigate = useNavigate();
 
   return (
     <header className={cls.header}>
       <Container >
-        <AddModal size={"lg"} handleAccept={handleSubmit(onSubmit)} register={register} isOpen={isOpen} onClose={onClose} >
-          <FormControl as='form'>
-            <CoursesInput 
-                label="Загрузить фото"
-                id="download_photo"
-                type="file"
-                // register={register}
-                name="photo"
-                required
-            />
-            <CoursesInput 
-                label="Название курса"
-                id="name_course"
-                placeholder="Введите Название курса"
-                type="text"
-                register={register}
-                name="name"
-                required
-            />
-            <CoursesInput
-                label="Описание" 
-                id="desc_course"
-                placeholder="Введите описание"
-                type="text"
-                register={register}
-                name="for_who"
-                required
-            />
-            <CoursesInput
-                label="Тип" 
-                id="type"
-                placeholder="Введите тип"
-                type="text"
-                register={register}
-                name="type"
-                required
-            />
-            <CoursesInput
-                label="Повторяемость:" 
-                id="weekly_number"
-                placeholder="Введите повторяемость"
-                type="number"
-                register={register}
-                name="weekly_number"
-                required
-            />
-            <CoursesInput
-                label="Длительность урока:" 
-                id="duration"
-                placeholder="Введите длительность урока"
-                type="text"
-                register={register}
-                name="duration"
-                required
-            />
-            <CoursesInput
-                label="Сумма" 
-                id="price"
-                placeholder="Введите сумму"
-                type="number"
-                register={register}
-                name="price"
-                required
-            />
-            <CoursesInput
-                label="Дата начало" 
-                id="date"
-                placeholder="Введите сумму"
-                type="datetime-local"
-                register={register}
-                name="beginning_date_course"
-                required
-            />
-          </FormControl>
-        </AddModal>
-        <Box display="flex" alignItems="center" justifyContent="space-between"> 
-          <h1 className={cls.title}>Курсы</h1>
-          <Box display="flex" alignItems="start">
-            <BtnDownload 
-              // download={handleDownload}
-            /> 
-            <SearchInput className={cls.searchInput}/>
-            <Filter />
-            <BtnAdd className={cls.btnAdd} onClick={onOpen}/>
-          </Box>
+        <Box className={cls.wrapper} display="flex" alignItems="center" justifyContent="space-between"> 
+            <Box className={cls.wrapperLeft}>
+                <button onClick={() => navigate(-1)} className={cls.btnBack}>
+                    <img src={BackArrow} alt="back arrow" />
+                </button>
+                <Box  ml="8px" display="flex" alignItems="center">
+                  <img src={Folder} alt="folder" width={24} height={24} />
+                  <h1 className={cls.title}>{title}</h1>
+                </Box>
+            </Box>
+            <button className={cls.btn}>
+              <img src={Eye} alt="eye" width={24} height={24}/>
+            </button>
         </Box>
       </Container>
     </header>

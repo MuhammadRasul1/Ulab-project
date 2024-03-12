@@ -1,5 +1,5 @@
 import { Box, Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
-import cls from "./styles.module.scss";
+
 export const EditModal = ({
     isOpen, 
     onClose,
@@ -14,10 +14,10 @@ export const EditModal = ({
       
     return (
         <Box>
-            <Modal className={cls.modal} isOpen={isOpen} onClose={onClose}>
+            <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent>
-                <ModalHeader className={cls.title}>{Title}</ModalHeader>
+                <ModalHeader>{Title}</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
                     {children}

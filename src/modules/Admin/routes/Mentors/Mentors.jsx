@@ -3,100 +3,99 @@ import cls from "./styles.module.scss";
 import { CustomTable } from "components/CustomTable";
 import { EditModal } from "components/EditModal";
 import { Input } from "components/Input";
-import { Header } from "./Components/Header";
+import { useMentorsProps } from "./useMentorsProps";
 import { Container } from "components/Container";
 import { Pagination } from "components/Pagination";
 import { AddModal } from "components/AddModal";
-import { Select } from "components/Select";
-import { useMentorsProps } from "./useMentorsProps";
+import { Header } from "components/Header";
 
 export const Mentors = () => {
 
-    const { 
+  const {
+    nPages,
+    currentPage,
+    setCurrentPage,  
     isOpen, 
-    onOpen, 
-    onClose, 
+    isOpenEdit,
+    handleEditClose,
+    handleOpen, 
+    handleClose, 
     columns, 
-    mentorsData,
+    data,
     handleSubmit,
-    // onSubmit,
-    handleEdit, 
+    onSubmit,
+    handleUpdateUser, 
     handleDeleteUser,
     activeUserId,
     register,
     setActiveUserId
   } = useMentorsProps()
 
-
   return(
-    <Box margin="78px 0">
+    <Box className={cls.content}>
       <Container>
-        <Header 
-          onOpen={onOpen}
+        <Header
+          title="Менторы" 
+          onOpen={handleOpen}
           isOpen={isOpen}
-          onClose={onClose}
-          handleSubmit={handleSubmit}
-          // onSubmit={onSubmit}
+          onClose={handleClose}
+          handleAccept={handleSubmit(onsubmit)}
           register={register}
         />
-      <CustomTable columns={columns} data={mentorsData} />
-      {/* <AddModal handleAccept={handleSubmit(onSubmit)} register={register} isOpen={isOpen} onClose={onClose} >
+      <CustomTable columns={columns} data={data} />
+      <Pagination 
+        nPages={nPages}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
+
+      {/* Modal */}
+      <AddModal handleAccept={handleSubmit(onSubmit)} register={register} isOpen={isOpen} onClose={handleClose} >
         <FormControl as='form'>
-          <Box className={cls.inputWrapper}>
-              <Input
-                  type="text"
-                  placeholder="Имя"
-                  register={register}
-                  name="first_name"  
-              />
+          <Box className={cls.wrapper}>
+            <Input
+              type="text"
+              placeholder="Имя"
+              register={register}
+              name="first_name"  
+            />
           </Box>
-          <Box className={cls.inputWrapper}>
-              <Input
-                  type="text"
-                  placeholder="Фамилия"
-                  register={register}
-                  name="last_name"
-              />
+          <Box className={cls.wrapper}>
+            <Input
+              type="text"
+              placeholder="Фамилия"
+              register={register}
+              name="last_name"
+            />
           </Box>
-          <Box className={cls.inputWrapper}>
-              <Input
-                  type="number"
-                  placeholder="Номер телефона"
-                  register={register}
-                  name="phone_number" 
-              />
+          <Box className={cls.wrapper}>
+            <Input
+              type="number"
+              placeholder="Номер телефона"
+              register={register}
+              name="phone_number" 
+            />
           </Box>
-          <Box className={cls.inputWrapper}>
-              <Input
-                  type="email"
-                  placeholder="Email"
-                  register={register}
-                  name="email"  
-              />
+          <Box className={cls.wrapper}>
+            <Input
+              type="email"
+              placeholder="Email"
+              register={register}
+              name="email"  
+            />
           </Box>
-          <Box className={cls.inputWrapper}>
-              <Input
-                  type="password"
-                  placeholder="Пароль"
-                  register={register}
-                  name="password"
-              />
-          </Box>
-          <Box className={cls.inputWrapper}>
-              <Select 
-                register={register}
-                name="user_type"
-                id={"user_type"}
-                text1="Студент"
-                text2="Ментор"
-                value1="Student"
-                value2="Mentor"
-              />
+          <Box className={cls.wrapper}>
+            <Input
+              type="password"
+              placeholder="Пароль"
+              register={register}
+              name="password"
+            />
           </Box>
         </FormControl>
-      </AddModal> */}
-      <EditModal handleDelete={handleDeleteUser} handleAccept={handleSubmit(handleEdit)} id={activeUserId} isOpen={isOpen} register={register} onClose={() => {
-        onClose()
+      </AddModal>
+      <EditModal handleDelete={handleDeleteUser} handleAccept={handleSubmit(handleUpdateUser)} id={activeUserId} isOpen={isOpenEdit} register={register} onClose={() => {
+        handleEditClose()
         setActiveUserId("")
       }}>
         <FormControl  as='form'>

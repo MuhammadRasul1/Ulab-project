@@ -1,0 +1,47 @@
+.dashbord {
+    font-family: "Inter";
+    margin: 78px 0;
+}
+
+.list {
+    @include reset-list;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item {
+    max-width: 263px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 36px 20px;
+    border: 1px solid #E5E9EB;
+    border-radius: 16px;
+}
+
+.item:not(:last-child) {
+    margin-right: 22px;
+}
+
+.wrapperText {
+    display: flex;
+    flex-direction: column;
+}
+
+.count {
+    display: block;
+    margin-bottom: 19px;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+    letter-spacing: 1px;
+    color: #0067F4; 
+}
+
+.subtitle {
+    color: #202224;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 0px;    
+}

@@ -3,20 +3,21 @@ import { Container } from "components/Container";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useCoursesDetailsProps } from "./useCoursesDetailsProps";
-import { Header } from "../DetailHeader";
-import { Thread } from "../Thread";
 import { Detail } from "../Detail";
 import { Lessons } from "../Lessons";
-// import WithBasicExample from "../Lessons/Lessons";
+import { Header } from "../Header";
 
 export const CoursesDetails = () => {
 
   const { 
+    isOpen,
+    handleOpen,
+    handleClose,
     register,
     handleSubmit,
     activeCourse,
     handleDeleteCourse,
-    handleEdit,
+    handleUpdateCourse,
   } = useCoursesDetailsProps();
 
   return(
@@ -31,9 +32,8 @@ export const CoursesDetails = () => {
             </TabList>
             <TabPanel>
               <Detail 
-                activeCourse={activeCourse} 
                 handleDeleteCourse={handleDeleteCourse}
-                handleEdit={handleEdit}
+                handleUpdate={handleSubmit(handleUpdateCourse)}
                 register={register}
                 handleSubmit={handleSubmit}
               />

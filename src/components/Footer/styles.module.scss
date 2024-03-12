@@ -1,4 +1,3 @@
-
 .footer {
   position: fixed;
   left: 0;
@@ -44,6 +43,10 @@
   right: -4px;
   width: 13px;
   height: 13px;
+}
+
+.userWrapper {
+  display: flex;
 }
 
 .userFirstName {

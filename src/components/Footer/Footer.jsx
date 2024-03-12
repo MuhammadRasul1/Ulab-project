@@ -17,11 +17,11 @@ export const Footer = ({auth}) => {
             </Icon>
           </Box>
           <Box>
-            <Box display="flex" alignItems="start">
+            <Box className={cls.userWrapper}>
               <span className={cls.userFirstName}>{auth?.userData?.data?.first_name}</span>
               <span className={cls.userLastName}>{auth?.userData?.data?.last_name}</span>
             </Box>
-            <p className={cls.email}>{auth?.userData?.data?.email}</p>
+            <span className={cls.email}>{auth?.userData?.data?.email}</span>
           </Box>
         </Box>
     </footer>

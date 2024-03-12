@@ -1,22 +1,32 @@
 import { useNavigate } from 'react-router-dom';
 import Edit from "assets/img/icon/edit.svg";
-import { Button, useDisclosure } from "@chakra-ui/react";
+import { Button, useToast } from "@chakra-ui/react";
 import { useCreateCourse, useGetCourses } from "services/courses.service";
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 
 export const useCoursesProps = () => {
-  const navigate = useNavigate();
 
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [isOpen, setOpen] = useState(false);
+
+  const toast = useToast()
 
   const {
     register,
     handleSubmit,
+    reset,
   } = useForm()
 
-  const { refetch, data: courses } = useGetCourses()
-  console.log(courses?.courses)
+  const navigate = useNavigate();
+
+  const handleOpen = () => setOpen(true);
+
+  const handleClose = () => {
+    setOpen(false);
+    reset();
+  };
+
+  const { data: courses, refetch } = useGetCourses()
 
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(10);
@@ -25,26 +35,42 @@ export const useCoursesProps = () => {
   const nPages = Math.ceil(courses?.count / recordsPerPage) || 1;
   const currentRecords = courses?.courses?.slice(indexOfFirstRecord, indexOfLastRecord);
 
-  const { mutate: createCourse, reset } = useCreateCourse()
+  const { mutate: createCourse } = useCreateCourse()
     
-  const onSubmit = (data) => {
-    const datas = {
-      photo: data?.photo,
-      name: data?.name,
-      for_who: data?.for_who,
-      type: data?.type,
-      weekly_number: data?.weekly_number - 0,
-      duration: data?.duration,
-      price: data?.price - 0,
-      beginning_date_course: data?.beginning_date_course,
+  const onSubmit = (res) => {
+    const data = {
+      photo: res?.photo,
+      name: res?.name,
+      for_who: res?.for_who,
+      type: res?.type,
+      weekly_number: res?.weekly_number - 0,
+      duration: res?.duration,
+      price: res?.price - 0,
+      beginning_date_course: res?.beginning_date_course,
     }
     createCourse({
-      ...datas
+      ...data
     }, {
       onSuccess: () => {
-        onClose()
+        handleClose()
         reset()
         refetch();
+        toast({
+          position: 'top center',
+          duration: 3000,
+          isClosable: true,
+          title: "Вы успешно добавили курс",
+          status: 'success',
+        })
+      },
+      onError: (error) => {
+        toast({
+          position: 'top center',
+          duration: 3000,
+          isClosable: true,
+          title: error?.response?.data,
+          status: 'error',
+        })
       }
     })
   }
@@ -108,7 +134,7 @@ export const useCoursesProps = () => {
               padding="4px" 
               colorScheme="transparent" 
               onClick={() => 
-              navigate(`/admin/courses/${item?.id}`)}
+                navigate(`/admin/courses/${item?.id}`)}
               >
               <img src={Edit} width={20} height={20} alt="edit" />
             </Button>
@@ -125,8 +151,8 @@ export const useCoursesProps = () => {
     currentPage,
     nPages,
     isOpen,
-    onOpen,
-    onClose,
+    handleOpen,
+    handleClose,
     register,
     handleSubmit,
     onSubmit,

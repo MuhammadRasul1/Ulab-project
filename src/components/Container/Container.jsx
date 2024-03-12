@@ -1,10 +1,11 @@
+import { Box } from "@chakra-ui/react";
 import cls from "./styles.module.scss";
 
 export const Container = ({ children }) => {
 
     return (
-        <div className={cls.container}>
+        <Box className={cls.container}>
             {children}
-        </div>
+        </Box>
     )
 }

@@ -75,10 +75,6 @@ export const Sidebar = () => {
             <span></span>
             <span></span>
           </Box>
-          {/* <Box className={cls.leftArrow}>
-            <span></span>
-            <span></span>
-          </Box> */}
         </button>
       </Box>
       <nav className={cls.navbar}>

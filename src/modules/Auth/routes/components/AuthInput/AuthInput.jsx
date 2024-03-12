@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useRef } from "react";
 import cls from "./styles.module.scss";
 import clsx from "clsx";
 import { Box } from "@chakra-ui/react";
 import Error from "assets/img/icon/error.svg";
 
-export const AuthInput = React.forwardRef(({name, error, minLength, required, alt, src, register = () => {}, placeholder, type, label, id, ref, ...props}) => {
-    const { ...rest } = props
+export const AuthInput = React.forwardRef((
+    {
+        name, 
+        error, 
+        rest,
+        minLength,
+        required,
+        alt,
+        src,
+        register = () => {},
+        placeholder,
+        type,
+        label,
+        id,
+        ref,
+        ...props
+    }) => {
 
     return (
         <Box className={cls.wrapper}>

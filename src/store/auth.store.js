@@ -24,8 +24,6 @@ class AuthStore {
     email: ""
   }
 
-  newData = []
-
   constructor() {
     makeAutoObservable(this);
     makePersistable(this, {
