@@ -26,7 +26,7 @@ export const Router = observer(() => {
     );
   }
   
-  if(role.userData?.data?.user_type === "Admin" || role.userData?.data?.user_type === "Mentor") {
+  // if(role.userData?.data?.user_type === "Admin" || role.userData?.data?.user_type === "Mentor") {
     return (
       <Routes>
         <Route path="" element={<MainLayout />}>
@@ -35,13 +35,13 @@ export const Router = observer(() => {
         </Route>
       </Routes>
     );
-  } else {
-    return(
-      <Routes>
-          <Route path="users" element={<StudentPath />}/>
-          <Route path="users/:postId" element={<CoursesFundamentals />} />
-          <Route path="*" element={<Navigate to="/users" />} />
-        </Routes>
-      )
-  }
+  // } else {
+  //   return(
+  //     <Routes>
+  //         <Route path="users" element={<StudentPath />}/>
+  //         <Route path="users/:postId" element={<CoursesFundamentals />} />
+  //         <Route path="*" element={<Navigate to="/users" />} />
+  //       </Routes>
+  //     )
+  // }
 });
