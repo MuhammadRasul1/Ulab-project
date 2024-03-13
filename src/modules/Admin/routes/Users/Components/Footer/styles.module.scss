@@ -1,0 +1,45 @@
+.footer {
+    // position: fixed;
+    position: fixed;
+    left: 280px;
+    bottom: 0;
+    max-width: 1160px;
+    z-index: 20;
+    padding: 12px 0;
+    background-color: #fff;
+    border-top: 1px solid #E5E9EB;
+  }
+  
+  .navList {
+    @include reset-list;
+    display: flex;
+    align-items: start;
+  }
+  
+  .navItem {
+    font-family: Inter;
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.006em;
+    padding: 4px, 8px;
+    border-radius: 6px;
+  }
+  
+  .navItem:not(:last-child) {
+    margin-right: 8px;
+  }
+  
+  .navItem:hover {
+    text-align: center;
+    background: #0E73F6;
+    color: #fff;
+  }
+  
+  .navLink {
+    width: 7px;
+    height: 24px;
+  }
+  
