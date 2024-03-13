@@ -18,7 +18,7 @@ export const useRegisterProps = () => {
   const onSubmit = (data) => {
     mutate(data, {
       onSuccess: (res) => {
-        authStore.registerData = res?.data
+        authStore.data = res?.data
         navigate("Step2")
       },
       onError: (error) => {

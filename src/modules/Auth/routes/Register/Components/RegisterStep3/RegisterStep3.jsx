@@ -44,8 +44,8 @@ export const RegisterStep3 = () => {
           src={LockOpen}
           alt="lockOpen"
           placeholder="Повторите пароль"
-          register={register}
-          name="confirmPassword" 
+          // register={register}
+          // name="confirmPassword" 
           error={errors.confirmPassword}
           required
         />
